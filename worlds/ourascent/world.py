@@ -63,10 +63,22 @@ class OurAscentWorld(World):
         story_range = 1
         while story_range < 6:
             playable_story_choice.append(range)
+      if self.options.last_chapter == 2:
+        story_range = 7
+        while story_range < 9:
+            playable_story_choice.append(range)
+
       self.random.shuffle(playable_story_choice)
       self.playable_stories = playable_story_choice[0:
                                                  self.options.story_count.value]
-      #if 1 not in self.playable_stories:
+
+      starting_story_pool = self.playable_stories[1]
+      if 7 in self.playable_stories:
+        self.playable_stories += 1
+        self.playable_stories += 2
+      if 8 in self.playable_stories:
+        self.playable_stories += 3
+        self.playable_stories += 5
 
       character_table: Dict[str, ItemData] = {}
       for item in item_table:
