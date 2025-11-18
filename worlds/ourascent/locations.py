@@ -24,9 +24,9 @@ def get_location_name_to_id() -> dict[str, int]:
     #location_name_to_id.update()
     return location_name_to_id
 
-def create_all_locations(world: OurAscentWorld) -> None:
-    create_regular_locations(world)
-    create_events(world)
+#def create_all_locations(world: OurAscentWorld) -> None:
+#    create_regular_locations(world)
+#    create_events(world)
 
 #def create_regular_locations(world: OurAscentWorld) -> None:
 #    main_menu = world.get_region("Main Menu")
@@ -44,7 +44,7 @@ class LocationData(NamedTuple):
     rule: Optional[Callable[[CollectionState], bool]] = None
 
 def get_11_locations(player: int, options: OurAscentOptions | None) -> List[LocationData]:
-    #logic = OurAscentLogic(player, options)
+    logic = OurAscentLogic(player, options)
     location_table: List[LocationData] = [
         #Glades Story 1 Enemies
         LocationData("FALLING_INTO_CHAOS_0", "1-1 Enemy - (1) Blue Slime", 1),

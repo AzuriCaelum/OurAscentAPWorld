@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from Options import Toggle, DefaultOnToggle, DeathLink, Choice, Range, Visibility, Option, OptionGroup, \
     PerGameCommonOptions
-from typing import List
+from typing import List, Any, Dict
 
 def create_option_groups() -> List[OptionGroup]:
     option_group_list: List[OptionGroup] = []
@@ -42,3 +42,7 @@ class OurAscentOptions(PerGameCommonOptions):
     last_chapter: Last_Chapter
     story_count: Story_Amount
 #    goal_count: Goal
+
+ourascent_groups: Dict[str, List[Any]] = {
+    "Generic Options": [Last_Chapter, Story_Amount]
+}

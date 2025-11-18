@@ -4,7 +4,7 @@ from typing import Any, List, Set, Dict
 from BaseClasses import Item, ItemClassification
 from worlds.AutoWorld import World
 from . import items, locations, options, regions, rules, web_world
-from .items import item_table, ItemData, is_character
+from .items import item_table, ItemData, is_character, equipment_offset, accessory_offset, filler_items
 from .locations import get_location_name_to_id
 from .options import OurAscentOptions
 from .stories import *
@@ -26,13 +26,13 @@ class OurAscentWorld(World):
 
     def create_regions(self) -> None:
         regions.create_and_connect_regions(self)
-        locations.create_all_locations(self)
+        #locations.create_all_locations(self)
 
     def set_rules(self) -> None:
         rules.set_all_rules(self)
 
     def create_items(self) -> None:
-        pool = self.get_all_items()
+        pool = self.get_all_items(self.get_excluded_items())
         self.multiworld.itempool += pool
 
     def create_item(self, name: str) -> Item:
@@ -40,18 +40,48 @@ class OurAscentWorld(World):
         return Item(name, data.classification, data.code, self.player)
 
     def get_filler_item_name(self) -> str:
-        return items.get_random_filler_item_name(self)
+        return self.random.choice(filler_items)
 
     def fill_slot_data(self) -> Mapping[str, Any]:
         return self.options.as_dict()
+
+    #def get_excluded_items(self):
+    #    excluded_items: Set[str] = set()
+
+    #    if self.options.last_chapter.value == 1:
+    #        if 1 not in self.playable_stories:
+    #            excluded_items.add("Character: Playable Apolonia")
+
 
     def get_all_items(self, excluded_items: Set[str]) -> List[Item]:
         pool: List[Item] = []
         amount: int = int(0)
         for name, data in item_table.items():
-            for _ in range(amount):
-                item = self.set_classifications(name)
-                pool.append(item)
+            #Get the amount of total items across every story within the world, this may change if there is overlap later
+            if self.options.last_chapter >= 1:
+                if 1 in self.playable_stories:
+                    item = self.set_classification("Character: Playable Apolonia")
+                    pool.append(item)
+                    equipment_range = 1 + equipment_offset
+                    while equipment_range < (6 + equipment_offset):
+                        amount_range = 1
+                        while amount_range < item.story11:
+                            pool.append(item)
+                    accessory_range = 1 + accessory_offset
+                    while accessory_range < (10 + accessory_offset):
+                        amount_range = 1
+                        while amount_range < item.story11:
+                            pool.append(item)
+                if 2 in self.playable_stories:
+                    amount = amount + int(data.story12)
+                if 3 in self.playable_stories:
+                    amount = amount + int(data.story13)
+                if 4 in self.playable_stories:
+                    amount = amount + int(data.story14)
+                if 5 in self.playable_stories:
+                    amount = amount + int(data.story15)
+                if 6 in self.playable_stories:
+                    amount = amount + int(data.story16)
         return pool
 
     def generate_early(self):
@@ -84,13 +114,13 @@ class OurAscentWorld(World):
             self.playable_stories += 3
             self.playable_stories += 5
 
-        #Get the Glades chapters
+        #Get the Glades stories
         story_range = 1
         while story_range < 7:
             if story_range in self.playable_stories:
                 starting_story_pool.append(story_range)
 
-        #Randomize the starting chapter, it must be Glades for the natural progression to work
+        #Randomize the starting story, it must be Glades for the natural progression to work
         story = self.random.choice(starting_story_pool)
         self.starting_story = story
 

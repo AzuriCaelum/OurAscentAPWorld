@@ -17,13 +17,14 @@ class ItemData(NamedTuple):
 character_offset = 1
 equipment_offset = 11
 accessory_offset = 101
+augment_offset = 1001
 
 item_table: Dict[str, ItemData] = {
-    "Character - Playable Apolonia": ItemData("CHARACTER", 1 + character_offset, ItemClassification.progression, 1, 0, 0, 0, 0, 0, 2),
-    "Character - Playable Stan": ItemData("CHARACTER", 2 + character_offset, ItemClassification.progression, 0, 1, 0, 0, 0, 0, 2),
-    "Character - Playable Hina": ItemData("CHARACTER", 3 + character_offset, ItemClassification.progression, 0, 0, 1, 0, 0, 0, 0, 2),
+    "Character - Playable Apolonia": ItemData("CHARACTER", 1 + character_offset, ItemClassification.progression, 1, 0, 0, 0, 0, 0, 1),
+    "Character - Playable Stan": ItemData("CHARACTER", 2 + character_offset, ItemClassification.progression, 0, 1, 0, 0, 0, 0, 1),
+    "Character - Playable Hina": ItemData("CHARACTER", 3 + character_offset, ItemClassification.progression, 0, 0, 1, 0, 0, 0, 0, 1),
     "Character - Playable Lan": ItemData("CHARACTER", 4 + character_offset, ItemClassification.progression, 0, 0, 0, 1),
-    "Character - Playable Sibyl": ItemData("CHARACTER", 5 + character_offset, ItemClassification.progression, 0, 0, 0, 0, 1, 0, 0, 2),
+    "Character - Playable Sibyl": ItemData("CHARACTER", 5 + character_offset, ItemClassification.progression, 0, 0, 0, 0, 1, 0, 0, 1),
 
     "Equipment - Apolonia Progressive Sword": ItemData("EQUIPMENT", 1 + equipment_offset, ItemClassification.progression, 10),
     "Equipment - Apolonia Progressive Shield": ItemData("EQUIPMENT", 2 + equipment_offset, ItemClassification.progression, 7),
@@ -41,14 +42,20 @@ item_table: Dict[str, ItemData] = {
     "Accessory - Apolonia Recovery Ring": ItemData("EQUIPMENT", 7 + accessory_offset, ItemClassification.useful, 3),
     "Accessory - Apolonia Coin Amulet": ItemData("EQUIPMENT", 8 + accessory_offset, ItemClassification.useful, 3),
     "Accessory - Apolonia Death Ring II": ItemData("EQUIPMENT", 9 + accessory_offset, ItemClassification.useful, 3),
-    "Accessory - Apolonia Enchanted Ring": ItemData("EQUIPMENT", 10 + accessory_offset, ItemClassification.useful, 3)
+    "Accessory - Apolonia Enchanted Ring": ItemData("EQUIPMENT", 10 + accessory_offset, ItemClassification.useful, 3),
+
+    "Augment - Apolonia Weapon Mastery": ItemData("AUGMENT", 1 + augment_offset, ItemClassification.useful, 5),
+    "Augment - Apolonia Magical Imbuement": ItemData("AUGMENT", 2 + augment_offset, ItemClassification.useful, 4),
+    "Augment - Apolonia Mobility": ItemData("AUGMENT", 3 + augment_offset, ItemClassification.useful, 6),
+    "Augment - Apolonia Holy Power": ItemData("Augment", 4 + augment_offset, ItemClassification.useful, 3),
 }
 
 item_name_to_id = {item: item_table[item].code for item in item_table}
 
 def is_character(item_name: str) -> bool:
     item_id = item_name_to_id[item_name]
-    return (item_id >= 2 and item_id <= 6)
+    return 2 <= item_id <= 6
+
 
 filler_items: Tuple[str, ...] = (
     "Apolonia +1 Hesitation",
