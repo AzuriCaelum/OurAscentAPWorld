@@ -5,10 +5,9 @@ from BaseClasses import Item, ItemClassification
 from worlds.AutoWorld import World
 from . import items, locations, options, regions, rules, web_world
 from .items import item_table, ItemData, is_character
-from .locations import get_locations
+from .locations import get_location_name_to_id
 from .options import OurAscentOptions
-from .stories import story_id_to_name
-
+from .stories import *
 
 class OurAscentWorld(World):
     """Our Ascent is an incremental roguelite RPG with many layers of metaprogression."""
@@ -19,7 +18,7 @@ class OurAscentWorld(World):
     options: options.OurAscentOptions
 
     item_name_to_id = {item: item_table[item].code for item in item_table}
-    location_name_to_id = {location.name: location.code for location in get_locations(-1, options)}
+    location_name_to_id = get_location_name_to_id()
     playable_stories = [value for _, value in story_id_to_name.items()]
     starting_story = "1-1: Falling Into Chaos"
 
@@ -48,7 +47,6 @@ class OurAscentWorld(World):
 
     def get_all_items(self, excluded_items: Set[str]) -> List[Item]:
         pool: List[Item] = []
-        self.get_stories()
         amount: int = int(0)
         for name, data in item_table.items():
             for _ in range(amount):
@@ -56,7 +54,9 @@ class OurAscentWorld(World):
                 pool.append(item)
         return pool
 
-    #  def generate_early(self):
+    def generate_early(self):
+        self.get_stories()
+
     def get_stories(self):
         #Need the list of potential stories from the latest chapter indicated
         playable_story_choice = list(
