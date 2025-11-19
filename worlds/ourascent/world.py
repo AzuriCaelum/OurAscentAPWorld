@@ -28,7 +28,7 @@ class OurAscentWorld(World):
 
         locations = get_main_menu_locations(self.player, self.options)
         if 1 in self.playable_stories:
-            locations.extend(get_11_locations(self.player))
+            locations.extend(get_11_locations(self.player, self.options))
         #if 2 in self.playable_stories:
         #    locations.extend(get_12_locations(self.player))
         #if 3 in self.playable_stories:
@@ -37,8 +37,7 @@ class OurAscentWorld(World):
         #    locations.extend(get_14_locations(self.player))
         #if 5 in self.playable_stories:
         #    locations.extend(get_15_locations(self.player))
-        create_all_regions(self, locations)
-        #locations.create_events(self)
+        create_all_regions(self, locations, self.options)
 
     def set_rules(self) -> None:
         count = 0
