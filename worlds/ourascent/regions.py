@@ -1,13 +1,12 @@
 from typing import TYPE_CHECKING, Dict, List, Callable
 
 from BaseClasses import Region, Location, CollectionState
+from . import items
+from .items import *
 from .locations import LocationData
-from .rules import apolonia_offense
+from .rules import apolonia_power
 from .stories import *
-
-
-if TYPE_CHECKING:
-    from .world import OurAscentWorld
+from .world import OurAscentWorld
 
 ap_region_to_story_subregions_dictionary: Dict[str, str] = {}
 
@@ -33,10 +32,6 @@ class OurAscentLocation(Location):
     def __init__(self, player: int, name: str = " ", address = None, parent=None):
         super().__init__(player, name, address, parent)
 
-def create_and_connect_regions(world: OurAscentWorld) -> None:
-    create_all_regions(world)
-    #connect_regions(world)
-
 def create_all_regions(world: OurAscentWorld, locations: List[LocationData]) -> None:
 
     multiworld = world.multiworld
@@ -47,6 +42,7 @@ def create_all_regions(world: OurAscentWorld, locations: List[LocationData]) -> 
     multiworld.regions += create_a_region(player, world, locations_per_region, STORY_SELECT)
 
     if 1 in world.playable_stories:
+        apolonia_offense = apolonia_power()
         multiworld.regions += create_a_region(player, world, locations_per_region, FALLING_INTO_CHAOS)
         add_region_exit(world, STORY_SELECT, FALLING_INTO_CHAOS_0, lambda state: state.has("Character - Playable Apolonia", world.player, 1))
         add_region_exit(world, FALLING_INTO_CHAOS_0, FALLING_INTO_CHAOS_1, lambda state: state.has(apolonia_offense, world.player, 5))
@@ -58,6 +54,10 @@ def create_all_regions(world: OurAscentWorld, locations: List[LocationData]) -> 
         add_region_exit(world, FALLING_INTO_CHAOS_5, FALLING_INTO_CHAOS_6, lambda state: state.has(apolonia_offense, world.player, 30))
         add_region_exit(world, FALLING_INTO_CHAOS_6, FALLING_INTO_CHAOS_7, lambda state: state.has(apolonia_offense, world.player, 40))
         add_region_exit(world, FALLING_INTO_CHAOS_7, FALLING_INTO_CHAOS_8, lambda state: state.has(apolonia_offense, world.player, 48))
+        #completion_location = OurAscentLocation(world.player, "Story 1-1 Completion", None, FALLING_INTO_CHAOS_8)
+        #completion_item = items.item_table("Story 1-1 Completion", ItemClassification.progression, None, world.player)
+        #completion_location.place_locked_item(completion_item)
+
     if 2 in world.playable_stories:
         multiworld.regions += create_a_region(player, world, locations_per_region, RISING_TO_THE_CHALLENGE)
         add_region_exit(world, STORY_SELECT, RISING_TO_THE_CHALLENGE_0,
@@ -80,6 +80,7 @@ def create_all_regions(world: OurAscentWorld, locations: List[LocationData]) -> 
                         lambda state: state.has(apolonia_offense, world.player, 40))
         add_region_exit(world, RISING_TO_THE_CHALLENGE_7, RISING_TO_THE_CHALLENGE_8,
                         lambda state: state.has(apolonia_offense, world.player, 48))
+
     if 3 in world.playable_stories:
         multiworld.regions += create_a_region(player, world, locations_per_region, UNLEASHING_THE_BEAST)
         add_region_exit(world, STORY_SELECT, UNLEASHING_THE_BEAST_0,
@@ -102,6 +103,7 @@ def create_all_regions(world: OurAscentWorld, locations: List[LocationData]) -> 
                         lambda state: state.has(apolonia_offense, world.player, 40))
         add_region_exit(world, UNLEASHING_THE_BEAST_7, UNLEASHING_THE_BEAST_8,
                         lambda state: state.has(apolonia_offense, world.player, 48))
+
     if 4 in world.playable_stories:
         multiworld.regions += create_a_region(player, world, locations_per_region, HUNTING_FOR_TRUTH)
         add_region_exit(world, STORY_SELECT, HUNTING_FOR_TRUTH_0,
@@ -124,6 +126,7 @@ def create_all_regions(world: OurAscentWorld, locations: List[LocationData]) -> 
                         lambda state: state.has(apolonia_offense, world.player, 40))
         add_region_exit(world, HUNTING_FOR_TRUTH_7, HUNTING_FOR_TRUTH_8,
                         lambda state: state.has(apolonia_offense, world.player, 48))
+
     if 5 in world.playable_stories:
         multiworld.regions += create_a_region(player, world, locations_per_region, LURKING_IN_THE_SHADOWS)
         add_region_exit(world, STORY_SELECT, LURKING_IN_THE_SHADOWS_0,

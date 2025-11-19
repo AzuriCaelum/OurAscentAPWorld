@@ -1,12 +1,12 @@
-from collections.abc import Mapping
 from typing import Any, List, Set, Dict
 
-from BaseClasses import Item, ItemClassification
+from BaseClasses import Item, CollectionState
 from worlds.AutoWorld import World
-from . import items, locations, options, regions, rules, web_world
+from . import options, rules, web_world
 from .items import item_table, ItemData, is_character, equipment_offset, accessory_offset, filler_items
 from .locations import get_location_name_to_id
-from .options import OurAscentOptions
+from .regions import create_all_regions
+from .rules import OurAscentLogic, goal_regions
 from .stories import *
 
 class OurAscentWorld(World):
@@ -25,11 +25,12 @@ class OurAscentWorld(World):
     origin_region_name = "Story Select"
 
     def create_regions(self) -> None:
-        regions.create_and_connect_regions(self)
-        #locations.create_all_locations(self)
+        create_all_regions(self)
+        #locations.create_events(self)
 
     def set_rules(self) -> None:
-        rules.set_all_rules(self)
+        completion = goal_regions(  )
+        self.multiworld.completion_condition[self.player] = completion
 
     def create_items(self) -> None:
         pool = self.get_all_items(self.get_excluded_items())
@@ -42,7 +43,7 @@ class OurAscentWorld(World):
     def get_filler_item_name(self) -> str:
         return self.random.choice(filler_items)
 
-    def fill_slot_data(self) -> Mapping[str, Any]:
+    def fill_slot_data(self) -> Dict[str, Any]:
         return self.options.as_dict()
 
     #def get_excluded_items(self):

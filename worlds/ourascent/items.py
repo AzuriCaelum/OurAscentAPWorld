@@ -18,6 +18,7 @@ character_offset = 1
 equipment_offset = 11
 accessory_offset = 101
 augment_offset = 1001
+completion_offset = 10001
 
 item_table: Dict[str, ItemData] = {
     "Character - Playable Apolonia": ItemData("CHARACTER", 1 + character_offset, ItemClassification.progression, 1, 0, 0, 0, 0, 0, 1),
@@ -47,7 +48,9 @@ item_table: Dict[str, ItemData] = {
     "Augment - Apolonia Weapon Mastery": ItemData("AUGMENT", 1 + augment_offset, ItemClassification.useful, 5),
     "Augment - Apolonia Magical Imbuement": ItemData("AUGMENT", 2 + augment_offset, ItemClassification.useful, 4),
     "Augment - Apolonia Mobility": ItemData("AUGMENT", 3 + augment_offset, ItemClassification.useful, 6),
-    "Augment - Apolonia Holy Power": ItemData("Augment", 4 + augment_offset, ItemClassification.useful, 3),
+    "Augment - Apolonia Holy Power": ItemData("AUGMENT", 4 + augment_offset, ItemClassification.useful, 3),
+
+    "Story Completion - 1-1": ItemData("COMPLETION", 1 + completion_offset, ItemClassification.progression, 1)
 }
 
 item_name_to_id = {item: item_table[item].code for item in item_table}
