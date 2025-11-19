@@ -8,6 +8,8 @@ def create_option_groups() -> List[OptionGroup]:
     for name, options in ourascent_groups.items():
         option_group_list.append(OptionGroup(name=name, options=options))
 
+    return option_group_list
+
 class Last_Chapter(Range):
     """What is the most advanced chapter to include in the multiworld?
     The first chapter is Glades

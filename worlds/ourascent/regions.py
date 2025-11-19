@@ -1,10 +1,10 @@
-from typing import TYPE_CHECKING, Dict, List, Callable
+from typing import Callable
 
 from BaseClasses import Region, Location, CollectionState
-from . import items
 from .items import *
-from .locations import LocationData
-from .rules import apolonia_power
+from .locations import LocationData, create_location, create_completion
+from .options import OurAscentOptions
+from .rules import OurAscentLogic
 from .stories import *
 from .world import OurAscentWorld
 
@@ -32,123 +32,96 @@ class OurAscentLocation(Location):
     def __init__(self, player: int, name: str = " ", address = None, parent=None):
         super().__init__(player, name, address, parent)
 
-def create_all_regions(world: OurAscentWorld, locations: List[LocationData]) -> None:
+def create_all_regions(world: OurAscentWorld, locations: List[LocationData], options: OurAscentOptions) -> None:
 
     multiworld = world.multiworld
     player = world.player
+    logic = OurAscentLogic(player, options)
+    completion_count = int(0)
 
     locations_per_region = get_locations_per_ap_region(locations)
 
     multiworld.regions += create_a_region(player, world, locations_per_region, STORY_SELECT)
 
     if 1 in world.playable_stories:
-        apolonia_offense = apolonia_power()
         multiworld.regions += create_a_region(player, world, locations_per_region, FALLING_INTO_CHAOS)
         add_region_exit(world, STORY_SELECT, FALLING_INTO_CHAOS_0, lambda state: state.has("Character - Playable Apolonia", world.player, 1))
-        add_region_exit(world, FALLING_INTO_CHAOS_0, FALLING_INTO_CHAOS_1, lambda state: state.has(apolonia_offense, world.player, 5))
-        add_region_exit(world, FALLING_INTO_CHAOS_0, FALLING_INTO_CHAOS_2, lambda state: state.has(apolonia_offense, world.player, 13))
-        add_region_exit(world, FALLING_INTO_CHAOS_1, FALLING_INTO_CHAOS_3, lambda state: state.has(apolonia_offense, world.player, 12))
-        add_region_exit(world, FALLING_INTO_CHAOS_2, FALLING_INTO_CHAOS_4, lambda state: state.has(apolonia_offense, world.player, 20))
-        add_region_exit(world, FALLING_INTO_CHAOS_3, FALLING_INTO_CHAOS_5, lambda state: state.has(apolonia_offense, world.player, 19))
-        add_region_exit(world, FALLING_INTO_CHAOS_4, FALLING_INTO_CHAOS_6, lambda state: state.has(apolonia_offense, world.player, 30))
-        add_region_exit(world, FALLING_INTO_CHAOS_5, FALLING_INTO_CHAOS_6, lambda state: state.has(apolonia_offense, world.player, 30))
-        add_region_exit(world, FALLING_INTO_CHAOS_6, FALLING_INTO_CHAOS_7, lambda state: state.has(apolonia_offense, world.player, 40))
-        add_region_exit(world, FALLING_INTO_CHAOS_7, FALLING_INTO_CHAOS_8, lambda state: state.has(apolonia_offense, world.player, 48))
-        #completion_location = OurAscentLocation(world.player, "Story 1-1 Completion", None, FALLING_INTO_CHAOS_8)
-        #completion_item = items.item_table("Story 1-1 Completion", ItemClassification.progression, None, world.player)
-        #completion_location.place_locked_item(completion_item)
+        add_region_exit(world, FALLING_INTO_CHAOS_0, FALLING_INTO_CHAOS_1, lambda state: logic.apolonia_power(state, 5))
+        add_region_exit(world, FALLING_INTO_CHAOS_0, FALLING_INTO_CHAOS_2, lambda state: logic.apolonia_power(state, 13))
+        add_region_exit(world, FALLING_INTO_CHAOS_1, FALLING_INTO_CHAOS_3, lambda state: logic.apolonia_power(state, 12))
+        add_region_exit(world, FALLING_INTO_CHAOS_2, FALLING_INTO_CHAOS_4, lambda state: logic.apolonia_power(state, 20))
+        add_region_exit(world, FALLING_INTO_CHAOS_3, FALLING_INTO_CHAOS_5, lambda state: logic.apolonia_power(state, 19))
+        add_region_exit(world, FALLING_INTO_CHAOS_4, FALLING_INTO_CHAOS_6, lambda state: logic.apolonia_power(state, 30))
+        add_region_exit(world, FALLING_INTO_CHAOS_5, FALLING_INTO_CHAOS_6, lambda state: logic.apolonia_power(state, 30))
+        add_region_exit(world, FALLING_INTO_CHAOS_6, FALLING_INTO_CHAOS_7, lambda state: logic.apolonia_power(state, 40))
+        add_region_exit(world, FALLING_INTO_CHAOS_7, FALLING_INTO_CHAOS_8, lambda state: logic.apolonia_power(state, 48))
+        completion = world.get_region(FALLING_INTO_CHAOS_8)
+        completion_count += 1
+        create_completion(world, player, completion)
 
     if 2 in world.playable_stories:
         multiworld.regions += create_a_region(player, world, locations_per_region, RISING_TO_THE_CHALLENGE)
-        add_region_exit(world, STORY_SELECT, RISING_TO_THE_CHALLENGE_0,
-                        lambda state: state.has("Character - Playable Stan", world.player, 1))
-        add_region_exit(world, RISING_TO_THE_CHALLENGE_0, RISING_TO_THE_CHALLENGE_1,
-                        lambda state: state.has(apolonia_offense, world.player, 5))
-        add_region_exit(world, RISING_TO_THE_CHALLENGE_0, RISING_TO_THE_CHALLENGE_2,
-                        lambda state: state.has(apolonia_offense, world.player, 13))
-        add_region_exit(world, RISING_TO_THE_CHALLENGE_1, RISING_TO_THE_CHALLENGE_3,
-                        lambda state: state.has(apolonia_offense, world.player, 12))
-        add_region_exit(world, RISING_TO_THE_CHALLENGE_2, RISING_TO_THE_CHALLENGE_4,
-                        lambda state: state.has(apolonia_offense, world.player, 20))
-        add_region_exit(world, RISING_TO_THE_CHALLENGE_3, RISING_TO_THE_CHALLENGE_5,
-                        lambda state: state.has(apolonia_offense, world.player, 19))
-        add_region_exit(world, RISING_TO_THE_CHALLENGE_4, RISING_TO_THE_CHALLENGE_6,
-                        lambda state: state.has(apolonia_offense, world.player, 30))
-        add_region_exit(world, RISING_TO_THE_CHALLENGE_5, RISING_TO_THE_CHALLENGE_6,
-                        lambda state: state.has(apolonia_offense, world.player, 30))
-        add_region_exit(world, RISING_TO_THE_CHALLENGE_6, RISING_TO_THE_CHALLENGE_7,
-                        lambda state: state.has(apolonia_offense, world.player, 40))
-        add_region_exit(world, RISING_TO_THE_CHALLENGE_7, RISING_TO_THE_CHALLENGE_8,
-                        lambda state: state.has(apolonia_offense, world.player, 48))
+        add_region_exit(world, STORY_SELECT, RISING_TO_THE_CHALLENGE_0, lambda state: state.has("Character - Playable Stan", world.player, 1))
+        add_region_exit(world, RISING_TO_THE_CHALLENGE_0, RISING_TO_THE_CHALLENGE_1,  lambda state: logic.apolonia_power(state, 5))
+        add_region_exit(world, RISING_TO_THE_CHALLENGE_0, RISING_TO_THE_CHALLENGE_2, lambda state: logic.apolonia_power(state, 13))
+        add_region_exit(world, RISING_TO_THE_CHALLENGE_1, RISING_TO_THE_CHALLENGE_3, lambda state: logic.apolonia_power(state, 12))
+        add_region_exit(world, RISING_TO_THE_CHALLENGE_2, RISING_TO_THE_CHALLENGE_4, lambda state: logic.apolonia_power(state, 20))
+        add_region_exit(world, RISING_TO_THE_CHALLENGE_3, RISING_TO_THE_CHALLENGE_5, lambda state: logic.apolonia_power(state, 19))
+        add_region_exit(world, RISING_TO_THE_CHALLENGE_4, RISING_TO_THE_CHALLENGE_6, lambda state: logic.apolonia_power(state, 30))
+        add_region_exit(world, RISING_TO_THE_CHALLENGE_5, RISING_TO_THE_CHALLENGE_6, lambda state: logic.apolonia_power(state, 30))
+        add_region_exit(world, RISING_TO_THE_CHALLENGE_6, RISING_TO_THE_CHALLENGE_7, lambda state: logic.apolonia_power(state, 40))
+        add_region_exit(world, RISING_TO_THE_CHALLENGE_7, RISING_TO_THE_CHALLENGE_8, lambda state: logic.apolonia_power(state, 48))
+        completion = world.get_region(RISING_TO_THE_CHALLENGE_8)
+        completion_count += 1
+        create_completion(world, player, completion)
 
     if 3 in world.playable_stories:
         multiworld.regions += create_a_region(player, world, locations_per_region, UNLEASHING_THE_BEAST)
-        add_region_exit(world, STORY_SELECT, UNLEASHING_THE_BEAST_0,
-                        lambda state: state.has("Character - Playable Hina", world.player, 1))
-        add_region_exit(world, UNLEASHING_THE_BEAST_0, UNLEASHING_THE_BEAST_1,
-                        lambda state: state.has(apolonia_offense, world.player, 5))
-        add_region_exit(world, UNLEASHING_THE_BEAST_0, UNLEASHING_THE_BEAST_2,
-                        lambda state: state.has(apolonia_offense, world.player, 13))
-        add_region_exit(world, UNLEASHING_THE_BEAST_1, UNLEASHING_THE_BEAST_3,
-                        lambda state: state.has(apolonia_offense, world.player, 12))
-        add_region_exit(world, UNLEASHING_THE_BEAST_2, UNLEASHING_THE_BEAST_4,
-                        lambda state: state.has(apolonia_offense, world.player, 20))
-        add_region_exit(world, UNLEASHING_THE_BEAST_3, UNLEASHING_THE_BEAST_5,
-                        lambda state: state.has(apolonia_offense, world.player, 19))
-        add_region_exit(world, UNLEASHING_THE_BEAST_4, UNLEASHING_THE_BEAST_6,
-                        lambda state: state.has(apolonia_offense, world.player, 30))
-        add_region_exit(world, UNLEASHING_THE_BEAST_5, UNLEASHING_THE_BEAST_6,
-                        lambda state: state.has(apolonia_offense, world.player, 30))
-        add_region_exit(world, UNLEASHING_THE_BEAST_6, UNLEASHING_THE_BEAST_7,
-                        lambda state: state.has(apolonia_offense, world.player, 40))
-        add_region_exit(world, UNLEASHING_THE_BEAST_7, UNLEASHING_THE_BEAST_8,
-                        lambda state: state.has(apolonia_offense, world.player, 48))
+        add_region_exit(world, STORY_SELECT, UNLEASHING_THE_BEAST_0, lambda state: state.has("Character - Playable Hina", world.player, 1))
+        add_region_exit(world, UNLEASHING_THE_BEAST_0, UNLEASHING_THE_BEAST_1, lambda state: logic.apolonia_power(state, 5))
+        add_region_exit(world, UNLEASHING_THE_BEAST_0, UNLEASHING_THE_BEAST_2, lambda state: logic.apolonia_power(state, 13))
+        add_region_exit(world, UNLEASHING_THE_BEAST_1, UNLEASHING_THE_BEAST_3, lambda state: logic.apolonia_power(state, 12))
+        add_region_exit(world, UNLEASHING_THE_BEAST_2, UNLEASHING_THE_BEAST_4, lambda state: logic.apolonia_power(state, 20))
+        add_region_exit(world, UNLEASHING_THE_BEAST_3, UNLEASHING_THE_BEAST_5, lambda state: logic.apolonia_power(state, 19))
+        add_region_exit(world, UNLEASHING_THE_BEAST_4, UNLEASHING_THE_BEAST_6, lambda state: logic.apolonia_power(state, 30))
+        add_region_exit(world, UNLEASHING_THE_BEAST_5, UNLEASHING_THE_BEAST_6, lambda state: logic.apolonia_power(state, 30))
+        add_region_exit(world, UNLEASHING_THE_BEAST_6, UNLEASHING_THE_BEAST_7, lambda state: logic.apolonia_power(state, 40))
+        add_region_exit(world, UNLEASHING_THE_BEAST_7, UNLEASHING_THE_BEAST_8, lambda state: logic.apolonia_power(state, 48))
+        completion = world.get_region(UNLEASHING_THE_BEAST_8)
+        completion_count += 1
+        create_completion(world, player, completion)
 
     if 4 in world.playable_stories:
         multiworld.regions += create_a_region(player, world, locations_per_region, HUNTING_FOR_TRUTH)
-        add_region_exit(world, STORY_SELECT, HUNTING_FOR_TRUTH_0,
-                        lambda state: state.has("Character - Playable Lan", world.player, 1))
-        add_region_exit(world, HUNTING_FOR_TRUTH_0, HUNTING_FOR_TRUTH_1,
-                        lambda state: state.has(apolonia_offense, world.player, 5))
-        add_region_exit(world, HUNTING_FOR_TRUTH_0, HUNTING_FOR_TRUTH_2,
-                        lambda state: state.has(apolonia_offense, world.player, 13))
-        add_region_exit(world, HUNTING_FOR_TRUTH_1, HUNTING_FOR_TRUTH_3,
-                        lambda state: state.has(apolonia_offense, world.player, 12))
-        add_region_exit(world, HUNTING_FOR_TRUTH_2, HUNTING_FOR_TRUTH_4,
-                        lambda state: state.has(apolonia_offense, world.player, 20))
-        add_region_exit(world, HUNTING_FOR_TRUTH_3, HUNTING_FOR_TRUTH_5,
-                        lambda state: state.has(apolonia_offense, world.player, 19))
-        add_region_exit(world, HUNTING_FOR_TRUTH_4, HUNTING_FOR_TRUTH_6,
-                        lambda state: state.has(apolonia_offense, world.player, 30))
-        add_region_exit(world, HUNTING_FOR_TRUTH_5, HUNTING_FOR_TRUTH_6,
-                        lambda state: state.has(apolonia_offense, world.player, 30))
-        add_region_exit(world, HUNTING_FOR_TRUTH_6, HUNTING_FOR_TRUTH_7,
-                        lambda state: state.has(apolonia_offense, world.player, 40))
-        add_region_exit(world, HUNTING_FOR_TRUTH_7, HUNTING_FOR_TRUTH_8,
-                        lambda state: state.has(apolonia_offense, world.player, 48))
+        add_region_exit(world, STORY_SELECT, HUNTING_FOR_TRUTH_0, lambda state: state.has("Character - Playable Lan", world.player, 1))
+        add_region_exit(world, HUNTING_FOR_TRUTH_0, HUNTING_FOR_TRUTH_1, lambda state: logic.apolonia_power(state, 5))
+        add_region_exit(world, HUNTING_FOR_TRUTH_0, HUNTING_FOR_TRUTH_2, lambda state: logic.apolonia_power(state, 13))
+        add_region_exit(world, HUNTING_FOR_TRUTH_1, HUNTING_FOR_TRUTH_3, lambda state: logic.apolonia_power(state, 12))
+        add_region_exit(world, HUNTING_FOR_TRUTH_2, HUNTING_FOR_TRUTH_4, lambda state: logic.apolonia_power(state, 20))
+        add_region_exit(world, HUNTING_FOR_TRUTH_3, HUNTING_FOR_TRUTH_5, lambda state: logic.apolonia_power(state, 19))
+        add_region_exit(world, HUNTING_FOR_TRUTH_4, HUNTING_FOR_TRUTH_6, lambda state: logic.apolonia_power(state, 30))
+        add_region_exit(world, HUNTING_FOR_TRUTH_5, HUNTING_FOR_TRUTH_6, lambda state: logic.apolonia_power(state, 30))
+        add_region_exit(world, HUNTING_FOR_TRUTH_6, HUNTING_FOR_TRUTH_7, lambda state: logic.apolonia_power(state, 40))
+        add_region_exit(world, HUNTING_FOR_TRUTH_7, HUNTING_FOR_TRUTH_8, lambda state: logic.apolonia_power(state, 48))
+        completion = world.get_region(HUNTING_FOR_TRUTH_8)
+        completion_count += 1
+        create_completion(world, player, completion)
 
     if 5 in world.playable_stories:
         multiworld.regions += create_a_region(player, world, locations_per_region, LURKING_IN_THE_SHADOWS)
-        add_region_exit(world, STORY_SELECT, LURKING_IN_THE_SHADOWS_0,
-                        lambda state: state.has("Character - Playable Sibyl", world.player, 1))
-        add_region_exit(world, LURKING_IN_THE_SHADOWS_0, LURKING_IN_THE_SHADOWS_1,
-                        lambda state: state.has(apolonia_offense, world.player, 5))
-        add_region_exit(world, LURKING_IN_THE_SHADOWS_0, LURKING_IN_THE_SHADOWS_2,
-                        lambda state: state.has(apolonia_offense, world.player, 13))
-        add_region_exit(world, LURKING_IN_THE_SHADOWS_1, LURKING_IN_THE_SHADOWS_3,
-                        lambda state: state.has(apolonia_offense, world.player, 12))
-        add_region_exit(world, LURKING_IN_THE_SHADOWS_2, LURKING_IN_THE_SHADOWS_4,
-                        lambda state: state.has(apolonia_offense, world.player, 20))
-        add_region_exit(world, LURKING_IN_THE_SHADOWS_3, LURKING_IN_THE_SHADOWS_5,
-                        lambda state: state.has(apolonia_offense, world.player, 19))
-        add_region_exit(world, LURKING_IN_THE_SHADOWS_4, LURKING_IN_THE_SHADOWS_6,
-                        lambda state: state.has(apolonia_offense, world.player, 30))
-        add_region_exit(world, LURKING_IN_THE_SHADOWS_5, LURKING_IN_THE_SHADOWS_6,
-                        lambda state: state.has(apolonia_offense, world.player, 30))
-        add_region_exit(world, LURKING_IN_THE_SHADOWS_6, LURKING_IN_THE_SHADOWS_7,
-                        lambda state: state.has(apolonia_offense, world.player, 40))
-        add_region_exit(world, LURKING_IN_THE_SHADOWS_7, LURKING_IN_THE_SHADOWS_8,
-                        lambda state: state.has(apolonia_offense, world.player, 48))
+        add_region_exit(world, STORY_SELECT, LURKING_IN_THE_SHADOWS_0, lambda state: state.has("Character - Playable Sibyl", world.player, 1))
+        add_region_exit(world, LURKING_IN_THE_SHADOWS_0, LURKING_IN_THE_SHADOWS_1, lambda state: logic.apolonia_power(state, 5))
+        add_region_exit(world, LURKING_IN_THE_SHADOWS_0, LURKING_IN_THE_SHADOWS_2, lambda state: logic.apolonia_power(state, 13))
+        add_region_exit(world, LURKING_IN_THE_SHADOWS_1, LURKING_IN_THE_SHADOWS_3, lambda state: logic.apolonia_power(state, 12))
+        add_region_exit(world, LURKING_IN_THE_SHADOWS_2, LURKING_IN_THE_SHADOWS_4, lambda state: logic.apolonia_power(state, 20))
+        add_region_exit(world, LURKING_IN_THE_SHADOWS_3, LURKING_IN_THE_SHADOWS_5, lambda state: logic.apolonia_power(state, 19))
+        add_region_exit(world, LURKING_IN_THE_SHADOWS_4, LURKING_IN_THE_SHADOWS_6, lambda state: logic.apolonia_power(state, 30))
+        add_region_exit(world, LURKING_IN_THE_SHADOWS_5, LURKING_IN_THE_SHADOWS_6, lambda state: logic.apolonia_power(state, 30))
+        add_region_exit(world, LURKING_IN_THE_SHADOWS_6, LURKING_IN_THE_SHADOWS_7, lambda state: logic.apolonia_power(state, 40))
+        add_region_exit(world, LURKING_IN_THE_SHADOWS_7, LURKING_IN_THE_SHADOWS_8, lambda state: logic.apolonia_power(state, 48))
+        completion = world.get_region(LURKING_IN_THE_SHADOWS_8)
+        completion_count += 1
+        create_completion(world, player, completion)
 
 
 def get_locations_per_ap_region(locations: List[LocationData]) -> Dict[str, List[LocationData]]:
@@ -169,11 +142,17 @@ def create_a_region(player: int, world: "OurAscentWorld", locations_per_region: 
 
     return ap_regions
 
-def create_ap_region(player: int, world: "OurAscentWorld", locations_per_region: Dict[str, List[LocationData]], name: str):
+def create_ap_region(player: int, world: "OurAscentWorld", locations_per_region: Dict[str, List[LocationData]], name: str) -> Region:
+    logic = OurAscentLogic(player, world.options)
     ap_region = Region(name, player, world.multiworld)
+
+    if name in locations_per_region:
+        for location_data in locations_per_region[name]:
+            location = create_location(player, location_data, ap_region)
+            ap_region.locations.append(location)
     return ap_region
 
-def add_region_exit(self, region: str, exity: str, rules: Dict[str, Callable[[CollectionState], bool]] | None = None):
+def add_region_exit(self, region: str, exity: str, rules: Optional[str, Callable[[CollectionState], bool]] = None):
     if rules is not None:
         for region_rule in rules:
             if not region_rule in exity:

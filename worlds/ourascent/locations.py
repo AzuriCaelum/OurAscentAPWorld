@@ -2,12 +2,13 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING, NamedTuple, Optional, Callable, List
 
-from BaseClasses import ItemClassification, Location, CollectionState
+from BaseClasses import ItemClassification, Location, CollectionState, Region
+from . import items
 
 #from .regions import *
 from .options import *
 from .rules import *
-from . import items
+from .items import ItemData, OurAscentItem
 
 if TYPE_CHECKING:
     from .world import OurAscentWorld
@@ -25,24 +26,40 @@ def get_location_name_to_id() -> dict[str, int]:
     #location_name_to_id.update()
     return location_name_to_id
 
-#def create_all_locations(world: OurAscentWorld) -> None:
-#    create_regular_locations(world)
-#    create_events(world)
+def create_location(player: int, location_data: LocationData, region: Region) -> Location:
+    location = OurAscentLocation(player, location_data.name, location_data.code, region)
 
-#def create_regular_locations(world: OurAscentWorld) -> None:
-#    main_menu = world.get_region("Main Menu")
-#    FALLING_INTO_CHAOS_1 = world.get_region("1-1 Beginning-Right")
-#    STAGE_11_REGION_2 = world.get_region("1-1 Beginning-Left")
-#    STAGE_11_REGION_3 = world.get_region("1-1 Further Right")
-#    STAGE_11_REGION_4 = world.get_region("1-1 Further Left")
-#    STAGE_11_REGION_5 = world.get_region("1-1 Center")
-#    STAGE_11_REGION_6 = world.get_region("1-1 Top")
+    if location_data.rule:
+        location.access_rule = location_data.rule
+
+    return location
 
 class LocationData(NamedTuple):
     regions: str
     name: str
     code: int
     rule: Optional[Callable[[CollectionState], bool]] = None
+
+def create_completion(world: OurAscentWorld, player:int, region: Region) -> None:
+    #if 1 in playable_stories:
+    #    completion_11 = world.get_region(FALLING_INTO_CHAOS_8)
+    #    completion_11.add_event("Story 1-1 Completed", "Story Completion - 1-1", location_type=OurAscentLocation, item_type=OurAscentItem)
+    #if 2 in playable_stories:
+    #    completion_12 = world.get_region(RISING_TO_THE_CHALLENGE_8)
+    #    completion_12.add_event("Story 1-2 Completed", "Story Completion - 1-2", location_type=OurAscentLocation, item_type=OurAscentItem)
+    #if 3 in playable_stories:
+    #    completion_13 = world.get_region(UNLEASHING_THE_BEAST_8)
+    #    completion_13.add_event("Story 1-3 Completed", "Story Completion - 1-3", location_type=OurAscentLocation, item_type=OurAscentItem)
+    #if 4 in playable_stories:
+    #    completion_14 = world.get_region(HUNTING_FOR_TRUTH_8)
+    #    completion_14.add_event("Story 1-4 Completed", "Story Completion - 1-4", location_type=OurAscentLocation, item_type=OurAscentItem)
+    #if 5 in playable_stories:
+    #    completion_15 = world.get_region(LURKING_IN_THE_SHADOWS_8)
+    #    completion_15.add_event("Story 1-5 Completed", "Story Completion - 1-5", location_type=OurAscentLocation, item_type=OurAscentItem)
+    region.add_event("Story Complete", "Story Completion", location_type=OurAscentLocation, item_type=OurAscentItem)
+
+def get_main_menu_locations(player: int, options: OurAscentOptions | None) -> List[LocationData]:
+    return []
 
 def get_11_locations(player: int, options: OurAscentOptions | None) -> List[LocationData]:
     logic = OurAscentLogic(player, options)
@@ -185,7 +202,7 @@ def get_11_locations(player: int, options: OurAscentOptions | None) -> List[Loca
         LocationData("FALLING_INTO_CHAOS_8", "1-1 Enemy - (10k L) Locuswarm", 135),
         LocationData("FALLING_INTO_CHAOS_8", "1-1 Enemy - (10k L) Parapede", 136),
         LocationData("FALLING_INTO_CHAOS_8", "1-1 Enemy - (10k L) Fairy Fillia (Boss)", 137),
-        #LocationData("FALLING_INTO_CHAOS_8", "1-1 Story Completion", 138),
+        LocationData("FALLING_INTO_CHAOS_8", "1-1 Story Completion", 138),
 
         #Apolonia's Chapter 1 Equipment
         LocationData("FALLING_INTO_CHAOS_1", "Apolonia Equipment - (Sword 1-1) Fragile Sword", 139),
@@ -272,3 +289,4 @@ def get_11_locations(player: int, options: OurAscentOptions | None) -> List[Loca
         LocationData("FALLING_INTO_CHAOS_1", "Apolonia Equipment - (Acc 1-10) Enchanted Ring 2", 220),
         LocationData("FALLING_INTO_CHAOS_1", "Apolonia Equipment - (Acc 1-10) Enchanted Ring 3", 221)
 ]
+    return location_table

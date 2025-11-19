@@ -15,6 +15,9 @@ class OurAscentLogic:
         self.player = player
         self.options = options
 
+    def apolonia_power(self, state: CollectionState, amount: int) -> bool:
+        return state.has_from_list(apolonia_offense, self.player, amount)
+
 def goal_regions(state: CollectionState) -> bool:
     if OurAscentOptions.last_chapter == 1:
         if 1 in OurAscentWorld.playable_stories:
@@ -35,8 +38,7 @@ def goal_regions(state: CollectionState) -> bool:
     return True
 
 
-def apolonia_power(state: CollectionState, player: int, amount: int):
-    return state.has_from_list(apolonia_offense, player, amount)
+
 
 apolonia_offense: List[str] = [
     "Equipment - Apolonia Progressive Sword",
@@ -44,7 +46,7 @@ apolonia_offense: List[str] = [
     "Equipment - Apolonia Progressive Helmet",
     "Equipment - Apolonia Progressive Breastplate",
     "Equipment - Apolonia Progressive Gloves",
-    "Equipment - Apolonia Progressive Boots",
+    "Equipment - Apolonia Progressive Boots"
 ]
 
 apolonia_movement: List[str] = [

@@ -3,7 +3,7 @@ from BaseClasses import ItemClassification, Item
 
 class ItemData(NamedTuple):
     category: str
-    code: int
+    code: Optional[int]
     classification: ItemClassification
     story11: Optional[int] = 0
     story12: Optional[int] = 0
@@ -13,6 +13,9 @@ class ItemData(NamedTuple):
     story16: Optional[int] = 0
     story21: Optional[int] = 0
     story22: Optional[int] = 0
+
+class OurAscentItem(Item):
+    game = "Our Ascent"
 
 character_offset = 1
 equipment_offset = 11
@@ -50,7 +53,7 @@ item_table: Dict[str, ItemData] = {
     "Augment - Apolonia Mobility": ItemData("AUGMENT", 3 + augment_offset, ItemClassification.useful, 6),
     "Augment - Apolonia Holy Power": ItemData("AUGMENT", 4 + augment_offset, ItemClassification.useful, 3),
 
-    "Story Completion - 1-1": ItemData("COMPLETION", 1 + completion_offset, ItemClassification.progression, 1)
+    "Story Completion - 1-1": ItemData("COMPLETION", None, ItemClassification.progression, 1)
 }
 
 item_name_to_id = {item: item_table[item].code for item in item_table}

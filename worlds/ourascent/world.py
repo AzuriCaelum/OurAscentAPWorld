@@ -3,8 +3,8 @@ from typing import Any, List, Set, Dict
 from BaseClasses import Item, CollectionState
 from worlds.AutoWorld import World
 from . import options, rules, web_world
-from .items import item_table, ItemData, is_character, equipment_offset, accessory_offset, filler_items
-from .locations import get_location_name_to_id
+from .items import OurAscentItem, item_table, ItemData, is_character, equipment_offset, accessory_offset, filler_items
+from .locations import get_location_name_to_id, get_main_menu_locations, get_11_locations
 from .regions import create_all_regions
 from .rules import OurAscentLogic, goal_regions
 from .stories import *
@@ -25,20 +25,37 @@ class OurAscentWorld(World):
     origin_region_name = "Story Select"
 
     def create_regions(self) -> None:
-        create_all_regions(self)
+
+        locations = get_main_menu_locations(self.player, self.options)
+        if 1 in self.playable_stories:
+            locations.extend(get_11_locations(self.player))
+        #if 2 in self.playable_stories:
+        #    locations.extend(get_12_locations(self.player))
+        #if 3 in self.playable_stories:
+        #    locations.extend(get_13_locations(self.player))
+        #if 4 in self.playable_stories:
+        #    locations.extend(get_14_locations(self.player))
+        #if 5 in self.playable_stories:
+        #    locations.extend(get_15_locations(self.player))
+        create_all_regions(self, locations)
         #locations.create_events(self)
 
     def set_rules(self) -> None:
-        completion = goal_regions(  )
-        self.multiworld.completion_condition[self.player] = completion
+        count = 0
+        range = 1
+        while range < 7:
+            if range in self.playable_stories:
+                count += 1
+
+        self.multiworld.completion_condition[self.player] = lambda state: state.has("Story Completed", count)
 
     def create_items(self) -> None:
         pool = self.get_all_items(self.get_excluded_items())
         self.multiworld.itempool += pool
 
-    def create_item(self, name: str) -> Item:
+    def create_item(self, name: str) -> OurAscentItem:
         data = item_table[name]
-        return Item(name, data.classification, data.code, self.player)
+        return OurAscentItem(name, data.classification, data.code, self.player)
 
     def get_filler_item_name(self) -> str:
         return self.random.choice(filler_items)
