@@ -2,7 +2,7 @@
 
 from typing import Any, List, Set, Dict
 
-from BaseClasses import Item, CollectionState
+from BaseClasses import Item, CollectionState, MultiWorld
 from worlds.AutoWorld import World
 from . import options, rules, web_world
 from .items import OurAscentItem, item_table, ItemData, is_character, equipment_offset, accessory_offset, filler_items
