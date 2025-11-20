@@ -5,7 +5,7 @@ from .options import OurAscentOptions
 from .constants.ap_regions import *
 
 if TYPE_CHECKING:
-    from .world import OurAscentWorld
+    from . import OurAscentWorld
 
 class OurAscentLogic:
     player: int

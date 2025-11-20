@@ -11,7 +11,7 @@ from .rules import *
 from .items import ItemData, OurAscentItem
 
 if TYPE_CHECKING:
-    from .world import OurAscentWorld
+    from . import OurAscentWorld
 
 
 class OurAscentLocation(Location):

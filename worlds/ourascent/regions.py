@@ -1,4 +1,4 @@
-from typing import Callable
+from typing import Callable, TYPE_CHECKING
 
 from BaseClasses import Region, Location, CollectionState
 from .items import *
@@ -6,7 +6,9 @@ from .locations import LocationData, create_location, create_completion
 from .options import OurAscentOptions
 from .rules import OurAscentLogic
 from .stories import *
-from .world import OurAscentWorld
+
+if TYPE_CHECKING:
+    from . import OurAscentWorld
 
 ap_region_to_story_subregions_dictionary: Dict[str, str] = {}
 
