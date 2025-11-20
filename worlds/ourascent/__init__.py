@@ -28,9 +28,9 @@ class OurAscentWorld(World):
 
     def create_regions(self) -> None:
 
-        locations = get_main_menu_locations(self.player, self.options)
+        locationss = get_main_menu_locations(self.player, self.options)
         if 1 in self.playable_stories:
-            locations.extend(get_11_locations(self.player, self.options))
+            locationss.extend(get_11_locations(self.player, self.options))
         #if 2 in self.playable_stories:
         #    locations.extend(get_12_locations(self.player))
         #if 3 in self.playable_stories:
@@ -39,7 +39,7 @@ class OurAscentWorld(World):
         #    locations.extend(get_14_locations(self.player))
         #if 5 in self.playable_stories:
         #    locations.extend(get_15_locations(self.player))
-        create_all_regions(self, locations, self.options)
+        create_all_regions(self, locationss, self.options)
 
     def set_rules(self) -> None:
         count = 0
@@ -148,7 +148,7 @@ class OurAscentWorld(World):
             if is_character(item) and (item in self.playable_stories):
                 character_table[item] = item_table[item]
 
-        character_table = list(character_table.items())
+        character_table = Dict(character_table.items())
         character = self.random.choice(character_table)
         character_name = character[0]
         character_data = character[1]
