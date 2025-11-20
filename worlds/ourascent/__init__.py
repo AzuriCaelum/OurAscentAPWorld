@@ -26,6 +26,9 @@ class OurAscentWorld(World):
 
     origin_region_name = "Story Select"
 
+    def __init__(self, multiworld: "MultiWorld", player: int):
+        super().__init__(multiworld, player)
+
     def create_regions(self) -> None:
 
         locationss = get_main_menu_locations(self.player, self.options)
