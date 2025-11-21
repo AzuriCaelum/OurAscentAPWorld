@@ -7,7 +7,7 @@ from worlds.AutoWorld import World
 from . import options, rules, web_world
 from .constants.story_data import *
 from .items import OurAscentItem, item_table, ItemData, is_character, equipment_offset, accessory_offset, filler_items
-from .locations import get_location_name_to_id, get_main_menu_locations, get_11_locations
+from .locations import get_location_name_to_id, get_main_menu_locations, get_11_locations, get_12_locations, get_13_locations, get_14_locations, get_15_locations
 from .regions import create_all_regions
 from .rules import OurAscentLogic, goal_regions
 from .stories import *
@@ -35,14 +35,14 @@ class OurAscentWorld(World):
         locationss = get_main_menu_locations(self.player, self.options)
         if 1 in self.playable_stories:
             locationss.extend(get_11_locations(self.player, self.options))
-        #if 2 in self.playable_stories:
-        #    locationss.extend(get_12_locations(self.player))
-        #if 3 in self.playable_stories:
-        #    locationss.extend(get_13_locations(self.player))
-        #if 4 in self.playable_stories:
-        #    locationss.extend(get_14_locations(self.player))
-        #if 5 in self.playable_stories:
-        #    locationss.extend(get_15_locations(self.player))
+        if 2 in self.playable_stories:
+            locationss.extend(get_12_locations(self.player, self.options))
+        if 3 in self.playable_stories:
+            locationss.extend(get_13_locations(self.player))
+        if 4 in self.playable_stories:
+            locationss.extend(get_14_locations(self.player))
+        if 5 in self.playable_stories:
+            locationss.extend(get_15_locations(self.player))
         create_all_regions(self, locationss, self.options)
 
     def set_rules(self) -> None:

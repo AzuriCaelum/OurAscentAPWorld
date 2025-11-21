@@ -61,7 +61,7 @@ def create_all_regions(world: "OurAscentWorld", locations: List[LocationData], o
         add_region_exit(world, FALLING_INTO_CHAOS_7, FALLING_INTO_CHAOS_8, lambda state: logic.apolonia_power(state, 48))
         completion = world.get_region(FALLING_INTO_CHAOS_8)
         completion_count += 1
-        create_completion(world, player, completion)
+        #completion.add_event("Story 1-1 Completed", "Story Completion - 1-1", location_type=OurAscentLocation, item_type=OurAscentItem)
 
     if 2 in world.playable_stories:
         multiworld.regions += create_a_region(player, world, locations_per_region, RISING_TO_THE_CHALLENGE)
@@ -77,7 +77,7 @@ def create_all_regions(world: "OurAscentWorld", locations: List[LocationData], o
         add_region_exit(world, RISING_TO_THE_CHALLENGE_7, RISING_TO_THE_CHALLENGE_8, lambda state: logic.stan_power(state, 48))
         completion = world.get_region(RISING_TO_THE_CHALLENGE_8)
         completion_count += 1
-        create_completion(world, player, completion)
+        #completion.add_event("Story 1-2 Completed", "Story Completion - 1-2", location_type=OurAscentLocation, item_type=OurAscentItem)
 
     if 3 in world.playable_stories:
         multiworld.regions += create_a_region(player, world, locations_per_region, UNLEASHING_THE_BEAST)
@@ -93,7 +93,7 @@ def create_all_regions(world: "OurAscentWorld", locations: List[LocationData], o
         add_region_exit(world, UNLEASHING_THE_BEAST_7, UNLEASHING_THE_BEAST_8, lambda state: logic.hina_power(state, 48))
         completion = world.get_region(UNLEASHING_THE_BEAST_8)
         completion_count += 1
-        create_completion(world, player, completion)
+        #completion.add_event("Story 1-3 Completed", "Story Completion - 1-3", location_type=OurAscentLocation, item_type=OurAscentItem)
 
     if 4 in world.playable_stories:
         multiworld.regions += create_a_region(player, world, locations_per_region, HUNTING_FOR_TRUTH)
@@ -109,7 +109,7 @@ def create_all_regions(world: "OurAscentWorld", locations: List[LocationData], o
         add_region_exit(world, HUNTING_FOR_TRUTH_7, HUNTING_FOR_TRUTH_8, lambda state: logic.lan_power(state, 48))
         completion = world.get_region(HUNTING_FOR_TRUTH_8)
         completion_count += 1
-        create_completion(world, player, completion)
+        #completion.add_event("Story 1-4 Completed", "Story Completion - 1-4", location_type=OurAscentLocation, item_type=OurAscentItem)
 
     if 5 in world.playable_stories:
         multiworld.regions += create_a_region(player, world, locations_per_region, LURKING_IN_THE_SHADOWS)
@@ -125,7 +125,7 @@ def create_all_regions(world: "OurAscentWorld", locations: List[LocationData], o
         add_region_exit(world, LURKING_IN_THE_SHADOWS_7, LURKING_IN_THE_SHADOWS_8, lambda state: logic.sibyl_power(state, 48))
         completion = world.get_region(LURKING_IN_THE_SHADOWS_8)
         completion_count += 1
-        create_completion(world, player, completion)
+        #completion.add_event("Story 1-5 Completed", "Story Completion - 1-5", location_type=OurAscentLocation, item_type=OurAscentItem)
 
 
 def get_locations_per_ap_region(locations: List[LocationData]) -> Dict[str, List[LocationData]]:
