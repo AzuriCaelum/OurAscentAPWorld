@@ -5,6 +5,7 @@ from typing import Any, List, Set, Dict
 from BaseClasses import Item, CollectionState, MultiWorld
 from worlds.AutoWorld import World
 from . import options, rules, web_world
+from .constants.story_data import *
 from .items import OurAscentItem, item_table, ItemData, is_character, equipment_offset, accessory_offset, filler_items
 from .locations import get_location_name_to_id, get_main_menu_locations, get_11_locations
 from .regions import create_all_regions
@@ -35,13 +36,13 @@ class OurAscentWorld(World):
         if 1 in self.playable_stories:
             locationss.extend(get_11_locations(self.player, self.options))
         #if 2 in self.playable_stories:
-        #    locations.extend(get_12_locations(self.player))
+        #    locationss.extend(get_12_locations(self.player))
         #if 3 in self.playable_stories:
-        #    locations.extend(get_13_locations(self.player))
+        #    locationss.extend(get_13_locations(self.player))
         #if 4 in self.playable_stories:
-        #    locations.extend(get_14_locations(self.player))
+        #    locationss.extend(get_14_locations(self.player))
         #if 5 in self.playable_stories:
-        #    locations.extend(get_15_locations(self.player))
+        #    locationss.extend(get_15_locations(self.player))
         create_all_regions(self, locationss, self.options)
 
     def set_rules(self) -> None:
@@ -54,7 +55,7 @@ class OurAscentWorld(World):
         self.multiworld.completion_condition[self.player] = lambda state: state.has("Story Completed", count)
 
     def create_items(self) -> None:
-        pool = self.get_all_items(self.get_excluded_items())
+        pool = self.get_all_items()
         self.multiworld.itempool += pool
 
     def create_item(self, name: str) -> OurAscentItem:
@@ -75,7 +76,7 @@ class OurAscentWorld(World):
     #            excluded_items.add("Character: Playable Apolonia")
 
 
-    def get_all_items(self, excluded_items: Set[str]) -> List[Item]:
+    def get_all_items(self) -> List[Item]:
         pool: List[Item] = []
         amount: int = int(0)
         for name, data in item_table.items():
@@ -109,48 +110,24 @@ class OurAscentWorld(World):
     def generate_early(self):
         self.get_stories()
 
+    def get_required_stories(self, story_id: int) -> set[int]:
+        required_stories = {story_id}
+        required_characters = characters_per_story[story_id]
+
+        chapter = story_to_chapter[story_id]
+
+        if chapter != 1:
+            for previous_story in stories_per_chapter[chapter - 1]:
+                if required_characters & characters_per_story[previous_story]:  # if there is character overlap
+                    required_stories |= self.get_required_stories(previous_story)
+
+        return required_stories
+
     def get_stories(self):
-        #Need the list of potential stories from the latest chapter indicated
-        playable_story_choice = list(
-            [value for key, value in story_id_to_name.items()])
-        if self.options.last_chapter == 1:
-            for story_range in range(1, 5):
-                playable_story_choice.append(range)
-        if self.options.last_chapter == 2:
-            for story_range in range(7, 8):
-                playable_story_choice.append(range)
-
-        #Get the list of latest chapter stories to use in the world
-        self.random.shuffle(playable_story_choice)
-        self.playable_stories = playable_story_choice[0:
-                                                      self.options.story_count.value]
-
-        #If a story from a later chapter is in the multiworld, it needs its requisite story(ies) from the previous chapter
-        starting_story_pool = self.playable_stories[0]
-        if 7 in self.playable_stories:
-            self.playable_stories += 1
-            self.playable_stories += 2
-        if 8 in self.playable_stories:
-            self.playable_stories += 3
-            self.playable_stories += 5
-
-        #Get the Glades stories
-        for story_range in range(1, 5):
-            if story_range in self.playable_stories:
-                starting_story_pool.append(story_range)
-
-        #Randomize the starting story, it must be Glades for the natural progression to work
-        story = self.random.choice(starting_story_pool)
-        self.starting_story = story
-
-        character_table: Dict[str, ItemData] = {}
-        for item in item_table:
-            if is_character(item) and (item in self.playable_stories):
-                character_table[item] = item_table[item]
-
-        character_table = Dict(character_table.items())
-        character = self.random.choice(character_table)
-        character_name = character[0]
-        character_data = character[1]
-        precollect = self.create_item(character_name)
-        self.multiworld.push_precollected(precollect)
+        random_chapter = self.random.choice(list(stories_per_chapter)[1:])  # Don't pick chapter 1
+        random_story = self.random.choice(stories_per_chapter[random_chapter])
+        stories = self.get_required_stories(random_story)
+        stories = sorted(stories)
+        stories_from_first_chapter = [story for story in stories if story_to_chapter[story] == 1]
+        starting_story = self.random.choice(stories_from_first_chapter)
+        self.multiworld.push_precollected(self.create_item(playable_character_to_item[starting_story]))
