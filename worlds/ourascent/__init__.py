@@ -114,12 +114,10 @@ class OurAscentWorld(World):
         playable_story_choice = list(
             [value for key, value in story_id_to_name.items()])
         if self.options.last_chapter == 1:
-            story_range = 1
-            while story_range < 6:
+            for story_range in range(1, 5):
                 playable_story_choice.append(range)
         if self.options.last_chapter == 2:
-            story_range = 7
-            while story_range < 9:
+            for story_range in range(7, 8):
                 playable_story_choice.append(range)
 
         #Get the list of latest chapter stories to use in the world
@@ -128,7 +126,7 @@ class OurAscentWorld(World):
                                                       self.options.story_count.value]
 
         #If a story from a later chapter is in the multiworld, it needs its requisite story(ies) from the previous chapter
-        starting_story_pool = self.playable_stories[1]
+        starting_story_pool = self.playable_stories[0]
         if 7 in self.playable_stories:
             self.playable_stories += 1
             self.playable_stories += 2
@@ -137,7 +135,7 @@ class OurAscentWorld(World):
             self.playable_stories += 5
 
         #Get the Glades stories
-        for story_range in range(1, 7):
+        for story_range in range(1, 5):
             if story_range in self.playable_stories:
                 starting_story_pool.append(story_range)
 
