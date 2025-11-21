@@ -1,4 +1,4 @@
-from typing import NamedTuple, Tuple, Dict, Optional, List
+from typing import NamedTuple, Tuple, Dict, Optional
 from BaseClasses import ItemClassification, Item
 
 class ItemData(NamedTuple):

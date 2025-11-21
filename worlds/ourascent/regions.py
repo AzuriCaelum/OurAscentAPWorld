@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import Callable, TYPE_CHECKING
 
 from BaseClasses import Region, Location, CollectionState
@@ -34,7 +36,7 @@ class OurAscentLocation(Location):
     def __init__(self, player: int, name: str = " ", address = None, parent=None):
         super().__init__(player, name, address, parent)
 
-def create_all_regions(world: OurAscentWorld, locations: List[LocationData], options: OurAscentOptions) -> None:
+def create_all_regions(world: "OurAscentWorld", locations: List[LocationData], options: OurAscentOptions) -> None:
 
     multiworld = world.multiworld
     player = world.player
@@ -154,7 +156,7 @@ def create_ap_region(player: int, world: "OurAscentWorld", locations_per_region:
             ap_region.locations.append(location)
     return ap_region
 
-def add_region_exit(self, region: str, exity: str, rules: Optional[str, Callable[[CollectionState], bool]] = None):
+def add_region_exit(self, region: str, exity: str, rules: [str, Callable[[CollectionState], bool]] | None = None):
     if rules is not None:
         for region_rule in rules:
             if not region_rule in exity:

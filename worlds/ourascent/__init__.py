@@ -137,8 +137,7 @@ class OurAscentWorld(World):
             self.playable_stories += 5
 
         #Get the Glades stories
-        story_range = 1
-        while story_range < 7:
+        for story_range in range(1, 7):
             if story_range in self.playable_stories:
                 starting_story_pool.append(story_range)
 
