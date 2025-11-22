@@ -2,8 +2,9 @@ from typing import List, TYPE_CHECKING
 
 from BaseClasses import CollectionState
 from .constants import item_names
-from .options import OurAscentOptions
 from .constants.ap_regions import *
+from .options import OurAscentOptions
+
 
 if TYPE_CHECKING:
     from . import OurAscentWorld
@@ -364,9 +365,6 @@ def goal_regions(state: CollectionState) -> bool:
             if not state.can_reach(LURKING_IN_THE_SHADOWS_8):
                 return False
     return True
-
-
-
 
 apolonia_offense: List[str] = [
     "Equipment - Apolonia Progressive Sword",

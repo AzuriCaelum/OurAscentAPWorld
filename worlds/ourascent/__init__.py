@@ -1,13 +1,12 @@
-#from .world import OurAscentWorld as OurAscentWorld
+from typing import Any, List, Dict
 
-from typing import Any, List, Set, Dict
-
-from BaseClasses import Item, CollectionState, MultiWorld
+from BaseClasses import Item, MultiWorld, ItemClassification, CollectionState
 from worlds.AutoWorld import World
 from . import options, rules, web_world
+from .constants.completions import *
 from .constants.story_data import *
 from .items import OurAscentItem, item_table, ItemData, equipment_offset, accessory_offset, filler_items
-from .locations import get_location_name_to_id, get_main_menu_locations, get_11_locations, get_12_locations, get_13_locations, get_14_locations, get_15_locations
+from .locations import EventId, get_location_name_to_id, get_main_menu_locations, get_11_locations, get_12_locations, get_13_locations, get_14_locations, get_15_locations
 from .regions import create_all_regions
 from .rules import OurAscentLogic, goal_regions
 from .stories import *
@@ -39,29 +38,30 @@ class OurAscentWorld(World):
 
     def create_regions(self) -> None:
 
-        locationss = get_main_menu_locations(self.player, self.options)
+        locationss = get_main_menu_locations(self.player)
         #if 1 in self.playable_stories:
-        locationss.extend(get_11_locations(self.player, self.options))
+        locationss.extend(get_11_locations(self.player))
         #if 2 in self.playable_stories:
-        locationss.extend(get_12_locations(self.player, self.options))
+        locationss.extend(get_12_locations(self.player))
         #if 3 in self.playable_stories:
-        locationss.extend(get_13_locations(self.player, self.options))
+        locationss.extend(get_13_locations(self.player))
         #if 4 in self.playable_stories:
-        locationss.extend(get_14_locations(self.player, self.options))
+        locationss.extend(get_14_locations(self.player))
         #if 5 in self.playable_stories:
-        locationss.extend(get_15_locations(self.player, self.options))
+        locationss.extend(get_15_locations(self.player))
         create_all_regions(self, locationss, self.options)
 
     def set_rules(self) -> None:
-        count = 0
         range = 1
+        required_items = []
         while range < 7:
             if range in self.playable_stories:
-                count += 1
-
-        self.multiworld.completion_condition[self.player] = lambda state: state.has("Story Completed", count)
+                required_items.append(completion_index[range])
+            range += 1
+        self.multiworld.completion_condition[self.player] = lambda state: all(state.has(item, self.player, amount) for (item, amount) in required_items)
 
     def create_items(self) -> None:
+        self.create_and_assign_event_items()
         pool = self.get_all_items()
         self.multiworld.itempool += pool
 
@@ -73,7 +73,10 @@ class OurAscentWorld(World):
         return self.random.choice(filler_items)
 
     def fill_slot_data(self) -> Dict[str, Any]:
-        return self.options.as_dict()
+        return {
+            "playable stories": self.playable_stories,
+            "starting story": self.starting_story
+        }
 
     #def get_excluded_items(self):
     #    excluded_items: Set[str] = set()
@@ -87,31 +90,29 @@ class OurAscentWorld(World):
         pool: List[Item] = []
         amount: int = int(0)
         for name, data in item_table.items():
-            #Get the amount of total items across every story within the world, this may change if there is overlap later
-            if self.options.last_chapter >= 1:
-                if 1 in self.playable_stories:
-                    item = self.set_classification("Character: Playable Apolonia")
+            if 1 in self.playable_stories:
+                for _ in range(data.story11):
+                    item = self.create_item(name)
                     pool.append(item)
-                    equipment_range = 1 + equipment_offset
-                    while equipment_range < (6 + equipment_offset):
-                        amount_range = 1
-                        while amount_range < item.story11:
-                            pool.append(item)
-                    accessory_range = 1 + accessory_offset
-                    while accessory_range < (10 + accessory_offset):
-                        amount_range = 1
-                        while amount_range < item.story11:
-                            pool.append(item)
-                if 2 in self.playable_stories:
-                    amount = amount + int(data.story12)
-                if 3 in self.playable_stories:
-                    amount = amount + int(data.story13)
-                if 4 in self.playable_stories:
-                    amount = amount + int(data.story14)
-                if 5 in self.playable_stories:
-                    amount = amount + int(data.story15)
-                if 6 in self.playable_stories:
-                    amount = amount + int(data.story16)
+            if 2 in self.playable_stories:
+                for _ in range(data.story12):
+                    item = self.create_item(name)
+                    pool.append(item)
+            if 3 in self.playable_stories:
+                for _ in range(data.story13):
+                    item = self.create_item(name)
+                    pool.append(item)
+            if 4 in self.playable_stories:
+                for _ in range(data.story14):
+                    item = self.create_item(name)
+                    pool.append(item)
+            if 5 in self.playable_stories:
+                for _ in range(data.story15):
+                    item = self.create_item(name)
+                    pool.append(item)
+        for _ in range(len(self.multiworld.get_unfilled_locations(self.player)) - len(pool)):
+            item = self.create_item(self.get_filler_item_name())
+            pool.append(item)
         return pool
 
     def generate_early(self):
@@ -138,3 +139,9 @@ class OurAscentWorld(World):
         stories_from_first_chapter = [story for story in stories if story_to_chapter[story] == 1]
         starting_story = self.random.choice(stories_from_first_chapter)
         self.multiworld.push_precollected(self.create_item(playable_character_to_item[starting_story]))
+
+    def create_and_assign_event_items(self) -> None:
+        for location in self.multiworld.get_locations(self.player):
+            if location.address == EventId:
+                item = Item(location.name, ItemClassification.progression, EventId, self.player)
+                location.place_locked_item(item)

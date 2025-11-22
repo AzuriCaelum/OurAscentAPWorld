@@ -1,27 +1,28 @@
-from __future__ import annotations
+from typing import NamedTuple, Optional, Callable
 
-from typing import TYPE_CHECKING, NamedTuple, Optional, Callable, List
+from BaseClasses import Location, Region
 
-from BaseClasses import ItemClassification, Location, CollectionState, Region
-from . import items
-
-#from .regions import *
-from .options import *
 from .rules import *
-from .items import ItemData, OurAscentItem
 
 if TYPE_CHECKING:
 	from . import OurAscentWorld
 
+EventId: Optional[int] = None
 
 class OurAscentLocation(Location):
 	game = "Our Ascent"
+
+class LocationData(NamedTuple):
+	regions: str
+	name: str
+	code: Optional[int]
+	rule: Optional[Callable[[CollectionState], bool]] = None
 
 #def get_location_names_with_ids(location_names: list[str]) -> dict[str, int | None]:
 #    return {location_name: LOCATION_NAME_TO_ID[location_name] for location_name in location_names}
 
 def get_location_name_to_id() -> dict[str, int]:
-	location_name_to_id = {location.name: location.code for location in get_11_locations(-1, None)}
+	location_name_to_id = {location.name: location.code for location in get_11_locations(-1)}
 
 	#location_name_to_id.update()
 	return location_name_to_id
@@ -40,35 +41,11 @@ hina_offset = 200001
 lan_offset = 300001
 sibyl_offset = 400001
 
-class LocationData(NamedTuple):
-	regions: str
-	name: str
-	code: int
-	rule: Optional[Callable[[CollectionState], bool]] = None
-
-def create_completion(world: OurAscentWorld, player:int, region: Region) -> None:
-	if 1 in world.playable_stories:
-		completion_11 = world.get_region(FALLING_INTO_CHAOS_8)
-		completion_11.add_event("Story 1-1 Completed", "Story Completion - 1-1", location_type=OurAscentLocation, item_type=OurAscentItem)
-	if 2 in world.playable_stories:
-		completion_12 = world.get_region(RISING_TO_THE_CHALLENGE_8)
-		completion_12.add_event("Story 1-2 Completed", "Story Completion - 1-2", location_type=OurAscentLocation, item_type=OurAscentItem)
-	if 3 in world.playable_stories:
-		completion_13 = world.get_region(UNLEASHING_THE_BEAST_8)
-		completion_13.add_event("Story 1-3 Completed", "Story Completion - 1-3", location_type=OurAscentLocation, item_type=OurAscentItem)
-	if 4 in world.playable_stories:
-		completion_14 = world.get_region(HUNTING_FOR_TRUTH_8)
-		completion_14.add_event("Story 1-4 Completed", "Story Completion - 1-4", location_type=OurAscentLocation, item_type=OurAscentItem)
-	if 5 in world.playable_stories:
-		completion_15 = world.get_region(LURKING_IN_THE_SHADOWS_8)
-		completion_15.add_event("Story 1-5 Completed", "Story Completion - 1-5", location_type=OurAscentLocation, item_type=OurAscentItem)
-	#region.add_event("Story Complete", "Story Completion", location_type=OurAscentLocation, item_type=OurAscentItem)
-
-def get_main_menu_locations(player: int, options: OurAscentOptions | None) -> List[LocationData]:
+def get_main_menu_locations(player: int) -> List[LocationData]:
 	return []
 
-def get_11_locations(player: int, options: OurAscentOptions | None) -> List[LocationData]:
-	logic = OurAscentLogic(player, options)
+def get_11_locations(player: int) -> List[LocationData]:
+	#logic = OurAscentLogic(player, options)
 	location_table: List[LocationData] = [
 		#Glades Story 1 Enemies
 		LocationData("FALLING_INTO_CHAOS_0", "1-1 Enemy - (1) Blue Slime", 1 + apolonia_offset),
@@ -208,7 +185,7 @@ def get_11_locations(player: int, options: OurAscentOptions | None) -> List[Loca
 		LocationData("FALLING_INTO_CHAOS_8", "1-1 Enemy - (10k L) Locuswarm", 135 + apolonia_offset),
 		LocationData("FALLING_INTO_CHAOS_8", "1-1 Enemy - (10k L) Parapede", 136 + apolonia_offset),
 		LocationData("FALLING_INTO_CHAOS_8", "1-1 Enemy - (10k L) Fairy Fillia (Boss)", 137 + apolonia_offset),
-		LocationData("FALLING_INTO_CHAOS_8", "1-1 Story Completion", 138 + apolonia_offset),
+		LocationData("FALLING_INTO_CHAOS_8", "1-1 Story Completion", EventId),
 
 		#Apolonia's Chapter 1 Equipment
 		LocationData("FALLING_INTO_CHAOS_1", "Apolonia Equipment - (Sword 1-1) Fragile Sword", 139 + apolonia_offset),
@@ -297,8 +274,8 @@ def get_11_locations(player: int, options: OurAscentOptions | None) -> List[Loca
 ]
 	return location_table
 
-def get_12_locations(player: int, options: OurAscentOptions | None) -> List[LocationData]:
-	logic = OurAscentLogic(player, options)
+def get_12_locations(player: int) -> List[LocationData]:
+	#logic = OurAscentLogic(player, options)
 	location_table: List[LocationData] = [
 		#Glades Story 1 Enemies
 		LocationData("RISING_TO_THE_CHALLENGE_0", "1-2 Enemy - (1) Blue Slime", 1 + stan_offset),
@@ -438,7 +415,7 @@ def get_12_locations(player: int, options: OurAscentOptions | None) -> List[Loca
 		LocationData("RISING_TO_THE_CHALLENGE_8", "1-2 Enemy - (10k L) Locuswarm", 135 + stan_offset),
 		LocationData("RISING_TO_THE_CHALLENGE_8", "1-2 Enemy - (10k L) Parapede", 136 + stan_offset),
 		LocationData("RISING_TO_THE_CHALLENGE_8", "1-2 Enemy - (10k L) Fairy Fillia (Boss)", 137 + stan_offset),
-		LocationData("RISING_TO_THE_CHALLENGE_8", "1-2 Story Completion", 138 + stan_offset),
+		LocationData("RISING_TO_THE_CHALLENGE_8", "1-2 Story Completion", EventId),
 
 		#Stan's Chapter 1 Equipment
 		LocationData("RISING_TO_THE_CHALLENGE_1", "Stan Equipment - (Sword 1-1) Fragile Longsword", 139 + stan_offset),
@@ -527,8 +504,8 @@ def get_12_locations(player: int, options: OurAscentOptions | None) -> List[Loca
 ]
 	return location_table
 
-def get_13_locations(player: int, options: OurAscentOptions | None) -> List[LocationData]:
-	logic = OurAscentLogic(player, options)
+def get_13_locations(player: int) -> List[LocationData]:
+	#logic = OurAscentLogic(player, options)
 	location_table: List[LocationData] = [
 		#Glades Story 1 Enemies
 		LocationData("UNLEASHING_THE_BEAST_0", "1-3 Enemy - (1) Blue Slime", 1 + hina_offset),
@@ -668,7 +645,7 @@ def get_13_locations(player: int, options: OurAscentOptions | None) -> List[Loca
 		LocationData("UNLEASHING_THE_BEAST_8", "1-3 Enemy - (10k L) Locuswarm", 135 + hina_offset),
 		LocationData("UNLEASHING_THE_BEAST_8", "1-3 Enemy - (10k L) Parapede", 136 + hina_offset),
 		LocationData("UNLEASHING_THE_BEAST_8", "1-3 Enemy - (10k L) Fairy Fillia (Boss)", 137 + hina_offset),
-		LocationData("UNLEASHING_THE_BEAST_8", "1-3 Story Completion", 138 + hina_offset),
+		LocationData("UNLEASHING_THE_BEAST_8", "1-3 Story Completion", EventId),
 
 		#Hina's Chapter 1 Equipment
 		LocationData("UNLEASHING_THE_BEAST_1", "Hina Equipment - (Right Weapon 1-1) Wooden Club", 139 + hina_offset),
@@ -765,148 +742,148 @@ def get_13_locations(player: int, options: OurAscentOptions | None) -> List[Loca
 ]
 	return location_table
 
-def get_14_locations(player: int, options: OurAscentOptions | None) -> List[LocationData]:
-	logic = OurAscentLogic(player, options)
+def get_14_locations(player: int) -> List[LocationData]:
+	#logic = OurAscentLogic(player, options)
 	location_table: List[LocationData] = [
 		#Glades Story 1 Enemies
-		LocationData("HUNTING_FOR_TRUTH_0", "1-3 Enemy - (1) Blue Slime", 1 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_0", "1-3 Enemy - (1) Cute Pollen", 2 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_0", "1-3 Enemy - (1) Fluff Ball", 3 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_0", "1-3 Enemy - (1) Happy Flower", 4 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_0", "1-3 Enemy - (10) Armapillar", 5 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_0", "1-3 Enemy - (10) Darkluff", 6 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_0", "1-3 Enemy - (10) Noxluff:", 7 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_0", "1-3 Enemy - (10) Shrooma:", 8 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_0", "1-3 Enemy - (25) Lunarfly", 9 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_0", "1-3 Enemy - (25) R.ouch", 10 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_0", "1-3 Enemy - (25) Tridentpupa", 11 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_0", "1-3 Enemy - (40) Angrbee", 12 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_0", "1-3 Enemy - (40) Angropper", 13 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_0", "1-3 Enemy - (40) Angrot", 14 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_0", "1-3 Enemy - (60) Firecada", 15 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_0", "1-3 Enemy - (60) Firecarab", 16 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_0", "1-3 Enemy - (60) Firent", 17 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_0", "1-3 Enemy - (60) Firetick", 18 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_0", "1-3 Enemy - (80) Angrspore", 19 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_0", "1-3 Enemy - (80) Angrstrider", 20 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_0", "1-3 Enemy - (80) Angrull", 21 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_0", "1-3 Enemy - (80) Angrurker", 22 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_0", "1-3 Enemy - (100) Attacker Slime", 23 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_0", "1-3 Enemy - (100) Buffer Slime", 24 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_0", "1-3 Enemy - (100) Caster Slime", 25 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_0", "1-3 Enemy - (100) Debuffer Slime", 26 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_0", "1-3 Enemy - (100) Defender Slime", 27 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_0", "1-3 Enemy - (100) Healer Slime", 28 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_0", "1-3 Enemy - (100) Slime King (Boss)", 29 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_2", "1-3 Enemy - (150) Corrupted Shell", 30 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_2", "1-3 Enemy - (150) Killer Urchin", 31 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_2", "1-3 Enemy - (150) Hermit Crabber", 32 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_2", "1-3 Enemy - (250) Blue Draglug", 33 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_2", "1-3 Enemy - (250) Corrupted Starfish", 34 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_2", "1-3 Enemy - (250) Star n' Shell", 35 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_2", "1-3 Enemy - (360) Jellyhead", 36 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_2", "1-3 Enemy - (360) Lickitoad", 37 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_2", "1-3 Enemy - (360) Shorsea", 38 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_2", "1-3 Enemy - (490) Droozuna", 39 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_2", "1-3 Enemy - (490) Manyfin", 40 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_2", "1-3 Enemy - (490) Starthree", 41 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_2", "1-3 Enemy - (700) Ambominaish", 42 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_2", "1-3 Enemy - (700) Horntle", 43 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_2", "1-3 Enemy - (700) Piranos", 44 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_2", "1-3 Enemy - (700) Skullface", 45 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_2", "1-3 Enemy - (700) Fish Emperor (Boss)", 46 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_4", "1-3 Enemy - (1200) Imperiacrab", 47 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_4", "1-3 Enemy - (1200) Imperiobster", 48 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_4", "1-3 Enemy - (1200) Imperiatrider", 49 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_4", "1-3 Enemy - (1200) Imperiartle", 50 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_4", "1-3 Enemy - (1200) Crab Emperor (Boss)", 51 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_1", "1-3 Enemy - (70) Crabber", 52 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_1", "1-3 Enemy - (70) Rotund Toad", 53 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_1", "1-3 Enemy - (70) Spikestar", 54 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_1", "1-3 Enemy - (130) Fat Frog Bat", 55 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_1", "1-3 Enemy - (130) Octibaby", 56 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_1", "1-3 Enemy - (130) Purple Shelly", 57 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_1", "1-3 Enemy - (200) DragonflyX", 58 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_1", "1-3 Enemy - (200) DragonflyY", 59 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_1", "1-3 Enemy - (200) Evil Shrooma", 60 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_1", "1-3 Enemy - (200) Hauntree", 61 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_1", "1-3 Enemy - (200) Stingoth (Boss)", 62 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_3", "1-3 Enemy - (290) Weed Cannon", 63 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_3", "1-3 Enemy - (290) PPPELICAN!!!", 64 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_3", "1-3 Enemy - (290) Tortoad", 65 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_3", "1-3 Enemy - (370) Rabbandit", 66 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_3", "1-3 Enemy - (370) Rabbarcher", 67 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_3", "1-3 Enemy - (370) Rabbight", 68 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_3", "1-3 Enemy - (444) Drink!", 69 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_3", "1-3 Enemy - (444) Loot!", 70 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_3", "1-3 Enemy - (444) Throw", 71 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_3", "1-3 Enemy - (500) Sword Angrant", 72 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_3", "1-3 Enemy - (500) Archer Ant", 73 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_3", "1-3 Enemy - (500) Hell Mantis", 74 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_3", "1-3 Enemy - (500) Sickle Mantis", 75 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_3", "1-3 Enemy - (500) Sword Ant", 76 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_3", "1-3 Enemy - (500) Mothapillar (Boss)", 77 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_5", "1-3 Enemy - (580) Berserker Ant", 78 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_5", "1-3 Enemy - (580) Mage Ant", 79 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_5", "1-3 Enemy - (580) Protector Ant", 80 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_5", "1-3 Enemy - (670) Archer Goblin", 81 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_5", "1-3 Enemy - (670) Grunt Goblin", 82 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_5", "1-3 Enemy - (670) Mage Goblin", 83 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_5", "1-3 Enemy - (670) Raider Goblin", 84 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_5", "1-3 Enemy - (670) Elite Goblin", 85 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_5", "1-3 Enemy - (888) Hide!", 86 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_5", "1-3 Enemy - (888) Open!", 87 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_5", "1-3 Enemy - (888) Wear!", 88 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_5", "1-3 Enemy - (1111) Close!", 89 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_5", "1-3 Enemy - (1111) Hi!", 90 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_5", "1-3 Enemy - (1111) Look!", 91 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_6", "1-3 Enemy - (1414) Fear!", 92 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_6", "1-3 Enemy - (1414) Fill!", 93 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_6", "1-3 Enemy - (1414) Kill!", 94 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_5", "1-3 Enemy - (1300) Parapillar", 95 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_5", "1-3 Enemy - (1300) Serrant", 96 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_5", "1-3 Enemy - (1300) Spidow", 97 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_5", "1-3 Enemy - (1300) Queen Spidow (Boss)", 98 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_6", "1-3 Enemy - (1600) Bucket Jellyfish", 99 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_6", "1-3 Enemy - (1600) Mega Octo Mind", 100 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_6", "1-3 Enemy - (1600) SharkNATO", 101 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_6", "1-3 Enemy - (1600) Voxai", 102 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_6", "1-3 Enemy - (1900) BIG BAT", 103 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_6", "1-3 Enemy - (1900) BIG CROW", 104 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_6", "1-3 Enemy - (1900) BIG SCORP", 105 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_6", "1-3 Enemy - (2222) Plunder!", 106 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_6", "1-3 Enemy - (2222) Shoot!", 107 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_6", "1-3 Enemy - (2222) Slice!", 108 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_6", "1-3 Enemy - (2525) Defend!", 109 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_6", "1-3 Enemy - (2525) Die!", 110 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_6", "1-3 Enemy - (2525) Read!", 111 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_6", "1-3 Enemy - (3000) Angranda", 112 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_6", "1-3 Enemy - (3000) Angrdeer", 113 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_6", "1-3 Enemy - (3000) Angree", 114 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_6", "1-3 Enemy - (3000) Angrlower", 115 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_6", "1-3 Enemy - (3000) Anground (Boss)", 116 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_7", "1-3 Enemy - (3250) Axe Orc", 117 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_7", "1-3 Enemy - (3750) Sword Orc", 118 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_7", "1-3 Enemy - (3838) Archer Orc", 119 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_7", "1-3 Enemy - (3838) Mimic! (Boss)", 120 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_7", "1-3 Enemy - (4250) Warlock Orc", 121 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_7", "1-3 Enemy - (5000) Hog Rider!!!", 122 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_7", "1-3 Enemy - (5000) El Goblino (Boss)", 123 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_8", "1-3 Enemy - (6000) Baked Snake", 124 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_8", "1-3 Enemy - (6000) Ice Mantis", 125 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_8", "1-3 Enemy - (6000) Harrowed Hydra", 126 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_8", "1-3 Enemy - (7500) Hypo Ice Mantis", 127 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_8", "1-3 Enemy - (7500) Bothered Bidra", 128 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_8", "1-3 Enemy - (7500) Tyrannical Rex", 129 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_8", "1-3 Enemy - (10k R) Troubled Tridra", 130 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_8", "1-3 Enemy - (10k R) Flame Wolf", 131 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_8", "1-3 Enemy - (10k R) Jeweled Bear", 132 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_8", "1-3 Enemy - (10k R) Fairy Zephyria (Boss)", 133 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_8", "1-3 Enemy - (10k L) Butteragonfly", 134 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_8", "1-3 Enemy - (10k L) Locuswarm", 135 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_8", "1-3 Enemy - (10k L) Parapede", 136 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_8", "1-3 Enemy - (10k L) Fairy Fillia (Boss)", 137 + lan_offset),
-		LocationData("HUNTING_FOR_TRUTH_8", "1-3 Story Completion", 138 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_0", "1-4 Enemy - (1) Blue Slime", 1 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_0", "1-4 Enemy - (1) Cute Pollen", 2 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_0", "1-4 Enemy - (1) Fluff Ball", 3 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_0", "1-4 Enemy - (1) Happy Flower", 4 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_0", "1-4 Enemy - (10) Armapillar", 5 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_0", "1-4 Enemy - (10) Darkluff", 6 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_0", "1-4 Enemy - (10) Noxluff:", 7 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_0", "1-4 Enemy - (10) Shrooma:", 8 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_0", "1-4 Enemy - (25) Lunarfly", 9 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_0", "1-4 Enemy - (25) R.ouch", 10 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_0", "1-4 Enemy - (25) Tridentpupa", 11 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_0", "1-4 Enemy - (40) Angrbee", 12 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_0", "1-4 Enemy - (40) Angropper", 13 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_0", "1-4 Enemy - (40) Angrot", 14 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_0", "1-4 Enemy - (60) Firecada", 15 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_0", "1-4 Enemy - (60) Firecarab", 16 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_0", "1-4 Enemy - (60) Firent", 17 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_0", "1-4 Enemy - (60) Firetick", 18 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_0", "1-4 Enemy - (80) Angrspore", 19 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_0", "1-4 Enemy - (80) Angrstrider", 20 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_0", "1-4 Enemy - (80) Angrull", 21 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_0", "1-4 Enemy - (80) Angrurker", 22 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_0", "1-4 Enemy - (100) Attacker Slime", 23 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_0", "1-4 Enemy - (100) Buffer Slime", 24 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_0", "1-4 Enemy - (100) Caster Slime", 25 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_0", "1-4 Enemy - (100) Debuffer Slime", 26 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_0", "1-4 Enemy - (100) Defender Slime", 27 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_0", "1-4 Enemy - (100) Healer Slime", 28 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_0", "1-4 Enemy - (100) Slime King (Boss)", 29 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_2", "1-4 Enemy - (150) Corrupted Shell", 30 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_2", "1-4 Enemy - (150) Killer Urchin", 31 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_2", "1-4 Enemy - (150) Hermit Crabber", 32 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_2", "1-4 Enemy - (250) Blue Draglug", 33 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_2", "1-4 Enemy - (250) Corrupted Starfish", 34 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_2", "1-4 Enemy - (250) Star n' Shell", 35 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_2", "1-4 Enemy - (360) Jellyhead", 36 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_2", "1-4 Enemy - (360) Lickitoad", 37 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_2", "1-4 Enemy - (360) Shorsea", 38 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_2", "1-4 Enemy - (490) Droozuna", 39 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_2", "1-4 Enemy - (490) Manyfin", 40 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_2", "1-4 Enemy - (490) Starthree", 41 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_2", "1-4 Enemy - (700) Ambominaish", 42 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_2", "1-4 Enemy - (700) Horntle", 43 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_2", "1-4 Enemy - (700) Piranos", 44 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_2", "1-4 Enemy - (700) Skullface", 45 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_2", "1-4 Enemy - (700) Fish Emperor (Boss)", 46 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_4", "1-4 Enemy - (1200) Imperiacrab", 47 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_4", "1-4 Enemy - (1200) Imperiobster", 48 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_4", "1-4 Enemy - (1200) Imperiatrider", 49 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_4", "1-4 Enemy - (1200) Imperiartle", 50 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_4", "1-4 Enemy - (1200) Crab Emperor (Boss)", 51 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_1", "1-4 Enemy - (70) Crabber", 52 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_1", "1-4 Enemy - (70) Rotund Toad", 53 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_1", "1-4 Enemy - (70) Spikestar", 54 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_1", "1-4 Enemy - (130) Fat Frog Bat", 55 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_1", "1-4 Enemy - (130) Octibaby", 56 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_1", "1-4 Enemy - (130) Purple Shelly", 57 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_1", "1-4 Enemy - (200) DragonflyX", 58 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_1", "1-4 Enemy - (200) DragonflyY", 59 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_1", "1-4 Enemy - (200) Evil Shrooma", 60 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_1", "1-4 Enemy - (200) Hauntree", 61 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_1", "1-4 Enemy - (200) Stingoth (Boss)", 62 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_3", "1-4 Enemy - (290) Weed Cannon", 63 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_3", "1-4 Enemy - (290) PPPELICAN!!!", 64 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_3", "1-4 Enemy - (290) Tortoad", 65 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_3", "1-4 Enemy - (370) Rabbandit", 66 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_3", "1-4 Enemy - (370) Rabbarcher", 67 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_3", "1-4 Enemy - (370) Rabbight", 68 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_3", "1-4 Enemy - (444) Drink!", 69 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_3", "1-4 Enemy - (444) Loot!", 70 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_3", "1-4 Enemy - (444) Throw", 71 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_3", "1-4 Enemy - (500) Sword Angrant", 72 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_3", "1-4 Enemy - (500) Archer Ant", 73 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_3", "1-4 Enemy - (500) Hell Mantis", 74 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_3", "1-4 Enemy - (500) Sickle Mantis", 75 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_3", "1-4 Enemy - (500) Sword Ant", 76 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_3", "1-4 Enemy - (500) Mothapillar (Boss)", 77 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_5", "1-4 Enemy - (580) Berserker Ant", 78 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_5", "1-4 Enemy - (580) Mage Ant", 79 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_5", "1-4 Enemy - (580) Protector Ant", 80 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_5", "1-4 Enemy - (670) Archer Goblin", 81 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_5", "1-4 Enemy - (670) Grunt Goblin", 82 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_5", "1-4 Enemy - (670) Mage Goblin", 83 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_5", "1-4 Enemy - (670) Raider Goblin", 84 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_5", "1-4 Enemy - (670) Elite Goblin", 85 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_5", "1-4 Enemy - (888) Hide!", 86 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_5", "1-4 Enemy - (888) Open!", 87 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_5", "1-4 Enemy - (888) Wear!", 88 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_5", "1-4 Enemy - (1111) Close!", 89 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_5", "1-4 Enemy - (1111) Hi!", 90 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_5", "1-4 Enemy - (1111) Look!", 91 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_6", "1-4 Enemy - (1414) Fear!", 92 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_6", "1-4 Enemy - (1414) Fill!", 93 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_6", "1-4 Enemy - (1414) Kill!", 94 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_5", "1-4 Enemy - (1300) Parapillar", 95 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_5", "1-4 Enemy - (1300) Serrant", 96 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_5", "1-4 Enemy - (1300) Spidow", 97 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_5", "1-4 Enemy - (1300) Queen Spidow (Boss)", 98 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_6", "1-4 Enemy - (1600) Bucket Jellyfish", 99 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_6", "1-4 Enemy - (1600) Mega Octo Mind", 100 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_6", "1-4 Enemy - (1600) SharkNATO", 101 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_6", "1-4 Enemy - (1600) Voxai", 102 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_6", "1-4 Enemy - (1900) BIG BAT", 103 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_6", "1-4 Enemy - (1900) BIG CROW", 104 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_6", "1-4 Enemy - (1900) BIG SCORP", 105 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_6", "1-4 Enemy - (2222) Plunder!", 106 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_6", "1-4 Enemy - (2222) Shoot!", 107 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_6", "1-4 Enemy - (2222) Slice!", 108 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_6", "1-4 Enemy - (2525) Defend!", 109 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_6", "1-4 Enemy - (2525) Die!", 110 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_6", "1-4 Enemy - (2525) Read!", 111 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_6", "1-4 Enemy - (3000) Angranda", 112 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_6", "1-4 Enemy - (3000) Angrdeer", 113 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_6", "1-4 Enemy - (3000) Angree", 114 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_6", "1-4 Enemy - (3000) Angrlower", 115 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_6", "1-4 Enemy - (3000) Anground (Boss)", 116 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_7", "1-4 Enemy - (3250) Axe Orc", 117 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_7", "1-4 Enemy - (3750) Sword Orc", 118 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_7", "1-4 Enemy - (3838) Archer Orc", 119 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_7", "1-4 Enemy - (3838) Mimic! (Boss)", 120 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_7", "1-4 Enemy - (4250) Warlock Orc", 121 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_7", "1-4 Enemy - (5000) Hog Rider!!!", 122 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_7", "1-4 Enemy - (5000) El Goblino (Boss)", 123 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_8", "1-4 Enemy - (6000) Baked Snake", 124 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_8", "1-4 Enemy - (6000) Ice Mantis", 125 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_8", "1-4 Enemy - (6000) Harrowed Hydra", 126 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_8", "1-4 Enemy - (7500) Hypo Ice Mantis", 127 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_8", "1-4 Enemy - (7500) Bothered Bidra", 128 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_8", "1-4 Enemy - (7500) Tyrannical Rex", 129 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_8", "1-4 Enemy - (10k R) Troubled Tridra", 130 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_8", "1-4 Enemy - (10k R) Flame Wolf", 131 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_8", "1-4 Enemy - (10k R) Jeweled Bear", 132 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_8", "1-4 Enemy - (10k R) Fairy Zephyria (Boss)", 133 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_8", "1-4 Enemy - (10k L) Butteragonfly", 134 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_8", "1-4 Enemy - (10k L) Locuswarm", 135 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_8", "1-4 Enemy - (10k L) Parapede", 136 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_8", "1-4 Enemy - (10k L) Fairy Fillia (Boss)", 137 + lan_offset),
+		LocationData("HUNTING_FOR_TRUTH_8", "1-4 Story Completion", EventId),
 
 		#Lan's Chapter 1 Equipment
 		LocationData("HUNTING_FOR_TRUTH_1", "Lan Equipment - (Bow 1-1) Fractured Bow", 139 + lan_offset),
@@ -998,8 +975,8 @@ def get_14_locations(player: int, options: OurAscentOptions | None) -> List[Loca
 	return location_table
 
 
-def get_15_locations(player: int, options: OurAscentOptions | None) -> List[LocationData]:
-	logic = OurAscentLogic(player, options)
+def get_15_locations(player: int) -> List[LocationData]:
+	#logic = OurAscentLogic(player, options)
 	location_table: List[LocationData] = [
 		# Glades Story 1 Enemies
 		LocationData("LURKING_IN_THE_SHADOWS_0", "1-5 Enemy - (1) Blue Slime", 1 + sibyl_offset),
@@ -1139,7 +1116,7 @@ def get_15_locations(player: int, options: OurAscentOptions | None) -> List[Loca
 		LocationData("LURKING_IN_THE_SHADOWS_8", "1-5 Enemy - (10k L) Locuswarm", 135 + sibyl_offset),
 		LocationData("LURKING_IN_THE_SHADOWS_8", "1-5 Enemy - (10k L) Parapede", 136 + sibyl_offset),
 		LocationData("LURKING_IN_THE_SHADOWS_8", "1-5 Enemy - (10k L) Fairy Fillia (Boss)", 137 + sibyl_offset),
-		LocationData("LURKING_IN_THE_SHADOWS_8", "1-5 Story Completion", 138 + sibyl_offset),
+		LocationData("LURKING_IN_THE_SHADOWS_8", "1-5 Story Completion", EventId),
 
 		# Sibyl's Chapter 1 Equipment
 		LocationData("LURKING_IN_THE_SHADOWS_1", "Sibyl Equipment - (Accessory 1-1) Tooth Amulet", 139 + sibyl_offset),
