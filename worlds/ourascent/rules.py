@@ -1,6 +1,7 @@
 from typing import List, TYPE_CHECKING
 
 from BaseClasses import CollectionState
+from .constants import item_names
 from .options import OurAscentOptions
 from .constants.ap_regions import *
 
@@ -15,20 +16,335 @@ class OurAscentLogic:
         self.player = player
         self.options = options
 
-    def apolonia_power(self, state: CollectionState, amount: int) -> bool:
-        return state.has_from_list(apolonia_offense, self.player, amount)
+    def apolonia_power(self, state: CollectionState, progression: int, amount: int) -> bool:
+        power = 0
+        #Determine the total power of Apolonia's equipment. Only take the highest progression step due to scaling.
+        count1 = state.count(item_names.APOLONIA_SWORD, self.player)
+        count2 = state.count(item_names.APOLONIA_SHIELD, self.player)
+        count3 = state.count(item_names.APOLONIA_HELMET, self.player)
+        count4 = state.count(item_names.APOLONIA_BREASTPLATE, self.player)
+        count5 = state.count(item_names.APOLONIA_GLOVES, self.player)
+        count6 = state.count(item_names.APOLONIA_BOOTS, self.player)
+        if progression >= 3: #Max 9
+            if count1 >= 9:
+                power = power + 2
+            elif count1 >= 8:
+                power += power
+            if count2 >= 7:
+                power += power
+            if count3 >= 8:
+                power += power
+            if count4 >= 9:
+                power = power + 2
+            elif count4 >= 8:
+                power += power
+            if count5 >= 9:
+                power += power
+            if count6 >= 8:
+                power = power + 2
+            elif count6 >= 7:
+                power += power
+        elif progression >= 2: #Max 11
+            if count1 >= 6:
+                power = power + 2
+            elif count1 >= 4:
+                power += power
+            if count2 >= 5:
+                power = power + 2
+            elif count2 >= 4:
+                power += power
+            if count3 >= 6:
+                power = power + 2
+            elif count3 >= 5:
+                power = power + 1
+            if count4 >= 5:
+                power += power
+            if count5 >= 6:
+                power = power + 2
+            elif count5 >= 5:
+                power += power
+            if count6 >= 6:
+                power = power + 2
+            elif count6 >= 4:
+                power += power
+        elif progression == 1: #Max 6
+            if count1 >= 2:
+                power += power
+            if count2 >= 2:
+                power += power
+            if count3 >= 3:
+                power += power
+            if count4 >= 3:
+                power += power
+            if count5 >= 3:
+                power += power
+            if count6 >= 2:
+                power += power
+        return power >= amount
 
-    def stan_power(self, state: CollectionState, amount: int) -> bool:
-        return state.has_from_list(stan_offense, self.player, amount)
+    def stan_power(self, state: CollectionState, progression: int, amount: int) -> bool:
+        power = 0
+        #Determine the total power of Stan's equipment. Only take the highest progression step due to scaling.
+        count1 = state.count(item_names.STAN_SWORD, self.player)
+        count2 = state.count(item_names.STAN_SNACK, self.player)
+        count3 = state.count(item_names.STAN_SHIRT, self.player)
+        count4 = state.count(item_names.STAN_GLOVES, self.player)
+        count5 = state.count(item_names.STAN_BELT, self.player)
+        count6 = state.count(item_names.STAN_PANTS, self.player)
+        if progression >= 3: #Max 9
+            if count1 >= 9:
+                power = power + 2
+            elif count1 >= 8:
+                power += power
+            if count2 >= 7:
+                power += power
+            if count3 >= 8:
+                power += power
+            if count4 >= 9:
+                power = power + 2
+            elif count4 >= 8:
+                power += power
+            if count5 >= 9:
+                power += power
+            if count6 >= 8:
+                power = power + 2
+            elif count6 >= 7:
+                power += power
+        elif progression >= 2: #Max 11
+            if count1 >= 6:
+                power = power + 2
+            elif count1 >= 4:
+                power += power
+            if count2 >= 5:
+                power = power + 2
+            elif count2 >= 4:
+                power += power
+            if count3 >= 6:
+                power = power + 2
+            elif count3 >= 5:
+                power = power + 1
+            if count4 >= 5:
+                power += power
+            if count5 >= 6:
+                power = power + 2
+            elif count5 >= 5:
+                power += power
+            if count6 >= 6:
+                power = power + 2
+            elif count6 >= 4:
+                power += power
+        elif progression == 1: #Max 6
+            if count1 >= 2:
+                power += power
+            if count2 >= 2:
+                power += power
+            if count3 >= 3:
+                power += power
+            if count4 >= 3:
+                power += power
+            if count5 >= 3:
+                power += power
+            if count6 >= 2:
+                power += power
+        return power >= amount
 
-    def hina_power(self, state: CollectionState, amount: int) -> bool:
-        return state.has_from_list(hina_offense, self.player, amount)
+    def hina_power(self, state: CollectionState, progression: int, amount: int) -> bool:
+        power = 0
+        #Determine the total power of Hina's equipment. Only take the highest progression step due to scaling.
+        count1 = state.count(item_names.HINA_RWEAPON, self.player)
+        count2 = state.count(item_names.HINA_SNACK, self.player)
+        count3 = state.count(item_names.HINA_HELMET, self.player)
+        count4 = state.count(item_names.HINA_SHIRT, self.player)
+        count5 = state.count(item_names.HINA_CLOAK, self.player)
+        count6 = state.count(item_names.HINA_LWEAPON, self.player)
+        if progression >= 3: #Max 9
+            if count1 >= 9:
+                power = power + 2
+            elif count1 >= 8:
+                power += power
+            if count2 >= 7:
+                power += power
+            if count3 >= 8:
+                power += power
+            if count4 >= 9:
+                power = power + 2
+            elif count4 >= 8:
+                power += power
+            if count5 >= 9:
+                power += power
+            if count6 >= 8:
+                power = power + 2
+            elif count6 >= 7:
+                power += power
+        elif progression >= 2: #Max 11
+            if count1 >= 6:
+                power = power + 2
+            elif count1 >= 4:
+                power += power
+            if count2 >= 5:
+                power = power + 2
+            elif count2 >= 4:
+                power += power
+            if count3 >= 6:
+                power = power + 2
+            elif count3 >= 5:
+                power = power + 1
+            if count4 >= 5:
+                power += power
+            if count5 >= 6:
+                power = power + 2
+            elif count5 >= 5:
+                power += power
+            if count6 >= 6:
+                power = power + 2
+            elif count6 >= 4:
+                power += power
+        elif progression == 1: #Max 6
+            if count1 >= 2:
+                power += power
+            if count2 >= 2:
+                power += power
+            if count3 >= 3:
+                power += power
+            if count4 >= 3:
+                power += power
+            if count5 >= 3:
+                power += power
+            if count6 >= 2:
+                power += power
+        return power >= amount
 
-    def lan_power(self, state: CollectionState, amount: int) -> bool:
-        return state.has_from_list(lan_offense, self.player, amount)
+    def lan_power(self, state: CollectionState, progression: int, amount: int) -> bool:
+        power = 0
+        #Determine the total power of Lan's equipment. Only take the highest progression step due to scaling.
+        count1 = state.count(item_names.LAN_BOW, self.player)
+        count2 = state.count(item_names.LAN_ARROW, self.player)
+        count3 = state.count(item_names.LAN_HAT, self.player)
+        count4 = state.count(item_names.LAN_BELT, self.player)
+        count5 = state.count(item_names.LAN_CLOAK, self.player)
+        count6 = state.count(item_names.LAN_PANTS, self.player)
+        if progression >= 3: #Max 9
+            if count1 >= 9:
+                power = power + 2
+            elif count1 >= 8:
+                power += power
+            if count2 >= 7:
+                power += power
+            if count3 >= 8:
+                power += power
+            if count4 >= 9:
+                power = power + 2
+            elif count4 >= 8:
+                power += power
+            if count5 >= 9:
+                power += power
+            if count6 >= 8:
+                power = power + 2
+            elif count6 >= 7:
+                power += power
+        elif progression >= 2: #Max 11
+            if count1 >= 6:
+                power = power + 2
+            elif count1 >= 4:
+                power += power
+            if count2 >= 5:
+                power = power + 2
+            elif count2 >= 4:
+                power += power
+            if count3 >= 6:
+                power = power + 2
+            elif count3 >= 5:
+                power = power + 1
+            if count4 >= 5:
+                power += power
+            if count5 >= 6:
+                power = power + 2
+            elif count5 >= 5:
+                power += power
+            if count6 >= 6:
+                power = power + 2
+            elif count6 >= 4:
+                power += power
+        elif progression == 1: #Max 6
+            if count1 >= 2:
+                power += power
+            if count2 >= 2:
+                power += power
+            if count3 >= 3:
+                power += power
+            if count4 >= 3:
+                power += power
+            if count5 >= 3:
+                power += power
+            if count6 >= 2:
+                power += power
+        return power >= amount
 
-    def sibyl_power(self, state: CollectionState, amount: int) -> bool:
-        return state.has_from_list(sibyl_offense, self.player, amount)
+    def sibyl_power(self, state: CollectionState, progression: int, amount: int) -> bool:
+        power = 0
+        #Determine the total power of Sibyl's equipment. Only take the highest progression step due to scaling.
+        count1 = state.count(item_names.SIBYL_ACCESSORY, self.player)
+        count2 = state.count(item_names.SIBYL_LWEAPON, self.player)
+        count3 = state.count(item_names.SIBYL_RWEAPON, self.player)
+        count4 = state.count(item_names.SIBYL_POUCH, self.player)
+        count5 = state.count(item_names.SIBYL_GLOVES, self.player)
+        count6 = state.count(item_names.SIBYL_BOOTS, self.player)
+        if progression >= 3: #Max 9
+            if count1 >= 9:
+                power = power + 2
+            elif count1 >= 8:
+                power += power
+            if count2 >= 7:
+                power += power
+            if count3 >= 8:
+                power += power
+            if count4 >= 9:
+                power = power + 2
+            elif count4 >= 8:
+                power += power
+            if count5 >= 9:
+                power += power
+            if count6 >= 8:
+                power = power + 2
+            elif count6 >= 7:
+                power += power
+        elif progression >= 2: #Max 11
+            if count1 >= 6:
+                power = power + 2
+            elif count1 >= 4:
+                power += power
+            if count2 >= 5:
+                power = power + 2
+            elif count2 >= 4:
+                power += power
+            if count3 >= 6:
+                power = power + 2
+            elif count3 >= 5:
+                power = power + 1
+            if count4 >= 5:
+                power += power
+            if count5 >= 6:
+                power = power + 2
+            elif count5 >= 5:
+                power += power
+            if count6 >= 6:
+                power = power + 2
+            elif count6 >= 4:
+                power += power
+        elif progression == 1: #Max 6
+            if count1 >= 2:
+                power += power
+            if count2 >= 2:
+                power += power
+            if count3 >= 3:
+                power += power
+            if count4 >= 3:
+                power += power
+            if count5 >= 3:
+                power += power
+            if count6 >= 2:
+                power += power
+        return power >= amount
 
 def goal_regions(state: CollectionState) -> bool:
     if OurAscentOptions.last_chapter == 1:

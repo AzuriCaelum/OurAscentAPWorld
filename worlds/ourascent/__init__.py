@@ -6,7 +6,7 @@ from BaseClasses import Item, CollectionState, MultiWorld
 from worlds.AutoWorld import World
 from . import options, rules, web_world
 from .constants.story_data import *
-from .items import OurAscentItem, item_table, ItemData, is_character, equipment_offset, accessory_offset, filler_items
+from .items import OurAscentItem, item_table, ItemData, equipment_offset, accessory_offset, filler_items
 from .locations import get_location_name_to_id, get_main_menu_locations, get_11_locations, get_12_locations, get_13_locations, get_14_locations, get_15_locations
 from .regions import create_all_regions
 from .rules import OurAscentLogic, goal_regions
@@ -27,22 +27,29 @@ class OurAscentWorld(World):
 
     origin_region_name = "Story Select"
 
+    def pre_fill(self):
+        from BaseClasses import CollectionState
+        from Fill import sweep_from_pool
+        state = sweep_from_pool(CollectionState(self.multiworld), self.multiworld.itempool)
+        unreachable_locations = [location for location in self.get_locations() if not location.can_reach(state)]
+        assert not unreachable_locations, f"All state can't reach all locations: {unreachable_locations}"
+
     def __init__(self, multiworld: "MultiWorld", player: int):
         super().__init__(multiworld, player)
 
     def create_regions(self) -> None:
 
         locationss = get_main_menu_locations(self.player, self.options)
-        if 1 in self.playable_stories:
-            locationss.extend(get_11_locations(self.player, self.options))
-        if 2 in self.playable_stories:
-            locationss.extend(get_12_locations(self.player, self.options))
-        if 3 in self.playable_stories:
-            locationss.extend(get_13_locations(self.player))
-        if 4 in self.playable_stories:
-            locationss.extend(get_14_locations(self.player))
-        if 5 in self.playable_stories:
-            locationss.extend(get_15_locations(self.player))
+        #if 1 in self.playable_stories:
+        locationss.extend(get_11_locations(self.player, self.options))
+        #if 2 in self.playable_stories:
+        locationss.extend(get_12_locations(self.player, self.options))
+        #if 3 in self.playable_stories:
+        locationss.extend(get_13_locations(self.player, self.options))
+        #if 4 in self.playable_stories:
+        locationss.extend(get_14_locations(self.player, self.options))
+        #if 5 in self.playable_stories:
+        locationss.extend(get_15_locations(self.player, self.options))
         create_all_regions(self, locationss, self.options)
 
     def set_rules(self) -> None:

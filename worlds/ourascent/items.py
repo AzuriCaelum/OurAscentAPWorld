@@ -53,12 +53,12 @@ item_table: Dict[str, ItemData] = {
     "Equipment - Lan Progressive Belt": ItemData("EQUIPMENT", 22 + equipment_offset, ItemClassification.progression, 0, 0, 0, 10),
     "Equipment - Lan Progressive Cloak": ItemData("EQUIPMENT", 23 + equipment_offset, ItemClassification.progression, 0, 0, 0, 10),
     "Equipment - Lan Progressive Pants": ItemData("EQUIPMENT", 24 + equipment_offset, ItemClassification.progression, 0, 0, 0, 9),
-    "Equipment - Sibyl Progressive Accessory": ItemData("EQUIPMENT", 7 + equipment_offset, ItemClassification.progression, 0, 0, 0, 0, 10),
-    "Equipment - Sibyl Progressive Left Weapon": ItemData("EQUIPMENT", 8 + equipment_offset, ItemClassification.progression, 0, 0, 0, 0, 13),
-    "Equipment - Sibyl Progressive Right Weapon": ItemData("EQUIPMENT", 9 + equipment_offset, ItemClassification.progression, 0, 0, 0, 0, 13),
-    "Equipment - Sibyl Progressive Pouch": ItemData("EQUIPMENT", 4 + equipment_offset, ItemClassification.progression, 0, 0, 0, 0, 7),
-    "Equipment - Sibyl Progressive Gloves": ItemData("EQUIPMENT", 5 + equipment_offset, ItemClassification.progression, 0, 0, 0, 0, 9),
-    "Equipment - Sibyl Progressive Boots": ItemData("EQUIPMENT", 6 + equipment_offset, ItemClassification.progression, 0, 0, 0, 0, 9),
+    "Equipment - Sibyl Progressive Accessory": ItemData("EQUIPMENT", 25 + equipment_offset, ItemClassification.progression, 0, 0, 0, 0, 10),
+    "Equipment - Sibyl Progressive Left Weapon": ItemData("EQUIPMENT", 26 + equipment_offset, ItemClassification.progression, 0, 0, 0, 0, 13),
+    "Equipment - Sibyl Progressive Right Weapon": ItemData("EQUIPMENT", 27 + equipment_offset, ItemClassification.progression, 0, 0, 0, 0, 13),
+    "Equipment - Sibyl Progressive Pouch": ItemData("EQUIPMENT", 28 + equipment_offset, ItemClassification.progression, 0, 0, 0, 0, 7),
+    "Equipment - Sibyl Progressive Gloves": ItemData("EQUIPMENT", 29 + equipment_offset, ItemClassification.progression, 0, 0, 0, 0, 9),
+    "Equipment - Sibyl Progressive Boots": ItemData("EQUIPMENT", 30 + equipment_offset, ItemClassification.progression, 0, 0, 0, 0, 9),
 
     #Glades
     "Accessory - Apolonia Dull Ring": ItemData("EQUIPMENT", 1 + accessory_offset, ItemClassification.useful, 3),
@@ -101,16 +101,16 @@ item_table: Dict[str, ItemData] = {
     "Accessory - Lan Double Band": ItemData("EQUIPMENT", 38 + accessory_offset, ItemClassification.useful, 0, 0, 0, 3),
     "Accessory - Lan Death Ring II": ItemData("EQUIPMENT", 39 + accessory_offset, ItemClassification.useful, 0, 0, 0, 3),
     "Accessory - Lan Enchanted Earring": ItemData("EQUIPMENT", 40 + accessory_offset, ItemClassification.useful, 0, 0, 0, 3),
-    "Accessory - Sibyl Dull Ring": ItemData("EQUIPMENT", 1 + accessory_offset, ItemClassification.useful, 0, 0, 0, 0, 3),
-    "Accessory - Sibyl Masked Amulet": ItemData("EQUIPMENT", 2 + accessory_offset, ItemClassification.useful, 0, 0, 0, 0, 3),
-    "Accessory - Sibyl Power Ring": ItemData("EQUIPMENT", 3 + accessory_offset, ItemClassification.useful, 0, 0, 0, 0, 3),
-    "Accessory - Sibyl Creepy Amulet": ItemData("EQUIPMENT", 4 + accessory_offset, ItemClassification.useful, 0, 0, 0, 0, 3),
-    "Accessory - Sibyl Engraved Ring": ItemData("EQUIPMENT", 5 + accessory_offset, ItemClassification.useful, 0, 0, 0, 0, 3),
-    "Accessory - Sibyl Slim Double Band": ItemData("EQUIPMENT", 6 + accessory_offset, ItemClassification.useful, 0, 0, 0, 0, 3),
-    "Accessory - Sibyl Fancy Ring": ItemData("EQUIPMENT", 7 + accessory_offset, ItemClassification.useful, 0, 0, 0, 0, 3),
-    "Accessory - Sibyl Defeated Earring": ItemData("EQUIPMENT", 8 + accessory_offset, ItemClassification.useful, 0, 0, 0, 0, 3),
-    "Accessory - Sibyl Studded Band": ItemData("EQUIPMENT", 9 + accessory_offset, ItemClassification.useful, 0, 0, 0, 0, 3),
-    "Accessory - Sibyl Twilight Amulet": ItemData("EQUIPMENT", 10 + accessory_offset, ItemClassification.useful, 0, 0, 0, 0, 3),
+    "Accessory - Sibyl Dull Ring": ItemData("EQUIPMENT", 41 + accessory_offset, ItemClassification.useful, 0, 0, 0, 0, 3),
+    "Accessory - Sibyl Masked Amulet": ItemData("EQUIPMENT", 42 + accessory_offset, ItemClassification.useful, 0, 0, 0, 0, 3),
+    "Accessory - Sibyl Power Ring": ItemData("EQUIPMENT", 43 + accessory_offset, ItemClassification.useful, 0, 0, 0, 0, 3),
+    "Accessory - Sibyl Creepy Amulet": ItemData("EQUIPMENT", 44 + accessory_offset, ItemClassification.useful, 0, 0, 0, 0, 3),
+    "Accessory - Sibyl Engraved Ring": ItemData("EQUIPMENT", 45 + accessory_offset, ItemClassification.useful, 0, 0, 0, 0, 3),
+    "Accessory - Sibyl Slim Double Band": ItemData("EQUIPMENT", 46 + accessory_offset, ItemClassification.useful, 0, 0, 0, 0, 3),
+    "Accessory - Sibyl Fancy Ring": ItemData("EQUIPMENT", 47 + accessory_offset, ItemClassification.useful, 0, 0, 0, 0, 3),
+    "Accessory - Sibyl Defeated Earring": ItemData("EQUIPMENT", 48 + accessory_offset, ItemClassification.useful, 0, 0, 0, 0, 3),
+    "Accessory - Sibyl Studded Band": ItemData("EQUIPMENT", 49 + accessory_offset, ItemClassification.useful, 0, 0, 0, 0, 3),
+    "Accessory - Sibyl Twilight Amulet": ItemData("EQUIPMENT", 50 + accessory_offset, ItemClassification.useful, 0, 0, 0, 0, 3),
 
     #Glades
     "Augment - Apolonia Weapon Mastery": ItemData("AUGMENT", 1 + augment_offset, ItemClassification.useful, 5),
@@ -135,11 +135,11 @@ item_table: Dict[str, ItemData] = {
     "Augment - Lan Hunter's Insight": ItemData("AUGMENT", 20 + augment_offset, ItemClassification.useful, 0, 0, 0, 2),
     "Augment - Lan Bloodthirsty Quiver": ItemData("AUGMENT", 21 + augment_offset, ItemClassification.useful, 0, 0, 0, 3),
 	"Augment - Lan Killer Instinct": ItemData("AUGMENT", 22 + augment_offset, ItemClassification.useful, 0, 0, 0, 1),
-    "Augment - Sibyl Silent Steps": ItemData("AUGMENT", 1 + augment_offset, ItemClassification.useful, 0, 0, 0, 0, 6),
-    "Augment - Sibyl Dual Depredation": ItemData("AUGMENT", 2 + augment_offset, ItemClassification.useful, 0, 0, 0, 0, 4),
-    "Augment - Sibyl Grounded Motion": ItemData("AUGMENT", 3 + augment_offset, ItemClassification.useful, 0, 0, 0, 0, 3),
-    "Augment - Sibyl Stunning Distraction": ItemData("AUGMENT", 4 + augment_offset, ItemClassification.useful, 0, 0, 0, 0, 2),
-	"Augment - Sibyl Ruinous Bleed": ItemData("AUGMENT", 5 + augment_offset, ItemClassification.useful, 0, 0, 0, 0, 7),
+    "Augment - Sibyl Silent Steps": ItemData("AUGMENT", 23 + augment_offset, ItemClassification.useful, 0, 0, 0, 0, 6),
+    "Augment - Sibyl Dual Depredation": ItemData("AUGMENT", 24 + augment_offset, ItemClassification.useful, 0, 0, 0, 0, 4),
+    "Augment - Sibyl Grounded Motion": ItemData("AUGMENT", 25 + augment_offset, ItemClassification.useful, 0, 0, 0, 0, 3),
+    "Augment - Sibyl Stunning Distraction": ItemData("AUGMENT", 26 + augment_offset, ItemClassification.useful, 0, 0, 0, 0, 2),
+	"Augment - Sibyl Ruinous Bleed": ItemData("AUGMENT", 27 + augment_offset, ItemClassification.useful, 0, 0, 0, 0, 7),
 
     #Glades
     "Story Completion - 1-1": ItemData("COMPLETION", None, ItemClassification.progression, 1),
@@ -150,11 +150,6 @@ item_table: Dict[str, ItemData] = {
 }
 
 item_name_to_id = {item: item_table[item].code for item in item_table}
-
-def is_character(item_name: str) -> bool:
-    item_id = item_name_to_id[item_name]
-    return 2 <= item_id <= 6
-
 
 filler_items: Tuple[str, ...] = (
     "Apolonia +1 Hesitation",
