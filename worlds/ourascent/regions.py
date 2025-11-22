@@ -44,6 +44,7 @@ def create_all_regions(world: "OurAscentWorld", locations: List[LocationData], o
     locations_per_region = get_locations_per_ap_region(locations)
 
     multiworld.regions += create_a_region(player, multiworld, locations_per_region, STORY_SELECT)
+    world.origin_region_name = STORY_SELECT
 
     if 1 in world.playable_stories:
         multiworld.regions += create_a_region(player, multiworld, locations_per_region, FALLING_INTO_CHAOS)

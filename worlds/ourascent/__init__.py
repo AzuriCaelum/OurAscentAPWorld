@@ -23,6 +23,7 @@ class OurAscentWorld(World):
     location_name_to_id = get_location_name_to_id()
     playable_stories = [value for _, value in story_id_to_name.items()]
     starting_story = "1-1: Falling Into Chaos"
+    completions = {}
 
     origin_region_name = "Story Select"
 
@@ -52,13 +53,7 @@ class OurAscentWorld(World):
         create_all_regions(self, locationss, self.options)
 
     def set_rules(self) -> None:
-        range = 1
-        required_items = []
-        while range < 7:
-            if range in self.playable_stories:
-                required_items.append(completion_index[range])
-            range += 1
-        self.multiworld.completion_condition[self.player] = lambda state: all(state.has(item, self.player, amount) for (item, amount) in required_items)
+        self.multiworld.completion_condition[self.player] = lambda state: self.completion_rule(state)
 
     def create_items(self) -> None:
         self.create_and_assign_event_items()
@@ -91,25 +86,18 @@ class OurAscentWorld(World):
         amount: int = int(0)
         for name, data in item_table.items():
             if 1 in self.playable_stories:
-                for _ in range(data.story11):
-                    item = self.create_item(name)
-                    pool.append(item)
+                amount = amount + int(data.story11 or 0)
             if 2 in self.playable_stories:
-                for _ in range(data.story12):
-                    item = self.create_item(name)
-                    pool.append(item)
+                amount = amount + int(data.story12 or 0)
             if 3 in self.playable_stories:
-                for _ in range(data.story13):
-                    item = self.create_item(name)
-                    pool.append(item)
+                amount = amount + int(data.story13 or 0)
             if 4 in self.playable_stories:
-                for _ in range(data.story14):
-                    item = self.create_item(name)
-                    pool.append(item)
+                amount = amount + int(data.story14 or 0)
             if 5 in self.playable_stories:
-                for _ in range(data.story15):
-                    item = self.create_item(name)
-                    pool.append(item)
+                amount = amount + int(data.story15 or 0)
+            for _ in range(amount):
+                item = self.set_classifications(name)
+                pool.append(item)
         for _ in range(len(self.multiworld.get_unfilled_locations(self.player)) - len(pool)):
             item = self.create_item(self.get_filler_item_name())
             pool.append(item)
@@ -145,3 +133,12 @@ class OurAscentWorld(World):
             if location.address == EventId:
                 item = Item(location.name, ItemClassification.progression, EventId, self.player)
                 location.place_locked_item(item)
+
+    def completion_rule(self, state: CollectionState):
+        completions = completion_index
+        for completion in completions:
+            if completion not in self.location_name_to_id:
+                continue
+            if not state.has(completion, self.player):
+                return False
+        return True

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import NamedTuple, Optional, Callable
 
 from BaseClasses import Location, Region
@@ -21,8 +23,16 @@ class LocationData(NamedTuple):
 #def get_location_names_with_ids(location_names: list[str]) -> dict[str, int | None]:
 #    return {location_name: LOCATION_NAME_TO_ID[location_name] for location_name in location_names}
 
-def get_location_name_to_id() -> dict[str, int]:
+def get_location_name_to_id() -> dict[str, int | None]:
 	location_name_to_id = {location.name: location.code for location in get_11_locations(-1)}
+	location_12_to_id = {location.name: location.code for location in get_12_locations(-1)}
+	location_13_to_id = {location.name: location.code for location in get_13_locations(-1)}
+	location_14_to_id = {location.name: location.code for location in get_14_locations(-1)}
+	location_15_to_id = {location.name: location.code for location in get_15_locations(-1)}
+	location_name_to_id.update(location_12_to_id)
+	location_name_to_id.update(location_13_to_id)
+	location_name_to_id.update(location_14_to_id)
+	location_name_to_id.update(location_15_to_id)
 
 	#location_name_to_id.update()
 	return location_name_to_id
