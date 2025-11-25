@@ -24,6 +24,7 @@ class OurAscentWorld(World):
     playable_stories = []
     starting_story = "1-1: Falling Into Chaos"
     completions = {}
+    starting_item = Item
 
     origin_region_name = "Story Select"
 
@@ -39,8 +40,7 @@ class OurAscentWorld(World):
 
     def create_regions(self) -> None:
 
-        locationss = get_main_menu_locations(self.player)
-        locationss.extend(get_11_locations(self.player))
+        locationss = get_11_locations(self.player)
         locationss.extend(get_12_locations(self.player))
         locationss.extend(get_13_locations(self.player))
         locationss.extend(get_14_locations(self.player))
@@ -70,21 +70,34 @@ class OurAscentWorld(World):
 
     def get_all_items(self) -> List[Item]:
         pool: List[Item] = []
-        amount: int = int(0)
+        amount:int = int(0)
         for name, data in item_table.items():
             if "1-1: Falling Into Chaos" in self.playable_stories:
-                amount = amount + int(data.story11 or 0)
+                amount = data.story11
+                for _ in range(amount):
+                    item = self.create_item(name)
+                    pool.append(item)
             if "1-2: Rising To The Challenge" in self.playable_stories:
-                amount = amount + int(data.story12 or 0)
+                amount = data.story12
+                for _ in range(amount):
+                    item = self.create_item(name)
+                    pool.append(item)
             if "1-3: Unleashing The Beast" in self.playable_stories:
-                amount = amount + int(data.story13 or 0)
+                amount = data.story13
+                for _ in range(amount):
+                    item = self.create_item(name)
+                    pool.append(item)
             if "1-4: Hunting For Truth" in self.playable_stories:
-                amount = amount + int(data.story14 or 0)
+                amount = data.story14
+                for _ in range(amount):
+                    item = self.create_item(name)
+                    pool.append(item)
             if "1-5: Lurking In The Shadows" in self.playable_stories:
-                amount = amount + int(data.story15 or 0)
-            for _ in range(amount):
-                item = self.set_classifications(name)
-                pool.append(item)
+                amount = data.story15
+                for _ in range(amount):
+                    item = self.create_item(name)
+                    pool.append(item)
+        self.multiworld.push_precollected(self.starting_item)
         for _ in range(len(self.multiworld.get_unfilled_locations(self.player)) - len(pool)):
             item = self.create_item(self.get_filler_item_name())
             pool.append(item)
@@ -108,7 +121,9 @@ class OurAscentWorld(World):
         self.playable_stories = [value for key, value in story_id_to_name.items() if key in story_list]
         stories_from_first_chapter = [story for story in story_list if story_to_chapter[story] == 1]
         starting_story = self.random.choice(stories_from_first_chapter)
-        self.multiworld.push_precollected(self.create_item(playable_character_to_item[starting_story]))
+        id = starting_story + 1
+        self.starting_item = Item(self.item_id_to_name[id], ItemClassification.progression, id, self.player)
+        #self.multiworld.push_precollected(self.create_item(playable_character_to_item[starting_story]))
 
     def create_and_assign_event_items(self) -> None:
         for location in self.multiworld.get_locations(self.player):

@@ -21,6 +21,7 @@ character_offset = 1
 equipment_offset = 11
 accessory_offset = 101
 augment_offset = 1001
+filler_offset = 159320
 
 item_table: Dict[str, ItemData] = {
     "Character - Playable Apolonia": ItemData("CHARACTER", 1 + character_offset, ItemClassification.progression, 1, 0, 0, 0, 0, 0, 1),
@@ -142,11 +143,17 @@ item_table: Dict[str, ItemData] = {
 	"Augment - Sibyl Ruinous Bleed": ItemData("AUGMENT", 27 + augment_offset, ItemClassification.useful, 0, 0, 0, 0, 7),
 
     #Glades
-    "Story Completion - 1-1": ItemData("COMPLETION", None, ItemClassification.progression, 1),
-    "Story Completion - 1-2": ItemData("COMPLETION", None, ItemClassification.progression, 0, 1),
-    "Story Completion - 1-3": ItemData("COMPLETION", None, ItemClassification.progression, 0, 0, 1),
-    "Story Completion - 1-4": ItemData("COMPLETION", None, ItemClassification.progression, 0, 0, 0, 1),
-    "Story Completion - 1-5": ItemData("COMPLETION", None, ItemClassification.progression, 0, 0, 0, 0, 1)
+    "Story Completion - 1-1": ItemData("COMPLETION", None, ItemClassification.progression),
+    "Story Completion - 1-2": ItemData("COMPLETION", None, ItemClassification.progression),
+    "Story Completion - 1-3": ItemData("COMPLETION", None, ItemClassification.progression),
+    "Story Completion - 1-4": ItemData("COMPLETION", None, ItemClassification.progression),
+    "Story Completion - 1-5": ItemData("COMPLETION", None, ItemClassification.progression),
+
+    "Apolonia +1 Hesitation": ItemData("FILLER", 1, ItemClassification.filler),
+    "Stan +1 IQ": ItemData("FILLER", 2, ItemClassification.filler),
+    "Hina +1 Spirit": ItemData("FILLER", 3, ItemClassification.filler),
+    "Lan +1 Optimism": ItemData("FILLER", 4, ItemClassification.filler),
+    "Sibyl +1 Paranoia": ItemData("FILLER", 5, ItemClassification.filler)
 }
 
 item_name_to_id = {item: item_table[item].code for item in item_table}
