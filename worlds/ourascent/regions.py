@@ -53,6 +53,7 @@ def create_all_regions(world: "OurAscentWorld", locations: List[LocationData], o
 	print(story)
 
 	locations_per_region = get_locations_per_ap_region(locations)
+	#print(locations_per_region)
 
 	multiworld.regions += create_a_region(player, multiworld, locations_per_region, STORY_SELECT)
 	world.origin_region_name = STORY_SELECT
@@ -133,7 +134,7 @@ def get_locations_per_ap_region(locations: List[LocationData]) -> Dict[str, List
 	per_region: Dict[str, List[LocationData]] = {}
 
 	for location in locations:
-		per_region.setdefault(location.regions, []).append(location)
+		per_region.setdefault(location.region, []).append(location)
 
 	return per_region
 

@@ -21,7 +21,7 @@ class OurAscentWorld(World):
 
     item_name_to_id = {item: item_table[item].code for item in item_table}
     location_name_to_id = get_location_name_to_id()
-    playable_stories = [value for key, value in story_id_to_name.items()]
+    playable_stories = []
     starting_story = "1-1: Falling Into Chaos"
     completions = {}
 
@@ -68,27 +68,19 @@ class OurAscentWorld(World):
             "starting story": self.starting_story
         }
 
-    #def get_excluded_items(self):
-    #    excluded_items: Set[str] = set()
-
-    #    if self.options.last_chapter.value == 1:
-    #        if 1 not in self.playable_stories:
-    #            excluded_items.add("Character: Playable Apolonia")
-
-
     def get_all_items(self) -> List[Item]:
         pool: List[Item] = []
         amount: int = int(0)
         for name, data in item_table.items():
-            if 1 in self.playable_stories:
+            if "1-1: Falling Into Chaos" in self.playable_stories:
                 amount = amount + int(data.story11 or 0)
-            if 2 in self.playable_stories:
+            if "1-2: Rising To The Challenge" in self.playable_stories:
                 amount = amount + int(data.story12 or 0)
-            if 3 in self.playable_stories:
+            if "1-3: Unleashing The Beast" in self.playable_stories:
                 amount = amount + int(data.story13 or 0)
-            if 4 in self.playable_stories:
+            if "1-4: Hunting For Truth" in self.playable_stories:
                 amount = amount + int(data.story14 or 0)
-            if 5 in self.playable_stories:
+            if "1-5: Lurking In The Shadows" in self.playable_stories:
                 amount = amount + int(data.story15 or 0)
             for _ in range(amount):
                 item = self.set_classifications(name)

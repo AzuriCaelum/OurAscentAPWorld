@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import NamedTuple, Optional, Callable
 
-from BaseClasses import Location, Region
+from BaseClasses import Location
 
 from .rules import *
 
@@ -15,7 +15,7 @@ class OurAscentLocation(Location):
 	game = "Our Ascent"
 
 class LocationData(NamedTuple):
-	regions: str
+	region: str
 	name: str
 	code: Optional[int]
 	rule: Optional[Callable[[CollectionState], bool]] = None
