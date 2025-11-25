@@ -28,7 +28,7 @@ class Story_Amount(Range):
     display_name = "Story Amount"
     range_start = 1
     range_end = 5
-    default = 1
+    default = 3
 
 #class Goal(Range):
 #    """How many stories must be completed in order to goal

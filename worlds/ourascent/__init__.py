@@ -21,7 +21,7 @@ class OurAscentWorld(World):
 
     item_name_to_id = {item: item_table[item].code for item in item_table}
     location_name_to_id = get_location_name_to_id()
-    playable_stories = [value for _, value in story_id_to_name.items()]
+    playable_stories = [value for key, value in story_id_to_name.items()]
     starting_story = "1-1: Falling Into Chaos"
     completions = {}
 
@@ -40,15 +40,10 @@ class OurAscentWorld(World):
     def create_regions(self) -> None:
 
         locationss = get_main_menu_locations(self.player)
-        #if 1 in self.playable_stories:
         locationss.extend(get_11_locations(self.player))
-        #if 2 in self.playable_stories:
         locationss.extend(get_12_locations(self.player))
-        #if 3 in self.playable_stories:
         locationss.extend(get_13_locations(self.player))
-        #if 4 in self.playable_stories:
         locationss.extend(get_14_locations(self.player))
-        #if 5 in self.playable_stories:
         locationss.extend(get_15_locations(self.player))
         create_all_regions(self, locationss, self.options)
 
@@ -106,25 +101,20 @@ class OurAscentWorld(World):
     def generate_early(self):
         self.get_stories()
 
-    def get_required_stories(self, story_id: int) -> set[int]:
-        required_stories = {story_id}
-        required_characters = characters_per_story[story_id]
+    def get_all_stories(self, story_list: List[int]) -> List[int]:
+        final_story_list = []
+        for story in story_list:
+            final_story_list += previous_stories[story]
+        return final_story_list
 
-        chapter = story_to_chapter[story_id]
-
-        if chapter != 1:
-            for previous_story in stories_per_chapter[chapter - 1]:
-                if required_characters & characters_per_story[previous_story]:  # if there is character overlap
-                    required_stories |= self.get_required_stories(previous_story)
-
-        return required_stories
 
     def get_stories(self):
-        random_chapter = self.random.choice(list(stories_per_chapter)[1:])  # Don't pick chapter 1
-        random_story = self.random.choice(stories_per_chapter[random_chapter])
-        stories = self.get_required_stories(random_story)
-        stories = sorted(stories)
-        stories_from_first_chapter = [story for story in stories if story_to_chapter[story] == 1]
+        storied = self.random.sample(stories_per_chapter[self.options.last_chapter.value], self.options.story_count.value)
+        story_list = self.get_all_stories(storied)
+        story_list = list(set(story_list))
+        print(story_list)
+        self.playable_stories = [value for key, value in story_id_to_name.items() if key in story_list]
+        stories_from_first_chapter = [story for story in story_list if story_to_chapter[story] == 1]
         starting_story = self.random.choice(stories_from_first_chapter)
         self.multiworld.push_precollected(self.create_item(playable_character_to_item[starting_story]))
 
@@ -142,3 +132,9 @@ class OurAscentWorld(World):
             if not state.has(completion, self.player):
                 return False
         return True
+
+    def set_classifications(self, name: str) -> Item:
+        data = item_table[name]
+        item = Item(name, data.classification, data.code, self.player)
+
+        return item

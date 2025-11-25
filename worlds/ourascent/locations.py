@@ -37,14 +37,6 @@ def get_location_name_to_id() -> dict[str, int | None]:
 	#location_name_to_id.update()
 	return location_name_to_id
 
-def create_location(player: int, location_data: LocationData, region: Region) -> Location:
-	location = OurAscentLocation(player, location_data.name, location_data.code, region)
-
-	if location_data.rule:
-		location.access_rule = location_data.rule
-
-	return location
-
 apolonia_offset = 1
 stan_offset = 100001
 hina_offset = 200001

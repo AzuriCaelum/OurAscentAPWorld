@@ -13,6 +13,19 @@ story_id_to_name = {
     8: "2-2: Sisters In Time"
 }
 
+story_name_to_id = {
+    #Glades
+    "1-1: Falling Into Chaos": 1,
+    "1-2: Rising To The Challenge": 2,
+    "1-3: Unleashing The Beast": 3,
+    "1-4: Hunting For Truth": 4,
+    "1-5: Lurking In The Shadows": 5,
+
+    #Oasis
+    "2-1: Mirage Of Hope": 7,
+    "2-2: Sisters In Time": 8,
+}
+
 character_id_to_name = {
     1: "Apolonia",
     2: "Stan",
