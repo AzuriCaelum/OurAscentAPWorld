@@ -57,9 +57,7 @@ class OurAscentWorld(World):
         create_all_regions(self, locationss, self.options)
 
     def set_rules(self) -> None:
-        required_completions = [value for key, value in completion_index.items() if key in self.playable_stories]
-        print("Required Completions:", required_completions)
-        self.multiworld.completion_condition[self.player] = lambda state: state.has_all(required_completions, self.player)
+        self.multiworld.completion_condition[self.player] = lambda state: self.completion_rule(state)
 
     def create_items(self) -> None:
         self.create_and_assign_event_items()
@@ -143,22 +141,11 @@ class OurAscentWorld(World):
                 location.place_locked_item(item)
 
     def completion_rule(self, state: CollectionState):
-        if self.options.last_chapter.value == 1:
-            if "1-1: Falling Into Chaos" in self.playable_stories:
-                if not state.has("Story 1-1 Completion", self.player):
-                    return False
-            if "1-2: Rising To The Challenge" in self.playable_stories:
-                if not state.has("Story 1-2 Completion", self.player):
-                    return False
-            if "1-3: Unleashing The Beast" in self.playable_stories:
-                if not state.has("Story 1-3 Completion", self.player):
-                    return False
-            if "1-4: Hunting For Truth" in self.playable_stories:
-                if not state.has("Story 1-4 Completion", self.player):
-                    return False
-            if "1-5: Lurking In The Shadows" in self.playable_stories:
-                if not state.has("Story 1-5 Completion", self.player):
-                    return False
+        required_completions = [value for key, value in completion_index.items() if key in self.playable_stories]
+        print("Required Completions:", required_completions)
+        for completion in required_completions:
+            if not state.has(completion, self.player):
+                return False
         return True
 
     def set_classifications(self, name: str) -> Item:
