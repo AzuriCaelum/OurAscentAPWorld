@@ -149,11 +149,11 @@ item_table: Dict[str, ItemData] = {
     "Story Completion - 1-4": ItemData("COMPLETION", None, ItemClassification.progression),
     "Story Completion - 1-5": ItemData("COMPLETION", None, ItemClassification.progression),
 
-    "Apolonia +1 Hesitation": ItemData("FILLER", 1, ItemClassification.filler),
-    "Stan +1 IQ": ItemData("FILLER", 2, ItemClassification.filler),
-    "Hina +1 Spirit": ItemData("FILLER", 3, ItemClassification.filler),
-    "Lan +1 Optimism": ItemData("FILLER", 4, ItemClassification.filler),
-    "Sibyl +1 Paranoia": ItemData("FILLER", 5, ItemClassification.filler)
+    "Apolonia +1 Hesitation": ItemData("FILLER", 1 + filler_offset, ItemClassification.filler),
+    "Stan +1 IQ": ItemData("FILLER", 2 + filler_offset, ItemClassification.filler),
+    "Hina +1 Spirit": ItemData("FILLER", 3 + filler_offset, ItemClassification.filler),
+    "Lan +1 Optimism": ItemData("FILLER", 4 + filler_offset, ItemClassification.filler),
+    "Sibyl +1 Paranoia": ItemData("FILLER", 5 + filler_offset, ItemClassification.filler)
 }
 
 item_name_to_id = {item: item_table[item].code for item in item_table}

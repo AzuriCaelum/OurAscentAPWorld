@@ -8,7 +8,7 @@ from .constants.story_data import *
 from .items import OurAscentItem, item_table, ItemData, equipment_offset, accessory_offset, filler_items
 from .locations import EventId, get_location_name_to_id, get_main_menu_locations, get_11_locations, get_12_locations, get_13_locations, get_14_locations, get_15_locations
 from .regions import create_all_regions
-from .rules import OurAscentLogic, goal_regions
+from .rules import OurAscentLogic
 from .stories import *
 
 class OurAscentWorld(World):
@@ -19,21 +19,30 @@ class OurAscentWorld(World):
     options_dataclass = options.OurAscentOptions
     options: options.OurAscentOptions
 
-    item_name_to_id = {item: item_table[item].code for item in item_table}
+    item_name_to_id = {item: data.code for item, data in item_table.items()}
     location_name_to_id = get_location_name_to_id()
     playable_stories = []
     starting_story = "1-1: Falling Into Chaos"
     completions = {}
-    starting_item = Item
+    excluded_items: Dict[str, ItemData] = {}
 
     origin_region_name = "Story Select"
 
-    def pre_fill(self):
-        from BaseClasses import CollectionState
-        from Fill import sweep_from_pool
-        state = sweep_from_pool(CollectionState(self.multiworld), self.multiworld.itempool)
-        unreachable_locations = [location for location in self.get_locations() if not location.can_reach(state)]
-        assert not unreachable_locations, f"All state can't reach all locations: {unreachable_locations}"
+    #def pre_fill(self):
+    #    from BaseClasses import CollectionState
+    #    from Fill import sweep_from_pool
+    #    state = sweep_from_pool(CollectionState(self.multiworld), self.multiworld.itempool)
+    #    unreachable_locations = [location for location in self.get_locations() if not location.can_reach(state)]
+    #    assert not unreachable_locations, f"All state can't reach all locations: {unreachable_locations}"
+
+    def pre_fill(self) -> None:
+        unreachable_locations = []
+        all_state = self.multiworld.get_all_state(False)
+        for location in self.multiworld.get_locations(self.player):
+            if not location.can_reach(all_state):
+                unreachable_locations.append(location)
+        if unreachable_locations:
+            raise Exception(f"The following locations can't be reached even with every progression item.\n\n{unreachable_locations}\n\n{all_state.prog_items[self.player]}")
 
     def __init__(self, multiworld: "MultiWorld", player: int):
         super().__init__(multiworld, player)
@@ -48,7 +57,9 @@ class OurAscentWorld(World):
         create_all_regions(self, locationss, self.options)
 
     def set_rules(self) -> None:
-        self.multiworld.completion_condition[self.player] = lambda state: self.completion_rule(state)
+        required_completions = [value for key, value in completion_index.items() if key in self.playable_stories]
+        print("Required Completions:", required_completions)
+        self.multiworld.completion_condition[self.player] = lambda state: state.has_all(required_completions, self.player)
 
     def create_items(self) -> None:
         self.create_and_assign_event_items()
@@ -72,32 +83,32 @@ class OurAscentWorld(World):
         pool: List[Item] = []
         amount:int = int(0)
         for name, data in item_table.items():
-            if "1-1: Falling Into Chaos" in self.playable_stories:
-                amount = data.story11
-                for _ in range(amount):
-                    item = self.create_item(name)
-                    pool.append(item)
-            if "1-2: Rising To The Challenge" in self.playable_stories:
-                amount = data.story12
-                for _ in range(amount):
-                    item = self.create_item(name)
-                    pool.append(item)
-            if "1-3: Unleashing The Beast" in self.playable_stories:
-                amount = data.story13
-                for _ in range(amount):
-                    item = self.create_item(name)
-                    pool.append(item)
-            if "1-4: Hunting For Truth" in self.playable_stories:
-                amount = data.story14
-                for _ in range(amount):
-                    item = self.create_item(name)
-                    pool.append(item)
-            if "1-5: Lurking In The Shadows" in self.playable_stories:
-                amount = data.story15
-                for _ in range(amount):
-                    item = self.create_item(name)
-                    pool.append(item)
-        self.multiworld.push_precollected(self.starting_item)
+            #if name not in self.excluded_items:
+                if "1-1: Falling Into Chaos" in self.playable_stories:
+                    amount = data.story11
+                    for _ in range(amount):
+                        item = self.create_item(name)
+                        pool.append(item)
+                if "1-2: Rising To The Challenge" in self.playable_stories:
+                    amount = data.story12
+                    for _ in range(amount):
+                        item = self.create_item(name)
+                        pool.append(item)
+                if "1-3: Unleashing The Beast" in self.playable_stories:
+                    amount = data.story13
+                    for _ in range(amount):
+                        item = self.create_item(name)
+                        pool.append(item)
+                if "1-4: Hunting For Truth" in self.playable_stories:
+                    amount = data.story14
+                    for _ in range(amount):
+                        item = self.create_item(name)
+                        pool.append(item)
+                if "1-5: Lurking In The Shadows" in self.playable_stories:
+                    amount = data.story15
+                    for _ in range(amount):
+                        item = self.create_item(name)
+                        pool.append(item)
         for _ in range(len(self.multiworld.get_unfilled_locations(self.player)) - len(pool)):
             item = self.create_item(self.get_filler_item_name())
             pool.append(item)
@@ -121,9 +132,9 @@ class OurAscentWorld(World):
         self.playable_stories = [value for key, value in story_id_to_name.items() if key in story_list]
         stories_from_first_chapter = [story for story in story_list if story_to_chapter[story] == 1]
         starting_story = self.random.choice(stories_from_first_chapter)
-        id = starting_story + 1
-        self.starting_item = Item(self.item_id_to_name[id], ItemClassification.progression, id, self.player)
-        #self.multiworld.push_precollected(self.create_item(playable_character_to_item[starting_story]))
+        print(starting_story)
+        #self.excluded_items[playable_character_to_item[starting_story]] = item_table[playable_character_to_item[starting_story]]
+        self.multiworld.push_precollected(self.create_item(playable_character_to_item[starting_story]))
 
     def create_and_assign_event_items(self) -> None:
         for location in self.multiworld.get_locations(self.player):
@@ -132,12 +143,22 @@ class OurAscentWorld(World):
                 location.place_locked_item(item)
 
     def completion_rule(self, state: CollectionState):
-        completions = completion_index
-        for completion in completions:
-            if completion not in self.location_name_to_id:
-                continue
-            if not state.has(completion, self.player):
-                return False
+        if self.options.last_chapter.value == 1:
+            if "1-1: Falling Into Chaos" in self.playable_stories:
+                if not state.has("Story 1-1 Completion", self.player):
+                    return False
+            if "1-2: Rising To The Challenge" in self.playable_stories:
+                if not state.has("Story 1-2 Completion", self.player):
+                    return False
+            if "1-3: Unleashing The Beast" in self.playable_stories:
+                if not state.has("Story 1-3 Completion", self.player):
+                    return False
+            if "1-4: Hunting For Truth" in self.playable_stories:
+                if not state.has("Story 1-4 Completion", self.player):
+                    return False
+            if "1-5: Lurking In The Shadows" in self.playable_stories:
+                if not state.has("Story 1-5 Completion", self.player):
+                    return False
         return True
 
     def set_classifications(self, name: str) -> Item:
