@@ -1,8 +1,9 @@
-from typing import List, TYPE_CHECKING
+from typing import List, TYPE_CHECKING, NamedTuple
 
 from BaseClasses import CollectionState
 from .constants import item_names
 from .constants.ap_regions import *
+from .constants.power_breakpoints import *
 from .options import OurAscentOptions
 
 
@@ -17,341 +18,111 @@ class OurAscentLogic:
         self.player = player
         self.options = options
 
+    def can_use_holy_power(self, state: CollectionState):
+        return state.has("Augment - Apolonia Magical Imbuement", self.player) & state.has("Augment - Apolonia Weapon Mastery", self.player)
+
+    def can_use_fierce_onslaught(self, state: CollectionState):
+        return state.has("Augment - Stan Swift Steps", self.player) & state.has("Augment - Stan Amplified Strength", self.player)
+
+    def can_use_form_training(self, state: CollectionState):
+        return state.has("Augment - Hina Sinister Serpent", self.player) & state.has("Augment - Hina Tenacious Tiger", self.player)
+
+    def can_use_speed_training(self, state: CollectionState):
+        return state.has("Augment - Hina Patient Panda", self.player) & state.has("Augment - Hina Tenacious Tiger", self.player)
+
+    def can_use_kick_training(self, state: CollectionState):
+        return state.has("Augment - Hina Patient Panda", self.player) & state.has("Augment - Hina Mighty Monkey", self.player)
+
+    def can_use_punch_training(self, state: CollectionState):
+        return state.has("Augment - Hina Sinister Serpent", self.player) & state.has("Augment - Hina Mighty Monkey", self.player)
+
+    def can_use_bloodthirsty_quiver(self, state: CollectionState):
+        return state.has("Augment - Lan Lucky Shots", self.player)
+
+    def can_use_killer_instinct(self, state: CollectionState):
+        return state.has("Augment - Lan Bloodthirsty Quiver", self.player)
+
+    def can_use_relentless_fire(self, state: CollectionState):
+        return state.has("Augment - Lan Lucky Shots", self.player)
+
+    def can_use_hunters_insight(self, state: CollectionState):
+        return state.has("Augment - Lan Hunter's Insight", self.player)
+
+    def can_use_grounded_motion(self, state: CollectionState):
+        return state.has("Augment - Sibyl Silent Steps", self.player)
+
+    def can_use_stunning_distraction(self, state: CollectionState):
+        return state.has("Augment - Sibyl Dual Depredation", self.player)
+
     def apolonia_power(self, state: CollectionState, progression: int, amount: int) -> bool:
-        power = 0
-        #Determine the total power of Apolonia's equipment. Only take the highest progression step due to scaling.
-        count1 = state.count(item_names.APOLONIA_SWORD, self.player)
-        count2 = state.count(item_names.APOLONIA_SHIELD, self.player)
-        count3 = state.count(item_names.APOLONIA_HELMET, self.player)
-        count4 = state.count(item_names.APOLONIA_BREASTPLATE, self.player)
-        count5 = state.count(item_names.APOLONIA_GLOVES, self.player)
-        count6 = state.count(item_names.APOLONIA_BOOTS, self.player)
-        if progression >= 3: #Max 9
-            if count1 >= 9:
-                power += 2
-            elif count1 >= 8:
-                power += 1
-            if count2 >= 7:
-                power += 1
-            if count3 >= 8:
-                power += 1
-            if count4 >= 9:
-                power += 2
-            elif count4 >= 8:
-                power += 1
-            if count5 >= 9:
-                power += 1
-            if count6 >= 8:
-                power += 2
-            elif count6 >= 7:
-                power += 1
-        elif progression >= 2: #Max 11
-            if count1 >= 6:
-                power += 2
-            elif count1 >= 4:
-                power += 1
-            if count2 >= 5:
-                power += 2
-            elif count2 >= 4:
-                power += 1
-            if count3 >= 6:
-                power += 2
-            elif count3 >= 5:
-                power = power + 1
-            if count4 >= 5:
-                power += 1
-            if count5 >= 6:
-                power += 2
-            elif count5 >= 5:
-                power += 1
-            if count6 >= 6:
-                power += 2
-            elif count6 >= 4:
-                power += 1
-        elif progression == 1: #Max 6
-            if count1 >= 2:
-                power += 1
-            if count2 >= 2:
-                power += 1
-            if count3 >= 3:
-                power += 1
-            if count4 >= 3:
-                power += 1
-            if count5 >= 3:
-                power += 1
-            if count6 >= 2:
-                power += 1
-        #print("Apolonia Power:", power, "Amount:", amount)
+        power = sum(1 for b in ApoloniaEquipmentBreakpoints() if
+                    b.level <= progression and state.count(b.item, self.player) >= b.count)
+        power += state.count("Augment - Apolonia Weapon Mastery", self.player)
+        power += state.count("Augment - Apolonia Weapon Imbuement", self.player)
+        power += state.count("Augment - Apolonia Mobility", self.player)
+        if self.can_use_holy_power(state):
+            power += state.count("Augment - Apolonia Holy Power", self.player)
+
         return power >= amount
 
     def stan_power(self, state: CollectionState, progression: int, amount: int) -> bool:
-        power = 0
-        #Determine the total power of Stan's equipment. Only take the highest progression step due to scaling.
-        count1 = state.count(item_names.STAN_SWORD, self.player)
-        count2 = state.count(item_names.STAN_SNACK, self.player)
-        count3 = state.count(item_names.STAN_SHIRT, self.player)
-        count4 = state.count(item_names.STAN_GLOVES, self.player)
-        count5 = state.count(item_names.STAN_BELT, self.player)
-        count6 = state.count(item_names.STAN_PANTS, self.player)
-        if progression >= 3: #Max 9
-            if count1 >= 9:
-                power += 2
-            elif count1 >= 8:
-                power += 1
-            if count2 >= 7:
-                power += 1
-            if count3 >= 8:
-                power += 1
-            if count4 >= 9:
-                power += 2
-            elif count4 >= 8:
-                power += 1
-            if count5 >= 9:
-                power += 1
-            if count6 >= 8:
-                power += 2
-            elif count6 >= 7:
-                power += 1
-        elif progression >= 2: #Max 11
-            if count1 >= 6:
-                power += 2
-            elif count1 >= 4:
-                power += 1
-            if count2 >= 5:
-                power += 2
-            elif count2 >= 4:
-                power += 1
-            if count3 >= 6:
-                power += 2
-            elif count3 >= 5:
-                power = power + 1
-            if count4 >= 5:
-                power += 1
-            if count5 >= 6:
-                power += 2
-            elif count5 >= 5:
-                power += 1
-            if count6 >= 6:
-                power += 2
-            elif count6 >= 4:
-                power += 1
-        elif progression == 1: #Max 6
-            if count1 >= 2:
-                power += 1
-            if count2 >= 2:
-                power += 1
-            if count3 >= 3:
-                power += 1
-            if count4 >= 3:
-                power += 1
-            if count5 >= 3:
-                power += 1
-            if count6 >= 2:
-                power += 1
-        #print("Stan Power:", power, "Amount:", amount)
+        power = sum(1 for b in StanEquipmentBreakpoints() if
+                    b.level <= progression and state.count(b.item, self.player) >= b.count)
+        power += state.count("Augment - Stan Amplified Strength", self.player)
+        power += state.count("Augment - Stan Swift Steps", self.player)
+        power += state.count("Augment - Stan Defiant Guard", self.player)
+        power += state.count("Augment - Stan Vitality Boost", self.player)
+        if self.can_use_fierce_onslaught(state):
+            power += state.count("Augment - Stan Fierce Onslaught", self.player)
+
         return power >= amount
 
     def hina_power(self, state: CollectionState, progression: int, amount: int) -> bool:
-        power = 0
-        #Determine the total power of Hina's equipment. Only take the highest progression step due to scaling.
-        count1 = state.count(item_names.HINA_RWEAPON, self.player)
-        count2 = state.count(item_names.HINA_SNACK, self.player)
-        count3 = state.count(item_names.HINA_HELMET, self.player)
-        count4 = state.count(item_names.HINA_SHIRT, self.player)
-        count5 = state.count(item_names.HINA_CLOAK, self.player)
-        count6 = state.count(item_names.HINA_LWEAPON, self.player)
-        if progression >= 3: #Max 9
-            if count1 >= 9:
-                power += 2
-            elif count1 >= 8:
-                power += 1
-            if count2 >= 7:
-                power += 1
-            if count3 >= 8:
-                power += 1
-            if count4 >= 9:
-                power += 2
-            elif count4 >= 8:
-                power += 1
-            if count5 >= 9:
-                power += 1
-            if count6 >= 8:
-                power += 2
-            elif count6 >= 7:
-                power += 1
-        elif progression >= 2: #Max 11
-            if count1 >= 6:
-                power += 2
-            elif count1 >= 4:
-                power += 1
-            if count2 >= 5:
-                power += 2
-            elif count2 >= 4:
-                power += 1
-            if count3 >= 6:
-                power += 2
-            elif count3 >= 5:
-                power = power + 1
-            if count4 >= 5:
-                power += 1
-            if count5 >= 6:
-                power += 2
-            elif count5 >= 5:
-                power += 1
-            if count6 >= 6:
-                power += 2
-            elif count6 >= 4:
-                power += 1
-        elif progression == 1: #Max 6
-            if count1 >= 2:
-                power += 1
-            if count2 >= 2:
-                power += 1
-            if count3 >= 3:
-                power += 1
-            if count4 >= 3:
-                power += 1
-            if count5 >= 3:
-                power += 1
-            if count6 >= 2:
-                power += 1
-        #print("Hina Power:", power, "Amount:", amount)
+        power = sum(1 for b in HinaEquipmentBreakpoints() if
+                    b.level <= progression and state.count(b.item, self.player) >= b.count)
+        power += state.count("Augment - Hina Patient Panda", self.player)
+        power += state.count("Augment - Hina Mighty Monkey", self.player)
+        power += state.count("Augment - Hina Tenacious Tiger", self.player)
+        power += state.count("Augment - Hina Sinister Serpent", self.player)
+        if self.can_use_form_training(state):
+            power += state.count("Augment - Hina Form Training", self.player)
+        if self.can_use_kick_training(state):
+            power += state.count("Augment - Hina Kick Training", self.player)
+        if self.can_use_punch_training(state):
+            power += state.count("Augment - Hina Punch Training", self.player)
+        if self.can_use_speed_training(state):
+            power += state.count("Augment - Hina Speed Training", self.player)
+
         return power >= amount
 
     def lan_power(self, state: CollectionState, progression: int, amount: int) -> bool:
-        power = 0
-        #Determine the total power of Lan's equipment. Only take the highest progression step due to scaling.
-        count1 = state.count(item_names.LAN_BOW, self.player)
-        count2 = state.count(item_names.LAN_ARROW, self.player)
-        count3 = state.count(item_names.LAN_HAT, self.player)
-        count4 = state.count(item_names.LAN_BELT, self.player)
-        count5 = state.count(item_names.LAN_CLOAK, self.player)
-        count6 = state.count(item_names.LAN_PANTS, self.player)
-        if progression >= 3: #Max 9
-            if count1 >= 9:
-                power += 2
-            elif count1 >= 8:
-                power += 1
-            if count2 >= 7:
-                power += 1
-            if count3 >= 8:
-                power += 1
-            if count4 >= 9:
-                power += 2
-            elif count4 >= 8:
-                power += 1
-            if count5 >= 9:
-                power += 1
-            if count6 >= 8:
-                power += 2
-            elif count6 >= 7:
-                power += 1
-        elif progression >= 2: #Max 11
-            if count1 >= 6:
-                power += 2
-            elif count1 >= 4:
-                power += 1
-            if count2 >= 5:
-                power += 2
-            elif count2 >= 4:
-                power += 1
-            if count3 >= 6:
-                power += 2
-            elif count3 >= 5:
-                power = power + 1
-            if count4 >= 5:
-                power += 1
-            if count5 >= 6:
-                power += 2
-            elif count5 >= 5:
-                power += 1
-            if count6 >= 6:
-                power += 2
-            elif count6 >= 4:
-                power += 1
-        elif progression == 1: #Max 6
-            if count1 >= 2:
-                power += 1
-            if count2 >= 2:
-                power += 1
-            if count3 >= 3:
-                power += 1
-            if count4 >= 3:
-                power += 1
-            if count5 >= 3:
-                power += 1
-            if count6 >= 2:
-                power += 1
-        #print("Lan Power:", power, "Amount:", amount)
+        power = sum(1 for b in LanEquipmentBreakpoints() if
+                    b.level <= progression and state.count(b.item, self.player) >= b.count)
+        power += state.count("Augment - Lan Lucky Shots", self.player)
+        if self.can_use_relentless_fire(state):
+            power += state.count("Augment - Lan Relentless Fire", self.player)
+            if self.can_use_hunters_insight(state):
+                power += state.count("Augment - Lan Hunter's Insight", self.player)
+        if self.can_use_bloodthirsty_quiver(state):
+            power += state.count("Augment - Lan Bloodthirsty Quiver", self.player)
+            if self.can_use_killer_instinct(state):
+                power += state.count("Augment - Lan Killer Instinct", self.player)
+
         return power >= amount
 
     def sibyl_power(self, state: CollectionState, progression: int, amount: int) -> bool:
-        power = int(0)
-        count1 = state.count(item_names.SIBYL_BOOTS, self.player)
-        #Determine the total power of Sibyl's equipment. Only take the highest progression step due to scaling.
-        count1 = state.count(item_names.SIBYL_ACCESSORY, self.player)
-        count2 = state.count(item_names.SIBYL_LWEAPON, self.player)
-        count3 = state.count(item_names.SIBYL_RWEAPON, self.player)
-        count4 = state.count(item_names.SIBYL_POUCH, self.player)
-        count5 = state.count(item_names.SIBYL_GLOVES, self.player)
-        count6 = state.count(item_names.SIBYL_BOOTS, self.player)
-        if progression >= 3: #Max 9
-            if count1 >= 9:
-                power += 2
-            elif count1 >= 8:
-                power += 1
-            if count2 >= 7:
-                power += 1
-            if count3 >= 8:
-                power += 1
-            if count4 >= 7:
-                power += 2
-            elif count4 >= 6:
-                power += 1
-            if count5 >= 9:
-                power += 1
-            if count6 >= 8:
-                power += 2
-            elif count6 >= 7:
-                power += 1
-        elif progression >= 2: #Max 11
-            if count1 >= 6:
-                power += 2
-            elif count1 >= 4:
-                power += 1
-            if count2 >= 5:
-                power += 2
-            elif count2 >= 4:
-                power += 1
-            if count3 >= 6:
-                power += 2
-            elif count3 >= 5:
-                power += 1
-            if count4 >= 5:
-                power += 1
-            if count5 >= 6:
-                power += 2
-            elif count5 >= 5:
-                power += 1
-            if count6 >= 6:
-                power += 2
-            elif count6 >= 4:
-                power += 1
-        elif progression == 1: #Max 6
-            if count1 >= 2:
-                power += 1
-            if count2 >= 2:
-                power += 1
-            if count3 >= 3:
-                power += 1
-            if count4 >= 3:
-                power += 1
-            if count5 >= 3:
-                power += 1
-            if count6 >= 2:
-                power += 1
-        #print("Sibyl Power:", power, "Amount:", amount)
+        power = sum(1 for b in SibylEquipmentBreakpoints() if
+                    b.level <= progression and state.count(b.item, self.player) >= b.count)
+        power += state.count("Augment - Sibyl Silent Steps", self.player)
+        power += state.count("Augment - Sibyl Dual Depredation", self.player)
+        power += state.count("Augment - Sibyl Ruinous Bleed", self.player)
+        if self.can_use_grounded_motion(state):
+            power += state.count("Augment - Sibyl Grounded Motion", self.player)
+        if self.can_use_stunning_distraction(state):
+            power += state.count("Augment - Sibyl Stunning Distraction", self.player)
+
         return power >= amount
+
 
 apolonia_offense: List[str] = [
     "Equipment - Apolonia Progressive Sword",

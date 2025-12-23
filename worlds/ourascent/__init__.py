@@ -126,13 +126,13 @@ class OurAscentWorld(World):
         storied = self.random.sample(stories_per_chapter[self.options.last_chapter.value], self.options.story_count.value)
         story_list = self.get_all_stories(storied)
         story_list = list(set(story_list))
-        print(story_list)
+        #print(story_list)
         self.playable_stories = [value for key, value in story_id_to_name.items() if key in story_list]
         stories_from_first_chapter = [story for story in story_list if story_to_chapter[story] == 1]
-        starting_story = self.random.choice(stories_from_first_chapter)
-        print(starting_story)
+        self.starting_story = self.random.choice(stories_from_first_chapter)
+        #print(self.starting_story)
         #self.excluded_items[playable_character_to_item[starting_story]] = item_table[playable_character_to_item[starting_story]]
-        self.multiworld.push_precollected(self.create_item(playable_character_to_item[starting_story]))
+        self.multiworld.push_precollected(self.create_item(playable_character_to_item[self.starting_story]))
 
     def create_and_assign_event_items(self) -> None:
         for location in self.multiworld.get_locations(self.player):
@@ -142,10 +142,11 @@ class OurAscentWorld(World):
 
     def completion_rule(self, state: CollectionState):
         required_completions = [value for key, value in completion_index.items() if key in self.playable_stories]
-        print("Required Completions:", required_completions)
+        #print("Required Completions:", required_completions)
         for completion in required_completions:
             if not state.has(completion, self.player):
                 return False
+            continue
         return True
 
     def set_classifications(self, name: str) -> Item:
