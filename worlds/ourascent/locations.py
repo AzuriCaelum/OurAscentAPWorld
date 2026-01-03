@@ -190,89 +190,89 @@ def get_11_locations(player: int) -> List[LocationData]:
 		LocationData(FALLING_INTO_CHAOS_12, "1-1 Story Completion", EventId),
 
 		#Apolonia's Chapter 1 Equipment
-		LocationData(FALLING_INTO_CHAOS_0, "Apolonia Equipment - (Sword 1-1) Fragile Sword", 139 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_1, "Apolonia Equipment - (Sword 1-2) Makeshift Hammer", 140 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_2, "Apolonia Equipment - (Sword 1-3) Rusted Lance", 141 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_3, "Apolonia Equipment - (Sword 1-4) Shabby Dagger", 142 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_4, "Apolonia Equipment - (Sword 1-5) Bronze Axe", 143 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_5, "Apolonia Equipment - (Sword 1-6) Simple Machete", 144 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_6, "Apolonia Equipment - (Sword 1-7) Silver Hammer", 145 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_8, "Apolonia Equipment - (Sword 1-8) Polished Lance", 146 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_9, "Apolonia Equipment - (Sword 1-9) Tarnished Lance", 147 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_10, "Apolonia Equipment - (Sword 1-10) El Goblino's Axe", 148 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_0, "Apolonia Equipment - (Shield 1-1) Tiny Buckler", 149 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_1, "Apolonia Equipment - (Shield 1-2) Big Wheel", 150 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_3, "Apolonia Equipment - (Shield 1-3) Chipped Shield", 151 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_4, "Apolonia Equipment - (Shield 1-4) Small Buckler", 152 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_5, "Apolonia Equipment - (Shield 1-5) Heater Shield", 153 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_8, "Apolonia Equipment - (Shield 1-6) Tri Shield", 154 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_9, "Apolonia Equipment - (Shield 1-7) Polished Shield", 155 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_0, "Apolonia Equipment - (Helmet 1-1) White Headband", 156 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_1, "Apolonia Equipment - (Helmet 1-2) Copper Cap", 157 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_2, "Apolonia Equipment - (Helmet 1-3) Bronze Helm", 158 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_3, "Apolonia Equipment - (Helmet 1-4) Mail Helm", 159 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_4, "Apolonia Equipment - (Helmet 1-5) Broken Barbute", 160 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_5, "Apolonia Equipment - (Helmet 1-6) Reinforced Helm", 161 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_8, "Apolonia Equipment - (Helmet 1-7) Bear Skin", 162 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_9, "Apolonia Equipment - (Helmet 1-8) Shiny Barbute", 163 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_10, "Apolonia Equipment - (Helmet 1-9) Mail Coif", 164 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_0, "Apolonia Equipment - (Breastplate 1-1) Shabby Cuirass", 165 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_1, "Apolonia Equipment - (Breastplate 1-2) Bronze Breastplate", 166 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_2, "Apolonia Equipment - (Breastplate 1-3) Armored Tunic", 167 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_3, "Apolonia Equipment - (Breastplate 1-4) Basic Chainmail", 168 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_4, "Apolonia Equipment - (Breastplate 1-5) Reinforced Tunic", 169 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_5, "Apolonia Equipment - (Breastplate 1-6) Tunic Chainmail", 170 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_8, "Apolonia Equipment - (Breastplate 1-7) Heavy Armor", 171 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_9, "Apolonia Equipment - (Breastplate 1-8) Adv. Chainmail", 172 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_10, "Apolonia Equipment - (Breastplate 1-9) Iron Breastplate", 173 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_0, "Apolonia Equipment - (Gloves 1-1) Basic Sleeves", 174 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_1, "Apolonia Equipment - (Gloves 1-2) Simple Gloves", 175 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_2, "Apolonia Equipment - (Gloves 1-3) Cushioned Sleeves", 176 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_3, "Apolonia Equipment - (Gloves 1-4) Light Gloves", 177 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_4, "Apolonia Equipment - (Gloves 1-5) Copper Gauntlets", 178 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_5, "Apolonia Equipment - (Gloves 1-6) Large Gloves", 179 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_8, "Apolonia Equipment - (Gloves 1-7) Fingerguard Bracers", 180 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_9, "Apolonia Equipment - (Gloves 1-8) Chainmail Mitts", 181 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_10, "Apolonia Equipment - (Gloves 1-9) Speedy Gloves", 182 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_0, "Apolonia Equipment - (Boots 1-1) Open Sandals", 183 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_1, "Apolonia Equipment - (Boots 1-2) Simple Loafers", 184 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_2, "Apolonia Equipment - (Boots 1-3) Felt Shoes", 185 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_3, "Apolonia Equipment - (Boots 1-4) Basic Greaves", 186 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_4, "Apolonia Equipment - (Boots 1-5) Open Boots", 187 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_5, "Apolonia Equipment - (Boots 1-6) Lined Boots", 188 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_8, "Apolonia Equipment - (Boots 1-7) Bronze Sabatons", 189 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_9, "Apolonia Equipment - (Boots 1-8) Fancy Boots", 190 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_10, "Apolonia Equipment - (Boots 1-9) Plated Shoes", 191 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_0, "Apolonia Equipment - (Acc 1-1) Dull Ring 1", 192 + apolonia_offset),
+		LocationData(FALLING_INTO_CHAOS_0, "Apolonia Equipment - (Sword 1-1) Fragile Sword", 139 + apolonia_offset), #Lyra 1 Unlock
+		LocationData(FALLING_INTO_CHAOS_1, "Apolonia Equipment - (Sword 1-2) Makeshift Hammer", 140 + apolonia_offset), #150g
+		LocationData(FALLING_INTO_CHAOS_1, "Apolonia Equipment - (Sword 1-3) Rusted Lance", 141 + apolonia_offset), #Level 100 drop
+		LocationData(FALLING_INTO_CHAOS_4, "Apolonia Equipment - (Sword 1-4) Shabby Dagger", 142 + apolonia_offset), #750g, Level 360 drop
+		LocationData(FALLING_INTO_CHAOS_6, "Apolonia Equipment - (Sword 1-5) Bronze Axe", 143 + apolonia_offset), #1700g
+		LocationData(FALLING_INTO_CHAOS_7, "Apolonia Equipment - (Sword 1-6) Simple Machete", 144 + apolonia_offset), #2500g, Level 1300 drop
+		LocationData(FALLING_INTO_CHAOS_7, "Apolonia Equipment - (Sword 1-7) Silver Hammer", 145 + apolonia_offset), #Level 1200 drop
+		LocationData(FALLING_INTO_CHAOS_9, "Apolonia Equipment - (Sword 1-8) Polished Lance", 146 + apolonia_offset), #9100g
+		LocationData(FALLING_INTO_CHAOS_11, "Apolonia Equipment - (Sword 1-9) Tarnished Lance", 147 + apolonia_offset), #22Kg
+		LocationData(FALLING_INTO_CHAOS_11, "Apolonia Equipment - (Sword 1-10) El Goblino's Axe", 148 + apolonia_offset), #Level 5000 drop
+		LocationData(FALLING_INTO_CHAOS_0, "Apolonia Equipment - (Shield 1-1) Tiny Buckler", 149 + apolonia_offset), #100g, Level 80 drop
+		LocationData(FALLING_INTO_CHAOS_1, "Apolonia Equipment - (Shield 1-2) Big Wheel", 150 + apolonia_offset), #300g
+		LocationData(FALLING_INTO_CHAOS_4, "Apolonia Equipment - (Shield 1-3) Chipped Shield", 151 + apolonia_offset), #800g
+		LocationData(FALLING_INTO_CHAOS_7, "Apolonia Equipment - (Shield 1-4) Small Buckler", 152 + apolonia_offset), #3000g
+		LocationData(FALLING_INTO_CHAOS_8, "Apolonia Equipment - (Shield 1-5) Heater Shield", 153 + apolonia_offset), #6000g
+		LocationData(FALLING_INTO_CHAOS_10, "Apolonia Equipment - (Shield 1-6) Tri Shield", 154 + apolonia_offset), #Level 3838 drop
+		LocationData(FALLING_INTO_CHAOS_11, "Apolonia Equipment - (Shield 1-7) Polished Shield", 155 + apolonia_offset), #32Kg
+		LocationData(FALLING_INTO_CHAOS_2, "Apolonia Equipment - (Helmet 1-1) White Headband", 156 + apolonia_offset), #320g
+		LocationData(FALLING_INTO_CHAOS_3, "Apolonia Equipment - (Helmet 1-2) Copper Cap", 157 + apolonia_offset), #520g
+		LocationData(FALLING_INTO_CHAOS_6, "Apolonia Equipment - (Helmet 1-3) Bronze Helm", 158 + apolonia_offset), #1300g
+		LocationData(FALLING_INTO_CHAOS_7, "Apolonia Equipment - (Helmet 1-4) Mail Helm", 159 + apolonia_offset), #3100g
+		LocationData(FALLING_INTO_CHAOS_8, "Apolonia Equipment - (Helmet 1-5) Broken Barbute", 160 + apolonia_offset), #4400g
+		LocationData(FALLING_INTO_CHAOS_9, "Apolonia Equipment - (Helmet 1-6) Reinforced Helm", 161 + apolonia_offset), #7800g
+		LocationData(FALLING_INTO_CHAOS_10, "Apolonia Equipment - (Helmet 1-7) Bear Skin", 162 + apolonia_offset), #Level 3250, 3750 drop
+		LocationData(FALLING_INTO_CHAOS_11, "Apolonia Equipment - (Helmet 1-8) Shiny Barbute", 163 + apolonia_offset), #16Kg
+		LocationData(FALLING_INTO_CHAOS_11, "Apolonia Equipment - (Helmet 1-9) Mail Coif", 164 + apolonia_offset), #29Kg
+		LocationData(FALLING_INTO_CHAOS_1, "Apolonia Equipment - (Breastplate 1-1) Shabby Cuirass", 165 + apolonia_offset), #250g
+		LocationData(FALLING_INTO_CHAOS_3, "Apolonia Equipment - (Breastplate 1-2) Bronze Breastplate", 166 + apolonia_offset), #550g, Level 290 drop
+		LocationData(FALLING_INTO_CHAOS_4, "Apolonia Equipment - (Breastplate 1-3) Armored Tunic", 167 + apolonia_offset), #900g
+		LocationData(FALLING_INTO_CHAOS_6, "Apolonia Equipment - (Breastplate 1-4) Basic Chainmail", 168 + apolonia_offset), #2100g, Level 500 drop
+		LocationData(FALLING_INTO_CHAOS_8, "Apolonia Equipment - (Breastplate 1-5) Reinforced Tunic", 169 + apolonia_offset), #Level 1414 drop
+		LocationData(FALLING_INTO_CHAOS_8, "Apolonia Equipment - (Breastplate 1-6) Tunic Chainmail", 170 + apolonia_offset), #5500g
+		LocationData(FALLING_INTO_CHAOS_9, "Apolonia Equipment - (Breastplate 1-7) Heavy Armor", 171 + apolonia_offset), #8300g
+		LocationData(FALLING_INTO_CHAOS_11, "Apolonia Equipment - (Breastplate 1-8) Adv. Chainmail", 172 + apolonia_offset), #17Kg
+		LocationData(FALLING_INTO_CHAOS_11, "Apolonia Equipment - (Breastplate 1-9) Iron Breastplate", 173 + apolonia_offset), #24Kg
+		LocationData(FALLING_INTO_CHAOS_1, "Apolonia Equipment - (Gloves 1-1) Basic Sleeves", 174 + apolonia_offset), #270g
+		LocationData(FALLING_INTO_CHAOS_2, "Apolonia Equipment - (Gloves 1-2) Simple Gloves", 175 + apolonia_offset), #Level 130 drop
+		LocationData(FALLING_INTO_CHAOS_6, "Apolonia Equipment - (Gloves 1-3) Cushioned Sleeves", 176 + apolonia_offset), #1400g
+		LocationData(FALLING_INTO_CHAOS_7, "Apolonia Equipment - (Gloves 1-4) Light Gloves", 177 + apolonia_offset), #2900g
+		LocationData(FALLING_INTO_CHAOS_8, "Apolonia Equipment - (Gloves 1-5) Copper Gauntlets", 178 + apolonia_offset), #4700g
+		LocationData(FALLING_INTO_CHAOS_9, "Apolonia Equipment - (Gloves 1-6) Large Gloves", 179 + apolonia_offset), #7300g
+		LocationData(FALLING_INTO_CHAOS_10, "Apolonia Equipment - (Gloves 1-7) Fingerguard Bracers", 180 + apolonia_offset), #11.5Kg
+		LocationData(FALLING_INTO_CHAOS_11, "Apolonia Equipment - (Gloves 1-8) Chainmail Mitts", 181 + apolonia_offset), #18Kg
+		LocationData(FALLING_INTO_CHAOS_12, "Apolonia Equipment - (Gloves 1-9) Speedy Gloves", 182 + apolonia_offset), #Level 10k drop
+		LocationData(FALLING_INTO_CHAOS_2, "Apolonia Equipment - (Boots 1-1) Open Sandals", 183 + apolonia_offset), #360g, Level 100 drop
+		LocationData(FALLING_INTO_CHAOS_3, "Apolonia Equipment - (Boots 1-2) Simple Loafers", 184 + apolonia_offset), #600g
+		LocationData(FALLING_INTO_CHAOS_5, "Apolonia Equipment - (Boots 1-3) Felt Shoes", 185 + apolonia_offset), #1200g
+		LocationData(FALLING_INTO_CHAOS_6, "Apolonia Equipment - (Boots 1-4) Basic Greaves", 186 + apolonia_offset), #Level 670 drop
+		LocationData(FALLING_INTO_CHAOS_8, "Apolonia Equipment - (Boots 1-5) Open Boots", 187 + apolonia_offset), #5400g
+		LocationData(FALLING_INTO_CHAOS_9, "Apolonia Equipment - (Boots 1-6) Lined Boots", 188 + apolonia_offset), #7800g
+		LocationData(FALLING_INTO_CHAOS_10, "Apolonia Equipment - (Boots 1-7) Bronze Sabatons", 189 + apolonia_offset), #Level 4250, 5000 drop
+		LocationData(FALLING_INTO_CHAOS_11, "Apolonia Equipment - (Boots 1-8) Fancy Boots", 190 + apolonia_offset), #17Kg
+		LocationData(FALLING_INTO_CHAOS_11, "Apolonia Equipment - (Boots 1-9) Plated Shoes", 191 + apolonia_offset), #28Kg
+		LocationData(FALLING_INTO_CHAOS_0, "Apolonia Equipment - (Acc 1-1) Dull Ring 1", 192 + apolonia_offset), #125g, Level 60 drop
 		LocationData(FALLING_INTO_CHAOS_0, "Apolonia Equipment - (Acc 1-1) Dull Ring 2", 193 + apolonia_offset),
 		LocationData(FALLING_INTO_CHAOS_0, "Apolonia Equipment - (Acc 1-1) Dull Ring 3", 194 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_1, "Apolonia Equipment - (Acc 1-2) Chipped Earring 1", 195 + apolonia_offset),
+		LocationData(FALLING_INTO_CHAOS_1, "Apolonia Equipment - (Acc 1-2) Chipped Earring 1", 195 + apolonia_offset), #200g
 		LocationData(FALLING_INTO_CHAOS_1, "Apolonia Equipment - (Acc 1-2) Chipped Earring 2", 196 + apolonia_offset),
 		LocationData(FALLING_INTO_CHAOS_1, "Apolonia Equipment - (Acc 1-2) Chipped Earring 3", 197 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_2, "Apolonia Equipment - (Acc 1-3) Death Ring I 1", 198 + apolonia_offset),
+		LocationData(FALLING_INTO_CHAOS_2, "Apolonia Equipment - (Acc 1-3) Death Ring I 1", 198 + apolonia_offset), #350g
 		LocationData(FALLING_INTO_CHAOS_2, "Apolonia Equipment - (Acc 1-3) Death Ring I 2", 199 + apolonia_offset),
 		LocationData(FALLING_INTO_CHAOS_2, "Apolonia Equipment - (Acc 1-3) Death Ring I 3", 200 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_3, "Apolonia Equipment - (Acc 1-4) Shield Amulet 1", 201 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_3, "Apolonia Equipment - (Acc 1-4) Shield Amulet 2", 202 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_3, "Apolonia Equipment - (Acc 1-4) Shield Amulet 3", 203 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_4, "Apolonia Equipment - (Acc 1-5) Slim Double Band 1", 204 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_4, "Apolonia Equipment - (Acc 1-5) Slim Double Band 2", 205 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_4, "Apolonia Equipment - (Acc 1-5) Slim Double Band 3", 206 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_5, "Apolonia Equipment - (Acc 1-6) Fancy Ring 1", 207 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_5, "Apolonia Equipment - (Acc 1-6) Fancy Ring 2", 208 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_5, "Apolonia Equipment - (Acc 1-6) Fancy Ring 3", 209 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_8, "Apolonia Equipment - (Acc 1-7) Recovery Ring 1", 210 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_8, "Apolonia Equipment - (Acc 1-7) Recovery Ring 2", 211 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_8, "Apolonia Equipment - (Acc 1-7) Recovery Ring 3", 212 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_9, "Apolonia Equipment - (Acc 1-8) Coin Amulet 1", 213 + apolonia_offset),
+		LocationData(FALLING_INTO_CHAOS_4, "Apolonia Equipment - (Acc 1-4) Shield Amulet 1", 201 + apolonia_offset), #1000g, Level 200 drop
+		LocationData(FALLING_INTO_CHAOS_4, "Apolonia Equipment - (Acc 1-4) Shield Amulet 2", 202 + apolonia_offset),
+		LocationData(FALLING_INTO_CHAOS_4, "Apolonia Equipment - (Acc 1-4) Shield Amulet 3", 203 + apolonia_offset),
+		LocationData(FALLING_INTO_CHAOS_6, "Apolonia Equipment - (Acc 1-5) Slim Double Band 1", 204 + apolonia_offset), #2200g
+		LocationData(FALLING_INTO_CHAOS_6, "Apolonia Equipment - (Acc 1-5) Slim Double Band 2", 205 + apolonia_offset),
+		LocationData(FALLING_INTO_CHAOS_6, "Apolonia Equipment - (Acc 1-5) Slim Double Band 3", 206 + apolonia_offset),
+		LocationData(FALLING_INTO_CHAOS_8, "Apolonia Equipment - (Acc 1-6) Fancy Ring 1", 207 + apolonia_offset), #4000g
+		LocationData(FALLING_INTO_CHAOS_8, "Apolonia Equipment - (Acc 1-6) Fancy Ring 2", 208 + apolonia_offset),
+		LocationData(FALLING_INTO_CHAOS_8, "Apolonia Equipment - (Acc 1-6) Fancy Ring 3", 209 + apolonia_offset),
+		LocationData(FALLING_INTO_CHAOS_9, "Apolonia Equipment - (Acc 1-7) Recovery Ring 1", 210 + apolonia_offset), #Level 2222, 3000 drop
+		LocationData(FALLING_INTO_CHAOS_9, "Apolonia Equipment - (Acc 1-7) Recovery Ring 2", 211 + apolonia_offset),
+		LocationData(FALLING_INTO_CHAOS_9, "Apolonia Equipment - (Acc 1-7) Recovery Ring 3", 212 + apolonia_offset),
+		LocationData(FALLING_INTO_CHAOS_9, "Apolonia Equipment - (Acc 1-8) Coin Amulet 1", 213 + apolonia_offset), #7777g
 		LocationData(FALLING_INTO_CHAOS_9, "Apolonia Equipment - (Acc 1-8) Coin Amulet 2", 214 + apolonia_offset),
 		LocationData(FALLING_INTO_CHAOS_9, "Apolonia Equipment - (Acc 1-8) Coin Amulet 3", 215 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_10, "Apolonia Equipment - (Acc 1-9) Death Ring II 1", 216 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_10, "Apolonia Equipment - (Acc 1-9) Death Ring II 2", 217 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_10, "Apolonia Equipment - (Acc 1-9) Death Ring II 3", 218 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_11, "Apolonia Equipment - (Acc 1-10) Enchanted Ring 1", 219 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_11, "Apolonia Equipment - (Acc 1-10) Enchanted Ring 2", 220 + apolonia_offset),
-		LocationData(FALLING_INTO_CHAOS_11, "Apolonia Equipment - (Acc 1-10) Enchanted Ring 3", 221 + apolonia_offset)
+		LocationData(FALLING_INTO_CHAOS_11, "Apolonia Equipment - (Acc 1-9) Death Ring II 1", 216 + apolonia_offset), #20Kg
+		LocationData(FALLING_INTO_CHAOS_11, "Apolonia Equipment - (Acc 1-9) Death Ring II 2", 217 + apolonia_offset),
+		LocationData(FALLING_INTO_CHAOS_11, "Apolonia Equipment - (Acc 1-9) Death Ring II 3", 218 + apolonia_offset),
+		LocationData(FALLING_INTO_CHAOS_12, "Apolonia Equipment - (Acc 1-10) Enchanted Ring 1", 219 + apolonia_offset), #36Kg
+		LocationData(FALLING_INTO_CHAOS_12, "Apolonia Equipment - (Acc 1-10) Enchanted Ring 2", 220 + apolonia_offset),
+		LocationData(FALLING_INTO_CHAOS_12, "Apolonia Equipment - (Acc 1-10) Enchanted Ring 3", 221 + apolonia_offset)
 ]
 	return location_table
 
@@ -420,89 +420,89 @@ def get_12_locations(player: int) -> List[LocationData]:
         LocationData(RISING_TO_THE_CHALLENGE_12, "1-2 Story Completion", EventId),
 
         #Stan's Chapter 1 Equipment
-		LocationData(RISING_TO_THE_CHALLENGE_0, "Stan Equipment - (Sword 1-1) Fragile Longsword", 139 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_1, "Stan Equipment - (Sword 1-2) Shabby Shortsword", 140 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_2, "Stan Equipment - (Sword 1-3) Makeshift Halberd", 141 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_3, "Stan Equipment - (Sword 1-4) Rusty Rapier", 142 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_4, "Stan Equipment - (Sword 1-5) Chipped Axe", 143 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_5, "Stan Equipment - (Sword 1-6) Short Machete", 144 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_6, "Stan Equipment - (Sword 1-7) Simple Axe", 145 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_8, "Stan Equipment - (Sword 1-8) Tainted Longsword", 146 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_9, "Stan Equipment - (Sword 1-9) Basic Halberd", 147 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_10, "Stan Equipment - (Sword 1-10) Tarnished Rapier", 148 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_0, "Stan Equipment - (Snack 1-1) Bread", 149 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_1, "Stan Equipment - (Snack 1-2) Questionable Clam", 150 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_3, "Stan Equipment - (Snack 1-3) Ube Donut", 151 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_4, "Stan Equipment - (Snack 1-4) Collard Greens", 152 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_5, "Stan Equipment - (Snack 1-5) Croissant", 153 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_8, "Stan Equipment - (Snack 1-6) Cheese", 154 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_9, "Stan Equipment - (Snack 1-7) Sushi", 155 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_0, "Stan Equipment - (Shirt 1-1) Shabby Tunic", 156 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_1, "Stan Equipment - (Shirt 1-2) Basic Armguard", 157 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_2, "Stan Equipment - (Shirt 1-3) Simple Gard", 158 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_3, "Stan Equipment - (Shirt 1-4) Assorted Armguard", 159 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_4, "Stan Equipment - (Shirt 1-5) Crested Tank Top", 160 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_5, "Stan Equipment - (Shirt 1-6) Questionable Colors", 161 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_8, "Stan Equipment - (Shirt 1-7) Simple Armguard", 162 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_9, "Stan Equipment - (Shirt 1-8) Handsome Shirt", 163 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_10, "Stan Equipment - (Shirt 1-9) Rigid Armguard", 164 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_0, "Stan Equipment - (Gloves 1-1) Cushioned Gloves", 165 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_1, "Stan Equipment - (Gloves 1-2) Solid Sleeves", 166 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_2, "Stan Equipment - (Gloves 1-3) Water Gloves", 167 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_3, "Stan Equipment - (Gloves 1-4) Chainmail Gloves", 168 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_4, "Stan Equipment - (Gloves 1-5) Rigid Mitts", 169 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_5, "Stan Equipment - (Gloves 1-6) Solid Gloves", 170 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_8, "Stan Equipment - (Gloves 1-7) Cushioned Mitts", 171 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_9, "Stan Equipment - (Gloves 1-8) Infused Bracers", 172 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_10, "Stan Equipment - (Gloves 1-9) Gloves of Power", 173 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_0, "Stan Equipment - (Belt 1-1) Basic Sash", 174 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_1, "Stan Equipment - (Belt 1-2) Red Strap", 175 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_2, "Stan Equipment - (Belt 1-3) Simple Belt", 176 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_3, "Stan Equipment - (Belt 1-4) Jester's Waistband", 177 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_4, "Stan Equipment - (Belt 1-5) Sturdy Sash", 178 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_8, "Stan Equipment - (Belt 1-6) White Belt", 179 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_9, "Stan Equipment - (Belt 1-7) Utility Waistband", 180 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_10, "Stan Equipment - (Belt 1-8) Red Fastener", 181 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_10, "Stan Equipment - (Belt 1-9) Camo Belt", 182 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_0, "Stan Equipment - (Pants 1-1) Simple Trousers", 183 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_1, "Stan Equipment - (Pants 1-2) Cushioned Legguards", 184 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_2, "Stan Equipment - (Pants 1-3) Basic Slacks", 185 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_3, "Stan Equipment - (Pants 1-4) Plated Legguards", 186 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_4, "Stan Equipment - (Pants 1-5) Trimmed Breaches", 187 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_8, "Stan Equipment - (Pants 1-6) Crested Pants", 188 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_9, "Stan Equipment - (Pants 1-7) Buckled Garment", 189 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_10, "Stan Equipment - (Pants 1-8) Questionable Trousers", 190 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_10, "Stan Equipment - (Pants 1-9) Reinforced Legguards", 191 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_0, "Stan Equipment - (Acc 1-1) Tooth Amulet 1", 192 + stan_offset),
+		LocationData(RISING_TO_THE_CHALLENGE_0, "Stan Equipment - (Sword 1-1) Fragile Longsword", 139 + stan_offset), #Lyra 1 Unlock
+		LocationData(RISING_TO_THE_CHALLENGE_1, "Stan Equipment - (Sword 1-2) Shabby Shortsword", 140 + stan_offset), #250g
+		LocationData(RISING_TO_THE_CHALLENGE_2, "Stan Equipment - (Sword 1-3) Makeshift Halberd", 141 + stan_offset), #400g, Level 200 drop
+		LocationData(RISING_TO_THE_CHALLENGE_5, "Stan Equipment - (Sword 1-4) Rusty Rapier", 142 + stan_offset), #1100g
+		LocationData(RISING_TO_THE_CHALLENGE_6, "Stan Equipment - (Sword 1-5) Chipped Axe", 143 + stan_offset), #2700g, Level 1200 drop
+		LocationData(RISING_TO_THE_CHALLENGE_7, "Stan Equipment - (Sword 1-6) Short Machete", 144 + stan_offset), #Level 1300 Drop
+		LocationData(RISING_TO_THE_CHALLENGE_8, "Stan Equipment - (Sword 1-7) Simple Axe", 145 + stan_offset), #7500g
+		LocationData(RISING_TO_THE_CHALLENGE_10, "Stan Equipment - (Sword 1-8) Tainted Longsword", 146 + stan_offset), #13Kg
+		LocationData(RISING_TO_THE_CHALLENGE_10, "Stan Equipment - (Sword 1-9) Basic Halberd", 147 + stan_offset), #19Kg
+		LocationData(RISING_TO_THE_CHALLENGE_11, "Stan Equipment - (Sword 1-10) Tarnished Rapier", 148 + stan_offset), #25Kg
+		LocationData(RISING_TO_THE_CHALLENGE_0, "Stan Equipment - (Snack 1-1) Bread", 149 + stan_offset), #100g
+		LocationData(RISING_TO_THE_CHALLENGE_1, "Stan Equipment - (Snack 1-2) Questionable Clam", 150 + stan_offset), #Level 100 drop
+		LocationData(RISING_TO_THE_CHALLENGE_5, "Stan Equipment - (Snack 1-3) Ube Donut", 151 + stan_offset), #1200g
+		LocationData(RISING_TO_THE_CHALLENGE_4, "Stan Equipment - (Snack 1-4) Collard Greens", 152 + stan_offset), #3800g
+		LocationData(RISING_TO_THE_CHALLENGE_5, "Stan Equipment - (Snack 1-5) Croissant", 153 + stan_offset), #7000g
+		LocationData(RISING_TO_THE_CHALLENGE_8, "Stan Equipment - (Snack 1-6) Cheese", 154 + stan_offset), #Level 3838 drop
+		LocationData(RISING_TO_THE_CHALLENGE_9, "Stan Equipment - (Snack 1-7) Sushi", 155 + stan_offset), #27Kg
+		LocationData(RISING_TO_THE_CHALLENGE_0, "Stan Equipment - (Shirt 1-1) Shabby Tunic", 156 + stan_offset), #280g
+		LocationData(RISING_TO_THE_CHALLENGE_2, "Stan Equipment - (Shirt 1-2) Basic Armguard", 157 + stan_offset), #670g
+		LocationData(RISING_TO_THE_CHALLENGE_4, "Stan Equipment - (Shirt 1-3) Simple Gard", 158 + stan_offset), #1000g
+		LocationData(RISING_TO_THE_CHALLENGE_5, "Stan Equipment - (Shirt 1-4) Assorted Armguard", 159 + stan_offset), #2100g, Level 500 Drop
+		LocationData(RISING_TO_THE_CHALLENGE_7, "Stan Equipment - (Shirt 1-5) Crested Tank Top", 160 + stan_offset), #4600g
+		LocationData(RISING_TO_THE_CHALLENGE_9, "Stan Equipment - (Shirt 1-6) Questionable Colors", 161 + stan_offset), #Level 2525 Drop
+		LocationData(RISING_TO_THE_CHALLENGE_10, "Stan Equipment - (Shirt 1-7) Simple Armguard", 162 + stan_offset), #12Kg
+		LocationData(RISING_TO_THE_CHALLENGE_11, "Stan Equipment - (Shirt 1-8) Handsome Shirt", 163 + stan_offset), #19Kg
+		LocationData(RISING_TO_THE_CHALLENGE_11, "Stan Equipment - (Shirt 1-9) Rigid Armguard", 164 + stan_offset), #Level 10k Drop
+		LocationData(RISING_TO_THE_CHALLENGE_0, "Stan Equipment - (Gloves 1-1) Cushioned Gloves", 165 + stan_offset), #260g
+		LocationData(RISING_TO_THE_CHALLENGE_3, "Stan Equipment - (Gloves 1-2) Solid Sleeves", 166 + stan_offset), #550g
+		LocationData(RISING_TO_THE_CHALLENGE_5, "Stan Equipment - (Gloves 1-3) Water Gloves", 167 + stan_offset), #Level 490 drop
+		LocationData(RISING_TO_THE_CHALLENGE_5, "Stan Equipment - (Gloves 1-4) Chainmail Gloves", 168 + stan_offset), #1600g
+		LocationData(RISING_TO_THE_CHALLENGE_6, "Stan Equipment - (Gloves 1-5) Rigid Mitts", 169 + stan_offset), #3000g
+		LocationData(RISING_TO_THE_CHALLENGE_8, "Stan Equipment - (Gloves 1-6) Solid Gloves", 170 + stan_offset), #6400g
+		LocationData(RISING_TO_THE_CHALLENGE_9, "Stan Equipment - (Gloves 1-7) Cushioned Mitts", 171 + stan_offset), #9400g
+		LocationData(RISING_TO_THE_CHALLENGE_11, "Stan Equipment - (Gloves 1-8) Infused Bracers", 172 + stan_offset), #Level 6000 drop
+		LocationData(RISING_TO_THE_CHALLENGE_11, "Stan Equipment - (Gloves 1-9) Gloves of Power", 173 + stan_offset), #26Kg
+		LocationData(RISING_TO_THE_CHALLENGE_1, "Stan Equipment - (Belt 1-1) Basic Sash", 174 + stan_offset), #310g
+		LocationData(RISING_TO_THE_CHALLENGE_3, "Stan Equipment - (Belt 1-2) Red Strap", 175 + stan_offset), #640g
+		LocationData(RISING_TO_THE_CHALLENGE_4, "Stan Equipment - (Belt 1-3) Simple Belt", 176 + stan_offset), #1300g, Level 370 drop
+		LocationData(RISING_TO_THE_CHALLENGE_5, "Stan Equipment - (Belt 1-4) Jester's Waistband", 177 + stan_offset), #Level 444, 888, 2222 drop
+		LocationData(RISING_TO_THE_CHALLENGE_7, "Stan Equipment - (Belt 1-5) Sturdy Sash", 178 + stan_offset), #5200g
+		LocationData(RISING_TO_THE_CHALLENGE_8, "Stan Equipment - (Belt 1-6) White Belt", 179 + stan_offset), #7900g
+		LocationData(RISING_TO_THE_CHALLENGE_10, "Stan Equipment - (Belt 1-7) Utility Waistband", 180 + stan_offset), #11Kg, Level 3000 drop
+		LocationData(RISING_TO_THE_CHALLENGE_11, "Stan Equipment - (Belt 1-8) Red Fastener", 181 + stan_offset), #18Kg
+		LocationData(RISING_TO_THE_CHALLENGE_11, "Stan Equipment - (Belt 1-9) Camo Belt", 182 + stan_offset), #27Kg
+		LocationData(RISING_TO_THE_CHALLENGE_1, "Stan Equipment - (Pants 1-1) Simple Trousers", 183 + stan_offset), #420g, Level 250 drop
+		LocationData(RISING_TO_THE_CHALLENGE_3, "Stan Equipment - (Pants 1-2) Cushioned Legguards", 184 + stan_offset), #850g
+		LocationData(RISING_TO_THE_CHALLENGE_4, "Stan Equipment - (Pants 1-3) Basic Slacks", 185 + stan_offset), #1400g
+		LocationData(RISING_TO_THE_CHALLENGE_6, "Stan Equipment - (Pants 1-4) Plated Legguards", 186 + stan_offset), #2500g
+		LocationData(RISING_TO_THE_CHALLENGE_8, "Stan Equipment - (Pants 1-5) Trimmed Breaches", 187 + stan_offset), #Level 1600 drop
+		LocationData(RISING_TO_THE_CHALLENGE_9, "Stan Equipment - (Pants 1-6) Crested Pants", 188 + stan_offset), #8100g
+		LocationData(RISING_TO_THE_CHALLENGE_10, "Stan Equipment - (Pants 1-7) Buckled Garment", 189 + stan_offset), #13Kg
+		LocationData(RISING_TO_THE_CHALLENGE_11, "Stan Equipment - (Pants 1-8) Questionable Trousers", 190 + stan_offset), #18Kg, Level 5000 drop
+		LocationData(RISING_TO_THE_CHALLENGE_11, "Stan Equipment - (Pants 1-9) Reinforced Legguards", 191 + stan_offset), #25Kg
+		LocationData(RISING_TO_THE_CHALLENGE_0, "Stan Equipment - (Acc 1-1) Tooth Amulet 1", 192 + stan_offset), #100g, Level 40 drop
 		LocationData(RISING_TO_THE_CHALLENGE_0, "Stan Equipment - (Acc 1-1) Tooth Amulet 2", 193 + stan_offset),
 		LocationData(RISING_TO_THE_CHALLENGE_0, "Stan Equipment - (Acc 1-1) Tooth Amulet 3", 194 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_1, "Stan Equipment - (Acc 1-2) Slim Band 1", 195 + stan_offset),
+		LocationData(RISING_TO_THE_CHALLENGE_1, "Stan Equipment - (Acc 1-2) Slim Band 1", 195 + stan_offset), #250g, Level 70 drop
 		LocationData(RISING_TO_THE_CHALLENGE_1, "Stan Equipment - (Acc 1-2) Slim Band 2", 196 + stan_offset),
 		LocationData(RISING_TO_THE_CHALLENGE_1, "Stan Equipment - (Acc 1-2) Slim Band 3", 197 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_2, "Stan Equipment - (Acc 1-3) Power Ring 1", 198 + stan_offset),
+		LocationData(RISING_TO_THE_CHALLENGE_2, "Stan Equipment - (Acc 1-3) Power Ring 1", 198 + stan_offset), #400g, Level 100 drop
 		LocationData(RISING_TO_THE_CHALLENGE_2, "Stan Equipment - (Acc 1-3) Power Ring 2", 199 + stan_offset),
 		LocationData(RISING_TO_THE_CHALLENGE_2, "Stan Equipment - (Acc 1-3) Power Ring 3", 200 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_3, "Stan Equipment - (Acc 1-4) Engraved Ring 1", 201 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_3, "Stan Equipment - (Acc 1-4) Engraved Ring 2", 202 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_3, "Stan Equipment - (Acc 1-4) Engraved Ring 3", 203 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_4, "Stan Equipment - (Acc 1-5) Dagger Amulet 1", 204 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_4, "Stan Equipment - (Acc 1-5) Dagger Amulet 2", 205 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_4, "Stan Equipment - (Acc 1-5) Dagger Amulet 3", 206 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_5, "Stan Equipment - (Acc 1-6) Empty Ring 1", 207 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_5, "Stan Equipment - (Acc 1-6) Empty Ring 2", 208 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_5, "Stan Equipment - (Acc 1-6) Empty Ring 3", 209 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_8, "Stan Equipment - (Acc 1-7) Crown Ring 1", 210 + stan_offset),
+		LocationData(RISING_TO_THE_CHALLENGE_4, "Stan Equipment - (Acc 1-4) Engraved Ring 1", 201 + stan_offset), #900g, Level 200 drop
+		LocationData(RISING_TO_THE_CHALLENGE_4, "Stan Equipment - (Acc 1-4) Engraved Ring 2", 202 + stan_offset),
+		LocationData(RISING_TO_THE_CHALLENGE_4, "Stan Equipment - (Acc 1-4) Engraved Ring 3", 203 + stan_offset),
+		LocationData(RISING_TO_THE_CHALLENGE_5, "Stan Equipment - (Acc 1-5) Dagger Amulet 1", 204 + stan_offset), #1700g, Level 700 drop
+		LocationData(RISING_TO_THE_CHALLENGE_5, "Stan Equipment - (Acc 1-5) Dagger Amulet 2", 205 + stan_offset),
+		LocationData(RISING_TO_THE_CHALLENGE_5, "Stan Equipment - (Acc 1-5) Dagger Amulet 3", 206 + stan_offset),
+		LocationData(RISING_TO_THE_CHALLENGE_7, "Stan Equipment - (Acc 1-6) Empty Ring 1", 207 + stan_offset), #4500g
+		LocationData(RISING_TO_THE_CHALLENGE_7, "Stan Equipment - (Acc 1-6) Empty Ring 2", 208 + stan_offset),
+		LocationData(RISING_TO_THE_CHALLENGE_7, "Stan Equipment - (Acc 1-6) Empty Ring 3", 209 + stan_offset),
+		LocationData(RISING_TO_THE_CHALLENGE_8, "Stan Equipment - (Acc 1-7) Crown Ring 1", 210 + stan_offset), #7777g
 		LocationData(RISING_TO_THE_CHALLENGE_8, "Stan Equipment - (Acc 1-7) Crown Ring 2", 211 + stan_offset),
 		LocationData(RISING_TO_THE_CHALLENGE_8, "Stan Equipment - (Acc 1-7) Crown Ring 3", 212 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_9, "Stan Equipment - (Acc 1-8) Double Band 1", 213 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_9, "Stan Equipment - (Acc 1-8) Double Band 2", 214 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_9, "Stan Equipment - (Acc 1-8) Double Band 3", 215 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_10, "Stan Equipment - (Acc 1-9) Studded Band 1", 216 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_10, "Stan Equipment - (Acc 1-9) Studded Band 2", 217 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_10, "Stan Equipment - (Acc 1-9) Studded Band 3", 218 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_10, "Stan Equipment - (Acc 1-10) Jeweled Ring 1", 219 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_10, "Stan Equipment - (Acc 1-10) Jeweled Ring 2", 220 + stan_offset),
-		LocationData(RISING_TO_THE_CHALLENGE_10, "Stan Equipment - (Acc 1-10) Jeweled Ring 3", 221 + stan_offset)
+		LocationData(RISING_TO_THE_CHALLENGE_10, "Stan Equipment - (Acc 1-8) Double Band 1", 213 + stan_offset), #15Kg
+		LocationData(RISING_TO_THE_CHALLENGE_10, "Stan Equipment - (Acc 1-8) Double Band 2", 214 + stan_offset),
+		LocationData(RISING_TO_THE_CHALLENGE_10, "Stan Equipment - (Acc 1-8) Double Band 3", 215 + stan_offset),
+		LocationData(RISING_TO_THE_CHALLENGE_11, "Stan Equipment - (Acc 1-9) Studded Band 1", 216 + stan_offset), #Level 7500 drop
+		LocationData(RISING_TO_THE_CHALLENGE_11, "Stan Equipment - (Acc 1-9) Studded Band 2", 217 + stan_offset),
+		LocationData(RISING_TO_THE_CHALLENGE_11, "Stan Equipment - (Acc 1-9) Studded Band 3", 218 + stan_offset),
+		LocationData(RISING_TO_THE_CHALLENGE_11, "Stan Equipment - (Acc 1-10) Jeweled Ring 1", 219 + stan_offset), #30Kg
+		LocationData(RISING_TO_THE_CHALLENGE_11, "Stan Equipment - (Acc 1-10) Jeweled Ring 2", 220 + stan_offset),
+		LocationData(RISING_TO_THE_CHALLENGE_11, "Stan Equipment - (Acc 1-10) Jeweled Ring 3", 221 + stan_offset)
 ]
 	return location_table
 
@@ -556,11 +556,11 @@ def get_13_locations(player: int) -> List[LocationData]:
         LocationData(UNLEASHING_THE_BEAST_6, "1-3 Enemy - (700) Piranos", 44 + hina_offset),
         LocationData(UNLEASHING_THE_BEAST_6, "1-3 Enemy - (700) Skullface", 45 + hina_offset),
         LocationData(UNLEASHING_THE_BEAST_6, "1-3 Enemy - (700) Fish Emperor (Boss)", 46 + hina_offset),
-        LocationData(UNLEASHING_THE_BEAST_4, "1-3 Enemy - (1200) Imperiacrab", 47 + hina_offset),
-        LocationData(UNLEASHING_THE_BEAST_4, "1-3 Enemy - (1200) Imperiobster", 48 + hina_offset),
-        LocationData(UNLEASHING_THE_BEAST_4, "1-3 Enemy - (1200) Imperiatrider", 49 + hina_offset),
-        LocationData(UNLEASHING_THE_BEAST_4, "1-3 Enemy - (1200) Imperiartle", 50 + hina_offset),
-        LocationData(UNLEASHING_THE_BEAST_4, "1-3 Enemy - (1200) Crab Emperor (Boss)", 51 + hina_offset),
+        LocationData(UNLEASHING_THE_BEAST_7, "1-3 Enemy - (1200) Imperiacrab", 47 + hina_offset),
+        LocationData(UNLEASHING_THE_BEAST_7, "1-3 Enemy - (1200) Imperiobster", 48 + hina_offset),
+        LocationData(UNLEASHING_THE_BEAST_7, "1-3 Enemy - (1200) Imperiatrider", 49 + hina_offset),
+        LocationData(UNLEASHING_THE_BEAST_7, "1-3 Enemy - (1200) Imperiartle", 50 + hina_offset),
+        LocationData(UNLEASHING_THE_BEAST_7, "1-3 Enemy - (1200) Crab Emperor (Boss)", 51 + hina_offset),
         LocationData(UNLEASHING_THE_BEAST_1, "1-3 Enemy - (70) Crabber", 52 + hina_offset),
         LocationData(UNLEASHING_THE_BEAST_1, "1-3 Enemy - (70) Rotund Toad", 53 + hina_offset),
         LocationData(UNLEASHING_THE_BEAST_1, "1-3 Enemy - (70) Spikestar", 54 + hina_offset),
@@ -650,97 +650,97 @@ def get_13_locations(player: int) -> List[LocationData]:
         LocationData(UNLEASHING_THE_BEAST_12, "1-3 Story Completion", EventId),
 
         #Hina's Chapter 1 Equipment
-		LocationData(UNLEASHING_THE_BEAST_0, "Hina Equipment - (Right Weapon 1-1) Wooden Club", 139 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_1, "Hina Equipment - (Right Weapon 1-2) Dull Hurlbat", 140 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_2, "Hina Equipment - (Right Weapon 1-3) Worn Flail", 141 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_2, "Hina Equipment - (Right Weapon 1-4) Rotted Mace", 142 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_3, "Hina Equipment - (Right Weapon 1-5) Shabby Hoe", 143 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_4, "Hina Equipment - (Right Weapon 1-6) Makeshift Spade", 144 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_5, "Hina Equipment - (Right Weapon 1-7) Simple Lucerne", 145 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_6, "Hina Equipment - (Right Weapon 1-8) Bronze Hammer", 146 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_8, "Hina Equipment - (Right Weapon 1-9) Basic Pickaxe", 147 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_9, "Hina Equipment - (Right Weapon 1-10) Sturdy Flail", 148 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_10, "Hina Equipment - (Right Weapon 1-11) Plated Mace", 149 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_10, "Hina Equipment - (Right Weapon 1-12) Silver Hurlbat", 150 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_11, "Hina Equipment - (Right Weapon 1-13) Studded Club", 151 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_0, "Hina Equipment - (Snack 1-1) Apple", 152 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_1, "Hina Equipment - (Snack 1-2) Peas", 153 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_3, "Hina Equipment - (Snack 1-3) Agaricus Bisporus", 154 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_4, "Hina Equipment - (Snack 1-4) Grain", 155 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_5, "Hina Equipment - (Snack 1-5) Strawberry", 156 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_8, "Hina Equipment - (Snack 1-6) Cortinarius Violaceus", 157 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_9, "Hina Equipment - (Snack 1-7) Cherry", 158 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_0, "Hina Equipment - (Helmet 1-1) White Headband", 159 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_1, "Hina Equipment - (Helmet 1-2) Copper Cap", 160 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_2, "Hina Equipment - (Helmet 1-3) Bronze Helm", 161 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_3, "Hina Equipment - (Helmet 1-4) Mail Helm", 162 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_4, "Hina Equipment - (Helmet 1-5) Broken Barbute", 163 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_5, "Hina Equipment - (Helmet 1-6) Reinforced Helm", 164 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_8, "Hina Equipment - (Helmet 1-7) Bear Skin", 165 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_9, "Hina Equipment - (Helmet 1-8) Shiny Barbute", 166 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_10, "Hina Equipment - (Helmet 1-9) Mail Coif", 167 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_0, "Hina Equipment - (Shirt 1-1) Shabby Cuirass", 168 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_1, "Hina Equipment - (Shirt 1-2) Bronze Breastplate", 169 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_2, "Hina Equipment - (Shirt 1-3) Armored Tunic", 170 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_3, "Hina Equipment - (Shirt 1-4) Basic Chainmail", 171 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_4, "Hina Equipment - (Shirt 1-5) Reinforced Tunic", 172 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_5, "Hina Equipment - (Shirt 1-6) Tunic and Chainmail", 173 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_8, "Hina Equipment - (Shirt 1-7) Heavy Armor", 174 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_9, "Hina Equipment - (Shirt 1-8) Adv. Chainmail", 175 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_10, "Hina Equipment - (Shirt 1-9) Iron Breastplate", 176 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_0, "Hina Equipment - (Cloak 1-1) Novice's Cloak", 177 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_1, "Hina Equipment - (Cloak 1-2) Faded Shroud", 178 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_2, "Hina Equipment - (Cloak 1-3) Dusty Cape", 179 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_3, "Hina Equipment - (Cloak 1-4) Weathered Mantle", 180 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_4, "Hina Equipment - (Cloak 1-5) White Robe", 181 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_5, "Hina Equipment - (Cloak 1-6) Fancy Cloak", 182 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_8, "Hina Equipment - (Cloak 1-7) Reinforced Cape", 183 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_9, "Hina Equipment - (Cloak 1-8) Large Cowl", 184 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_10, "Hina Equipment - (Cloak 1-9) The Wing", 185 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_10, "Hina Equipment - (Cloak 1-10) Emerald Defender", 186 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_0, "Hina Equipment - (Left Weapon 1-1) Wooden Club", 187 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_1, "Hina Equipment - (Left Weapon 1-2) Dull Hurlbat", 188 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_2, "Hina Equipment - (Left Weapon 1-3) Worn Flail", 189 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_2, "Hina Equipment - (Left Weapon 1-4) Rotted Mace", 190 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_3, "Hina Equipment - (Left Weapon 1-5) Shabby Hoe", 191 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_4, "Hina Equipment - (Left Weapon 1-6) Makeshift Spade", 192 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_5, "Hina Equipment - (Left Weapon 1-7) Simple Lucerne", 193 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_6, "Hina Equipment - (Left Weapon 1-8) Bronze Hammer", 194 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_8, "Hina Equipment - (Left Weapon 1-9) Basic Pickaxe", 195 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_9, "Hina Equipment - (Left Weapon 1-10) Sturdy Flail", 196 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_10, "Hina Equipment - (Left Weapon 1-11) Plated Mace", 197 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_10, "Hina Equipment - (Left Weapon 1-12) Silver Hurlbat", 198 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_11, "Hina Equipment - (Left Weapon 1-13) Studded Club", 199 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_0, "Hina Equipment - (Acc 1-1) Tooth Amulet 1", 200 + hina_offset),
+		LocationData(UNLEASHING_THE_BEAST_0, "Hina Equipment - (Right Weapon 1-1) Wooden Club", 139 + hina_offset), #50g
+		LocationData(UNLEASHING_THE_BEAST_0, "Hina Equipment - (Right Weapon 1-2) Dull Hurlbat", 140 + hina_offset), #125g
+		LocationData(UNLEASHING_THE_BEAST_1, "Hina Equipment - (Right Weapon 1-3) Worn Flail", 141 + hina_offset), #Level 100 drop
+		LocationData(UNLEASHING_THE_BEAST_2, "Hina Equipment - (Right Weapon 1-4) Rotted Mace", 142 + hina_offset), #700g
+		LocationData(UNLEASHING_THE_BEAST_5, "Hina Equipment - (Right Weapon 1-5) Shabby Hoe", 143 + hina_offset), #1800g
+		LocationData(UNLEASHING_THE_BEAST_6, "Hina Equipment - (Right Weapon 1-6) Makeshift Spade", 144 + hina_offset), #3000g
+		LocationData(UNLEASHING_THE_BEAST_7, "Hina Equipment - (Right Weapon 1-7) Simple Lucerne", 145 + hina_offset), #5500g, Level 1300 drop
+		LocationData(UNLEASHING_THE_BEAST_9, "Hina Equipment - (Right Weapon 1-8) Bronze Hammer", 146 + hina_offset), #7000g
+		LocationData(UNLEASHING_THE_BEAST_10, "Hina Equipment - (Right Weapon 1-9) Basic Pickaxe", 147 + hina_offset), #9600g
+		LocationData(UNLEASHING_THE_BEAST_10, "Hina Equipment - (Right Weapon 1-10) Sturdy Flail", 148 + hina_offset), #13Kg
+		LocationData(UNLEASHING_THE_BEAST_11, "Hina Equipment - (Right Weapon 1-11) Plated Mace", 149 + hina_offset), #16.5Kg
+		LocationData(UNLEASHING_THE_BEAST_11, "Hina Equipment - (Right Weapon 1-12) Silver Hurlbat", 150 + hina_offset), #Level 6000 drop
+		LocationData(UNLEASHING_THE_BEAST_12, "Hina Equipment - (Right Weapon 1-13) Studded Club", 151 + hina_offset), #26Kg
+		LocationData(UNLEASHING_THE_BEAST_0, "Hina Equipment - (Snack 1-1) Apple", 152 + hina_offset), #175g
+		LocationData(UNLEASHING_THE_BEAST_1, "Hina Equipment - (Snack 1-2) Peas", 153 + hina_offset), #400g
+		LocationData(UNLEASHING_THE_BEAST_4, "Hina Equipment - (Snack 1-3) Agaricus Bisporus", 154 + hina_offset), #1200g, Level 200 drop
+		LocationData(UNLEASHING_THE_BEAST_6, "Hina Equipment - (Snack 1-4) Grain", 155 + hina_offset), #3000g
+		LocationData(UNLEASHING_THE_BEAST_8, "Hina Equipment - (Snack 1-5) Strawberry", 156 + hina_offset), #6500g
+		LocationData(UNLEASHING_THE_BEAST_10, "Hina Equipment - (Snack 1-6) Cortinarius Violaceus", 157 + hina_offset), #Level 3838 drop
+		LocationData(UNLEASHING_THE_BEAST_11, "Hina Equipment - (Snack 1-7) Cherry", 158 + hina_offset), #25Kg
+		LocationData(UNLEASHING_THE_BEAST_1, "Hina Equipment - (Helmet 1-1) White Headband", 159 + hina_offset), #320g
+		LocationData(UNLEASHING_THE_BEAST_2, "Hina Equipment - (Helmet 1-2) Copper Cap", 160 + hina_offset), #520g
+		LocationData(UNLEASHING_THE_BEAST_4, "Hina Equipment - (Helmet 1-3) Bronze Helm", 161 + hina_offset), #1300g
+		LocationData(UNLEASHING_THE_BEAST_6, "Hina Equipment - (Helmet 1-4) Mail Helm", 162 + hina_offset), #3100g
+		LocationData(UNLEASHING_THE_BEAST_7, "Hina Equipment - (Helmet 1-5) Broken Barbute", 163 + hina_offset), #4400g
+		LocationData(UNLEASHING_THE_BEAST_9, "Hina Equipment - (Helmet 1-6) Reinforced Helm", 164 + hina_offset), #7800g
+		LocationData(UNLEASHING_THE_BEAST_10, "Hina Equipment - (Helmet 1-7) Bear Skin", 165 + hina_offset), #Level 3250, 3750 drop
+		LocationData(UNLEASHING_THE_BEAST_11, "Hina Equipment - (Helmet 1-8) Shiny Barbute", 166 + hina_offset), #16Kg
+		LocationData(UNLEASHING_THE_BEAST_11, "Hina Equipment - (Helmet 1-9) Mail Coif", 167 + hina_offset), #29Kg
+		LocationData(UNLEASHING_THE_BEAST_1, "Hina Equipment - (Shirt 1-1) Shabby Cuirass", 168 + hina_offset), #250g
+		LocationData(UNLEASHING_THE_BEAST_2, "Hina Equipment - (Shirt 1-2) Bronze Breastplate", 169 + hina_offset), #550g, Level 290 drop
+		LocationData(UNLEASHING_THE_BEAST_3, "Hina Equipment - (Shirt 1-3) Armored Tunic", 170 + hina_offset), #900g
+		LocationData(UNLEASHING_THE_BEAST_5, "Hina Equipment - (Shirt 1-4) Basic Chainmail", 171 + hina_offset), #2100g, Level 500 drop
+		LocationData(UNLEASHING_THE_BEAST_8, "Hina Equipment - (Shirt 1-5) Reinforced Tunic", 172 + hina_offset), #Level 1414 drop
+		LocationData(UNLEASHING_THE_BEAST_8, "Hina Equipment - (Shirt 1-6) Tunic & Chainmail", 173 + hina_offset), #5500g
+		LocationData(UNLEASHING_THE_BEAST_10, "Hina Equipment - (Shirt 1-7) Heavy Armor", 174 + hina_offset), #8300g
+		LocationData(UNLEASHING_THE_BEAST_11, "Hina Equipment - (Shirt 1-8) Adv. Chainmail", 175 + hina_offset), #17Kg
+		LocationData(UNLEASHING_THE_BEAST_11, "Hina Equipment - (Shirt 1-9) Iron Breastplate", 176 + hina_offset), #24Kg
+		LocationData(UNLEASHING_THE_BEAST_1, "Hina Equipment - (Cloak 1-1) Novice's Cloak", 177 + hina_offset), #360g
+		LocationData(UNLEASHING_THE_BEAST_3, "Hina Equipment - (Cloak 1-2) Faded Shroud", 178 + hina_offset), #Level 250 drop
+		LocationData(UNLEASHING_THE_BEAST_4, "Hina Equipment - (Cloak 1-3) Dusty Cape", 179 + hina_offset), #1200g
+		LocationData(UNLEASHING_THE_BEAST_5, "Hina Equipment - (Cloak 1-4) Weathered Mantle", 180 + hina_offset), #2100g, Level 670 drop
+		LocationData(UNLEASHING_THE_BEAST_6, "Hina Equipment - (Cloak 1-5) White Robe", 181 + hina_offset), #3500g
+		LocationData(UNLEASHING_THE_BEAST_8, "Hina Equipment - (Cloak 1-6) Fancy Cloak", 182 + hina_offset), #5000g
+		LocationData(UNLEASHING_THE_BEAST_10, "Hina Equipment - (Cloak 1-7) Reinforced Cape", 183 + hina_offset), #8200g
+		LocationData(UNLEASHING_THE_BEAST_11, "Hina Equipment - (Cloak 1-8) Large Cowl", 184 + hina_offset), #12Kg
+		LocationData(UNLEASHING_THE_BEAST_11, "Hina Equipment - (Cloak 1-9) The Wing", 185 + hina_offset), #18Kg
+		LocationData(UNLEASHING_THE_BEAST_12, "Hina Equipment - (Cloak 1-10) Emerald Defender", 186 + hina_offset), #30Kg, Level 10k drop
+		LocationData(UNLEASHING_THE_BEAST_0, "Hina Equipment - (Left Weapon 1-1) Wooden Club", 187 + hina_offset), #50g
+		LocationData(UNLEASHING_THE_BEAST_0, "Hina Equipment - (Left Weapon 1-2) Dull Hurlbat", 188 + hina_offset), #125g
+		LocationData(UNLEASHING_THE_BEAST_1, "Hina Equipment - (Left Weapon 1-3) Worn Flail", 189 + hina_offset), #Level 100 drop
+		LocationData(UNLEASHING_THE_BEAST_2, "Hina Equipment - (Left Weapon 1-4) Rotted Mace", 190 + hina_offset), #700g
+		LocationData(UNLEASHING_THE_BEAST_5, "Hina Equipment - (Left Weapon 1-5) Shabby Hoe", 191 + hina_offset), #1800g
+		LocationData(UNLEASHING_THE_BEAST_6, "Hina Equipment - (Left Weapon 1-6) Makeshift Spade", 192 + hina_offset), #3000g
+		LocationData(UNLEASHING_THE_BEAST_7, "Hina Equipment - (Left Weapon 1-7) Simple Lucerne", 193 + hina_offset), #5500g, Level 1300 drop
+		LocationData(UNLEASHING_THE_BEAST_9, "Hina Equipment - (Left Weapon 1-8) Bronze Hammer", 194 + hina_offset), #7000g
+		LocationData(UNLEASHING_THE_BEAST_10, "Hina Equipment - (Left Weapon 1-9) Basic Pickaxe", 195 + hina_offset), #9600g
+		LocationData(UNLEASHING_THE_BEAST_10, "Hina Equipment - (Left Weapon 1-10) Sturdy Flail", 196 + hina_offset), #13Kg
+		LocationData(UNLEASHING_THE_BEAST_11, "Hina Equipment - (Left Weapon 1-11) Plated Mace", 197 + hina_offset), #16.5Kg
+		LocationData(UNLEASHING_THE_BEAST_11, "Hina Equipment - (Left Weapon 1-12) Silver Hurlbat", 198 + hina_offset), #Level 6000 drop
+		LocationData(UNLEASHING_THE_BEAST_12, "Hina Equipment - (Left Weapon 1-13) Studded Club", 199 + hina_offset), #26Kg
+		LocationData(UNLEASHING_THE_BEAST_0, "Hina Equipment - (Acc 1-1) Tooth Amulet 1", 200 + hina_offset), #100g, Level 40 drop
 		LocationData(UNLEASHING_THE_BEAST_0, "Hina Equipment - (Acc 1-1) Tooth Amulet 2", 201 + hina_offset),
 		LocationData(UNLEASHING_THE_BEAST_0, "Hina Equipment - (Acc 1-1) Tooth Amulet 3", 202 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_1, "Hina Equipment - (Acc 1-2) Dull Ring 1", 203 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_1, "Hina Equipment - (Acc 1-2) Dull Ring 2", 204 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_1, "Hina Equipment - (Acc 1-2) Dull Ring 3", 205 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_2, "Hina Equipment - (Acc 1-3) Masked Amulet 1", 206 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_2, "Hina Equipment - (Acc 1-3) Masked Amulet 2", 207 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_2, "Hina Equipment - (Acc 1-3) Masked Amulet 3", 208 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_3, "Hina Equipment - (Acc 1-4) Engraved Ring 1", 209 + hina_offset),
+		LocationData(UNLEASHING_THE_BEAST_0, "Hina Equipment - (Acc 1-2) Dull Ring 1", 203 + hina_offset), #125g, Level 60 drop
+		LocationData(UNLEASHING_THE_BEAST_0, "Hina Equipment - (Acc 1-2) Dull Ring 2", 204 + hina_offset),
+		LocationData(UNLEASHING_THE_BEAST_0, "Hina Equipment - (Acc 1-2) Dull Ring 3", 205 + hina_offset),
+		LocationData(UNLEASHING_THE_BEAST_1, "Hina Equipment - (Acc 1-3) Masked Amulet 1", 206 + hina_offset), #Level 80 drop
+		LocationData(UNLEASHING_THE_BEAST_1, "Hina Equipment - (Acc 1-3) Masked Amulet 2", 207 + hina_offset),
+		LocationData(UNLEASHING_THE_BEAST_1, "Hina Equipment - (Acc 1-3) Masked Amulet 3", 208 + hina_offset),
+		LocationData(UNLEASHING_THE_BEAST_3, "Hina Equipment - (Acc 1-4) Engraved Ring 1", 209 + hina_offset), #900g, Level 200 drop
 		LocationData(UNLEASHING_THE_BEAST_3, "Hina Equipment - (Acc 1-4) Engraved Ring 2", 210 + hina_offset),
 		LocationData(UNLEASHING_THE_BEAST_3, "Hina Equipment - (Acc 1-4) Engraved Ring 3", 211 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_4, "Hina Equipment - (Acc 1-5) Dagger Amulet 1", 212 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_4, "Hina Equipment - (Acc 1-5) Dagger Amulet 2", 213 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_4, "Hina Equipment - (Acc 1-5) Dagger Amulet 3", 214 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_5, "Hina Equipment - (Acc 1-6) Blood Ring 1", 215 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_5, "Hina Equipment - (Acc 1-6) Blood Ring 2", 216 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_5, "Hina Equipment - (Acc 1-6) Blood Ring 3", 217 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_8, "Hina Equipment - (Acc 1-7) Coin Amulet 1", 218 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_8, "Hina Equipment - (Acc 1-7) Coin Amulet 2", 219 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_8, "Hina Equipment - (Acc 1-7) Coin Amulet 3", 220 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_9, "Hina Equipment - (Acc 1-8) Death Ring II 1", 221 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_9, "Hina Equipment - (Acc 1-8) Death Ring II 2", 222 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_9, "Hina Equipment - (Acc 1-8) Death Ring II 3", 223 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_10, "Hina Equipment - (Acc 1-9) Studded Band 1", 224 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_10, "Hina Equipment - (Acc 1-9) Studded Band 2", 225 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_10, "Hina Equipment - (Acc 1-9) Studded Band 3", 226 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_10, "Hina Equipment - (Acc 1-10) Twilight Ring 1", 227 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_10, "Hina Equipment - (Acc 1-10) Twilight Ring 2", 228 + hina_offset),
-		LocationData(UNLEASHING_THE_BEAST_10, "Hina Equipment - (Acc 1-10) Twilight Ring 3", 229 + hina_offset)
+		LocationData(UNLEASHING_THE_BEAST_5, "Hina Equipment - (Acc 1-5) Dagger Amulet 1", 212 + hina_offset), #1700g, Level 700 drop
+		LocationData(UNLEASHING_THE_BEAST_5, "Hina Equipment - (Acc 1-5) Dagger Amulet 2", 213 + hina_offset),
+		LocationData(UNLEASHING_THE_BEAST_5, "Hina Equipment - (Acc 1-5) Dagger Amulet 3", 214 + hina_offset),
+		LocationData(UNLEASHING_THE_BEAST_6, "Hina Equipment - (Acc 1-6) Blood Ring 1", 215 + hina_offset), #4000g
+		LocationData(UNLEASHING_THE_BEAST_6, "Hina Equipment - (Acc 1-6) Blood Ring 2", 216 + hina_offset),
+		LocationData(UNLEASHING_THE_BEAST_6, "Hina Equipment - (Acc 1-6) Blood Ring 3", 217 + hina_offset),
+		LocationData(UNLEASHING_THE_BEAST_9, "Hina Equipment - (Acc 1-7) Coin Amulet 1", 218 + hina_offset), #7777g
+		LocationData(UNLEASHING_THE_BEAST_9, "Hina Equipment - (Acc 1-7) Coin Amulet 2", 219 + hina_offset),
+		LocationData(UNLEASHING_THE_BEAST_9, "Hina Equipment - (Acc 1-7) Coin Amulet 3", 220 + hina_offset),
+		LocationData(UNLEASHING_THE_BEAST_11, "Hina Equipment - (Acc 1-8) Death Ring II 1", 221 + hina_offset), #20Kg
+		LocationData(UNLEASHING_THE_BEAST_11, "Hina Equipment - (Acc 1-8) Death Ring II 2", 222 + hina_offset),
+		LocationData(UNLEASHING_THE_BEAST_11, "Hina Equipment - (Acc 1-8) Death Ring II 3", 223 + hina_offset),
+		LocationData(UNLEASHING_THE_BEAST_11, "Hina Equipment - (Acc 1-9) Studded Band 1", 224 + hina_offset), #Level 7500 drop
+		LocationData(UNLEASHING_THE_BEAST_11, "Hina Equipment - (Acc 1-9) Studded Band 2", 225 + hina_offset),
+		LocationData(UNLEASHING_THE_BEAST_11, "Hina Equipment - (Acc 1-9) Studded Band 3", 226 + hina_offset),
+		LocationData(UNLEASHING_THE_BEAST_12, "Hina Equipment - (Acc 1-10) Twilight Ring 1", 227 + hina_offset), #35Kg, Level 10k drop
+		LocationData(UNLEASHING_THE_BEAST_12, "Hina Equipment - (Acc 1-10) Twilight Ring 2", 228 + hina_offset),
+		LocationData(UNLEASHING_THE_BEAST_12, "Hina Equipment - (Acc 1-10) Twilight Ring 3", 229 + hina_offset)
 ]
 	return location_table
 
@@ -800,8 +800,8 @@ def get_14_locations(player: int) -> List[LocationData]:
 		LocationData(HUNTING_FOR_TRUTH_7, "1-4 Enemy - (1200) Imperiartle", 50 + lan_offset),
 		LocationData(HUNTING_FOR_TRUTH_7, "1-4 Enemy - (1200) Crab Emperor (Boss)", 51 + lan_offset),
 		LocationData(HUNTING_FOR_TRUTH_1, "1-4 Enemy - (70) Crabber", 52 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_1, "1-5 Enemy - (70) Rotund Toad", 53 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_1, "1-5 Enemy - (70) Spikestar", 54 + lan_offset),
+		LocationData(HUNTING_FOR_TRUTH_1, "1-4 Enemy - (70) Rotund Toad", 53 + lan_offset),
+		LocationData(HUNTING_FOR_TRUTH_1, "1-4 Enemy - (70) Spikestar", 54 + lan_offset),
 		LocationData(HUNTING_FOR_TRUTH_1, "1-4 Enemy - (130) Fat Frog Bat", 55 + lan_offset),
 		LocationData(HUNTING_FOR_TRUTH_1, "1-4 Enemy - (130) Octibaby", 56 + lan_offset),
 		LocationData(HUNTING_FOR_TRUTH_1, "1-4 Enemy - (130) Purple Shelly", 57 + lan_offset),
@@ -825,8 +825,8 @@ def get_14_locations(player: int) -> List[LocationData]:
 		LocationData(HUNTING_FOR_TRUTH_5, "1-4 Enemy - (500) Sickle Mantis", 75 + lan_offset),
 		LocationData(HUNTING_FOR_TRUTH_5, "1-4 Enemy - (500) Sword Ant", 76 + lan_offset),
 		LocationData(HUNTING_FOR_TRUTH_5, "1-4 Enemy - (500) Mothapillar (Boss)", 77 + lan_offset),
-        LocationData(HUNTING_FOR_TRUTH_5, "1-5 Enemy - (580) Berserker Ant", 78 + lan_offset),
-        LocationData(HUNTING_FOR_TRUTH_5, "1-5 Enemy - (580) Mage Ant", 79 + lan_offset),
+        LocationData(HUNTING_FOR_TRUTH_5, "1-4 Enemy - (580) Berserker Ant", 78 + lan_offset),
+        LocationData(HUNTING_FOR_TRUTH_5, "1-4 Enemy - (580) Mage Ant", 79 + lan_offset),
 		LocationData(HUNTING_FOR_TRUTH_5, "1-4 Enemy - (580) Protector Ant", 80 + lan_offset),
 		LocationData(HUNTING_FOR_TRUTH_6, "1-4 Enemy - (670) Archer Goblin", 81 + lan_offset),
 		LocationData(HUNTING_FOR_TRUTH_6, "1-4 Enemy - (670) Grunt Goblin", 82 + lan_offset),
@@ -889,91 +889,91 @@ def get_14_locations(player: int) -> List[LocationData]:
 
 
 		#Lan's Chapter 1 Equipment
-		LocationData(HUNTING_FOR_TRUTH_0, "Lan Equipment - (Bow 1-1) Fractured Bow", 139 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_1, "Lan Equipment - (Bow 1-2) Flimsy Blowgun", 140 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_2, "Lan Equipment - (Bow 1-3) Shabby Crossbow", 141 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_3, "Lan Equipment - (Bow 1-4) Worn Sling", 142 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_4, "Lan Equipment - (Bow 1-5) Common Longbow", 143 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_5, "Lan Equipment - (Bow 1-6) Simple Fishing Rod", 144 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_8, "Lan Equipment - (Bow 1-7) Robust Bow", 145 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_9, "Lan Equipment - (Bow 1-8) Sturdy Sling", 146 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_10, "Lan Equipment - (Bow 1-9) Uncommon Longbow", 147 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_0, "Lan Equipment - (Arrow 1-1) Fractured Stick", 148 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_1, "Lan Equipment - (Arrow 1-2) Flimsy Dart", 149 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_2, "Lan Equipment - (Arrow 1-3) Shabby Bolt", 150 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_3, "Lan Equipment - (Arrow 1-4) Worn Rocks", 151 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_4, "Lan Equipment - (Arrow 1-5) Common Barb", 152 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_5, "Lan Equipment - (Arrow 1-6) Simple Spear", 153 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_8, "Lan Equipment - (Arrow 1-7) Robust Arrow", 154 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_9, "Lan Equipment - (Arrow 1-8) Sturdy Rock", 155 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_10, "Lan Equipment - (Arrow 1-9) Uncommon Barb", 156 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_0, "Lan Equipment - (Hat 1-1) Red Headband", 157 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_1, "Lan Equipment - (Hat 1-2) Shabby Hood", 158 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_2, "Lan Equipment - (Hat 1-3) Simple Hat", 159 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_3, "Lan Equipment - (Hat 1-4) White Headdress", 160 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_4, "Lan Equipment - (Hat 1-5) Basic Cap", 161 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_5, "Lan Equipment - (Hat 1-6) Wool Helm", 162 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_8, "Lan Equipment - (Hat 1-7) Coonskin Hat", 163 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_9, "Lan Equipment - (Hat 1-8) Red Beanie", 164 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_10, "Lan Equipment - (Hat 1-9) Enchanted Tiara", 165 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_0, "Lan Equipment - (Belt 1-1) Basic Sash", 166 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_1, "Lan Equipment - (Belt 1-2) Red Strap", 167 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_2, "Lan Equipment - (Belt 1-3) Simple Belt", 168 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_3, "Lan Equipment - (Belt 1-4) Jester's Waistband", 169 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_4, "Lan Equipment - (Belt 1-5) Sturdy Sash", 170 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_5, "Lan Equipment - (Belt 1-6) White Belt", 171 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_8, "Lan Equipment - (Belt 1-7) Utility Waistband", 172 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_9, "Lan Equipment - (Belt 1-8) Red Fastener", 173 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_10, "Lan Equipment - (Belt 1-9) Camo Belt", 174 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_0, "Lan Equipment - (Cloak 1-1) Novice's Cloak", 175 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_1, "Lan Equipment - (Cloak 1-2) Faded Shroud", 176 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_2, "Lan Equipment - (Cloak 1-3) Dusty Cape", 177 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_3, "Lan Equipment - (Cloak 1-4) Weathered Mantle", 178 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_4, "Lan Equipment - (Cloak 1-5) White Robe", 179 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_5, "Lan Equipment - (Cloak 1-6) Fancy Cloak", 180 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_8, "Lan Equipment - (Cloak 1-7) Reinforced Cape", 181 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_9, "Lan Equipment - (Cloak 1-8) Large Cowl", 182 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_10, "Lan Equipment - (Cloak 1-9) The Wing", 183 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_10, "Lan Equipment - (Cloak 1-10) Emerald Defender", 184 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_0, "Lan Equipment - (Pants 1-1) Simple Trousers", 185 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_1, "Lan Equipment - (Pants 1-2) Faded Skirt", 186 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_2, "Lan Equipment - (Pants 1-3) Basic Slacks", 187 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_3, "Lan Equipment - (Pants 1-4) Utility Kilt", 188 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_4, "Lan Equipment - (Pants 1-5) Trimmed Breaches", 189 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_5, "Lan Equipment - (Pants 1-6) Crested Pants", 190 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_8, "Lan Equipment - (Pants 1-7) Buckled Garment", 191 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_9, "Lan Equipment - (Pants 1-8) Questionable Trousers", 192 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_10, "Lan Equipment - (Pants 1-9) Scarlet Skirt", 193 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_0, "Lan Equipment - (Acc 1-1) Chipped Earring 1", 194 + lan_offset),
+		LocationData(HUNTING_FOR_TRUTH_0, "Lan Equipment - (Bow 1-1) Fractured Bow", 139 + lan_offset), #Lyra 1 Unlock
+		LocationData(HUNTING_FOR_TRUTH_1, "Lan Equipment - (Bow 1-2) Flimsy Blowgun", 140 + lan_offset), #300g
+		LocationData(HUNTING_FOR_TRUTH_3, "Lan Equipment - (Bow 1-3) Shabby Crossbow", 141 + lan_offset), #800g
+		LocationData(HUNTING_FOR_TRUTH_5, "Lan Equipment - (Bow 1-4) Worn Sling", 142 + lan_offset), #1500g
+		LocationData(HUNTING_FOR_TRUTH_6, "Lan Equipment - (Bow 1-5) Common Longbow", 143 + lan_offset), #3200g
+		LocationData(HUNTING_FOR_TRUTH_10, "Lan Equipment - (Bow 1-6) Simple Fishing Rod", 144 + lan_offset), #7000g, Level 1600 drop
+		LocationData(HUNTING_FOR_TRUTH_9, "Lan Equipment - (Bow 1-7) Robust Bow", 145 + lan_offset), #11Kg, Level 2222 drop
+		LocationData(HUNTING_FOR_TRUTH_11, "Lan Equipment - (Bow 1-8) Sturdy Sling", 146 + lan_offset), #17Kg, Level 7500 drop
+		LocationData(HUNTING_FOR_TRUTH_12, "Lan Equipment - (Bow 1-9) Uncommon Longbow", 147 + lan_offset), #30Kg
+		LocationData(HUNTING_FOR_TRUTH_0, "Lan Equipment - (Arrow 1-1) Fractured Stick", 148 + lan_offset), #100g
+		LocationData(HUNTING_FOR_TRUTH_1, "Lan Equipment - (Arrow 1-2) Flimsy Dart", 149 + lan_offset), #300g
+		LocationData(HUNTING_FOR_TRUTH_1, "Lan Equipment - (Arrow 1-3) Shabby Bolt", 150 + lan_offset), #Level 100 drop
+		LocationData(HUNTING_FOR_TRUTH_5, "Lan Equipment - (Arrow 1-4) Worn Rocks", 151 + lan_offset), #1500g
+		LocationData(HUNTING_FOR_TRUTH_7, "Lan Equipment - (Arrow 1-5) Common Barb", 152 + lan_offset), #Level 1200 drop
+		LocationData(HUNTING_FOR_TRUTH_10, "Lan Equipment - (Arrow 1-6) Simple Spear", 153 + lan_offset), #8000g
+		LocationData(HUNTING_FOR_TRUTH_10, "Lan Equipment - (Arrow 1-7) Robust Arrow", 154 + lan_offset), #Level 3838 drop
+		LocationData(HUNTING_FOR_TRUTH_11, "Lan Equipment - (Arrow 1-8) Sturdy Rock", 155 + lan_offset), #17Kg
+		LocationData(HUNTING_FOR_TRUTH_12, "Lan Equipment - (Arrow 1-9) Uncommon Barb", 156 + lan_offset), #30Kg
+		LocationData(HUNTING_FOR_TRUTH_1, "Lan Equipment - (Hat 1-1) Red Headband", 157 + lan_offset), #Level 70 drop
+		LocationData(HUNTING_FOR_TRUTH_2, "Lan Equipment - (Hat 1-2) Shabby Hood", 158 + lan_offset),
+		LocationData(HUNTING_FOR_TRUTH_4, "Lan Equipment - (Hat 1-3) Simple Hat", 159 + lan_offset), #1200g
+		LocationData(HUNTING_FOR_TRUTH_5, "Lan Equipment - (Hat 1-4) White Headdress", 160 + lan_offset), #2100g
+		LocationData(HUNTING_FOR_TRUTH_7, "Lan Equipment - (Hat 1-5) Basic Cap", 161 + lan_offset), #4000g
+		LocationData(HUNTING_FOR_TRUTH_8, "Lan Equipment - (Hat 1-6) Wool Helm", 162 + lan_offset), #6500g
+		LocationData(HUNTING_FOR_TRUTH_10, "Lan Equipment - (Hat 1-7) Coonskin Hat", 163 + lan_offset), #Level 4250 drop
+		LocationData(HUNTING_FOR_TRUTH_11, "Lan Equipment - (Hat 1-8) Red Beanie", 164 + lan_offset), #19Kg
+		LocationData(HUNTING_FOR_TRUTH_12, "Lan Equipment - (Hat 1-9) Enchanted Tiara", 165 + lan_offset), #28Kg, Level 10k drop
+		LocationData(HUNTING_FOR_TRUTH_1, "Lan Equipment - (Belt 1-1) Basic Sash", 166 + lan_offset), #310g
+		LocationData(HUNTING_FOR_TRUTH_2, "Lan Equipment - (Belt 1-2) Red Strap", 167 + lan_offset), #640g
+		LocationData(HUNTING_FOR_TRUTH_4, "Lan Equipment - (Belt 1-3) Simple Belt", 168 + lan_offset), #1300g, Level 370 drop
+		LocationData(HUNTING_FOR_TRUTH_4, "Lan Equipment - (Belt 1-4) Jester's Waistband", 169 + lan_offset), #Level 370/888/2222 drop
+		LocationData(HUNTING_FOR_TRUTH_8, "Lan Equipment - (Belt 1-5) Sturdy Sash", 170 + lan_offset), #5200g
+		LocationData(HUNTING_FOR_TRUTH_9, "Lan Equipment - (Belt 1-6) White Belt", 171 + lan_offset), #7900g
+		LocationData(HUNTING_FOR_TRUTH_9, "Lan Equipment - (Belt 1-7) Utility Waistband", 172 + lan_offset), #11Kg, Level 3000 drop
+		LocationData(HUNTING_FOR_TRUTH_11, "Lan Equipment - (Belt 1-8) Red Fastener", 173 + lan_offset), #18Kg
+		LocationData(HUNTING_FOR_TRUTH_11, "Lan Equipment - (Belt 1-9) Camo Belt", 174 + lan_offset), #27Kg
+		LocationData(HUNTING_FOR_TRUTH_1, "Lan Equipment - (Cloak 1-1) Novice's Cloak", 175 + lan_offset),
+		LocationData(HUNTING_FOR_TRUTH_3, "Lan Equipment - (Cloak 1-2) Faded Shroud", 176 + lan_offset), #Level 250 drop
+		LocationData(HUNTING_FOR_TRUTH_4, "Lan Equipment - (Cloak 1-3) Dusty Cape", 177 + lan_offset), #1200g
+		LocationData(HUNTING_FOR_TRUTH_6, "Lan Equipment - (Cloak 1-4) Weathered Mantle", 178 + lan_offset), #2100g, Level 670 drop
+		LocationData(HUNTING_FOR_TRUTH_7, "Lan Equipment - (Cloak 1-5) White Robe", 179 + lan_offset), #3500g
+		LocationData(HUNTING_FOR_TRUTH_8, "Lan Equipment - (Cloak 1-6) Fancy Cloak", 180 + lan_offset), #5000g
+		LocationData(HUNTING_FOR_TRUTH_9, "Lan Equipment - (Cloak 1-7) Reinforced Cape", 181 + lan_offset), #8200g
+		LocationData(HUNTING_FOR_TRUTH_10, "Lan Equipment - (Cloak 1-8) Large Cowl", 182 + lan_offset), #12Kg
+		LocationData(HUNTING_FOR_TRUTH_11, "Lan Equipment - (Cloak 1-9) The Wing", 183 + lan_offset), #18Kg
+		LocationData(HUNTING_FOR_TRUTH_12, "Lan Equipment - (Cloak 1-10) Emerald Defender", 184 + lan_offset), #30Kg, Level 10k drop
+		LocationData(HUNTING_FOR_TRUTH_1, "Lan Equipment - (Pants 1-1) Simple Trousers", 185 + lan_offset), #420g, Level 250 drop
+		LocationData(HUNTING_FOR_TRUTH_3, "Lan Equipment - (Pants 1-2) Faded Skirt", 186 + lan_offset), #800g
+		LocationData(HUNTING_FOR_TRUTH_4, "Lan Equipment - (Pants 1-3) Basic Slacks", 187 + lan_offset), #1400g
+		LocationData(HUNTING_FOR_TRUTH_6, "Lan Equipment - (Pants 1-4) Utility Kilt", 188 + lan_offset), #2800g
+		LocationData(HUNTING_FOR_TRUTH_8, "Lan Equipment - (Pants 1-5) Trimmed Breaches", 189 + lan_offset), #Level 1600 drop
+		LocationData(HUNTING_FOR_TRUTH_10, "Lan Equipment - (Pants 1-6) Crested Pants", 190 + lan_offset), #8100g
+		LocationData(HUNTING_FOR_TRUTH_11, "Lan Equipment - (Pants 1-7) Buckled Garment", 191 + lan_offset), #13Kg
+		LocationData(HUNTING_FOR_TRUTH_11, "Lan Equipment - (Pants 1-8) Questionable Trousers", 192 + lan_offset), #18Kg, Level 5000 drop
+		LocationData(HUNTING_FOR_TRUTH_12, "Lan Equipment - (Pants 1-9) Scarlet Skirt", 193 + lan_offset), #26Kg, Level 10k drop
+		LocationData(HUNTING_FOR_TRUTH_0, "Lan Equipment - (Acc 1-1) Chipped Earring 1", 194 + lan_offset), #200g
 		LocationData(HUNTING_FOR_TRUTH_0, "Lan Equipment - (Acc 1-1) Chipped Earring 2", 195 + lan_offset),
 		LocationData(HUNTING_FOR_TRUTH_0, "Lan Equipment - (Acc 1-1) Chipped Earring 3", 196 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_1, "Lan Equipment - (Acc 1-2) Slim Band 1", 197 + lan_offset),
+		LocationData(HUNTING_FOR_TRUTH_1, "Lan Equipment - (Acc 1-2) Slim Band 1", 197 + lan_offset), #250g, Level 70 drop
 		LocationData(HUNTING_FOR_TRUTH_1, "Lan Equipment - (Acc 1-2) Slim Band 2", 198 + lan_offset),
 		LocationData(HUNTING_FOR_TRUTH_1, "Lan Equipment - (Acc 1-2) Slim Band 3", 199 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_2, "Lan Equipment - (Acc 1-3) Creepy Amulet 1", 200 + lan_offset),
+		LocationData(HUNTING_FOR_TRUTH_2, "Lan Equipment - (Acc 1-3) Creepy Amulet 1", 200 + lan_offset), #600g, Level 150 drop
 		LocationData(HUNTING_FOR_TRUTH_2, "Lan Equipment - (Acc 1-3) Creepy Amulet 2", 201 + lan_offset),
 		LocationData(HUNTING_FOR_TRUTH_2, "Lan Equipment - (Acc 1-3) Creepy Amulet 3", 202 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_3, "Lan Equipment - (Acc 1-4) Shield Amulet 1", 203 + lan_offset),
+		LocationData(HUNTING_FOR_TRUTH_3, "Lan Equipment - (Acc 1-4) Shield Amulet 1", 203 + lan_offset), #1000g, Level 200 drop
 		LocationData(HUNTING_FOR_TRUTH_3, "Lan Equipment - (Acc 1-4) Shield Amulet 2", 204 + lan_offset),
 		LocationData(HUNTING_FOR_TRUTH_3, "Lan Equipment - (Acc 1-4) Shield Amulet 3", 205 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_4, "Lan Equipment - (Acc 1-5) Slim Double Band 1", 206 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_4, "Lan Equipment - (Acc 1-5) Slim Double Band 2", 207 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_4, "Lan Equipment - (Acc 1-5) Slim Double Band 3", 208 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_5, "Lan Equipment - (Acc 1-6) Fancy Ring 1", 209 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_5, "Lan Equipment - (Acc 1-6) Fancy Ring 2", 210 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_5, "Lan Equipment - (Acc 1-6) Fancy Ring 3", 211 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_8, "Lan Equipment - (Acc 1-7) Defeated Earring 1", 212 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_8, "Lan Equipment - (Acc 1-7) Defeated Earring 2", 213 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_8, "Lan Equipment - (Acc 1-7) Defeated Earring 3", 214 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_9, "Lan Equipment - (Acc 1-8) Double Band 1", 215 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_9, "Lan Equipment - (Acc 1-8) Double Band 2", 216 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_9, "Lan Equipment - (Acc 1-8) Double Band 3", 217 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_10, "Lan Equipment - (Acc 1-9) Death Ring II 1", 218 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_10, "Lan Equipment - (Acc 1-9) Death Ring II 2", 219 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_10, "Lan Equipment - (Acc 1-9) Death Ring II 3", 220 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_10, "Lan Equipment - (Acc 1-10) Enchanted Earring 1", 221 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_10, "Lan Equipment - (Acc 1-10) Enchanted Earring 2", 222 + lan_offset),
-		LocationData(HUNTING_FOR_TRUTH_10, "Lan Equipment - (Acc 1-10) Enchanted Earring 3", 223 + lan_offset)
+		LocationData(HUNTING_FOR_TRUTH_5, "Lan Equipment - (Acc 1-5) Slim Double Band 1", 206 + lan_offset), #2200g
+		LocationData(HUNTING_FOR_TRUTH_5, "Lan Equipment - (Acc 1-5) Slim Double Band 2", 207 + lan_offset),
+		LocationData(HUNTING_FOR_TRUTH_5, "Lan Equipment - (Acc 1-5) Slim Double Band 3", 208 + lan_offset),
+		LocationData(HUNTING_FOR_TRUTH_7, "Lan Equipment - (Acc 1-6) Fancy Ring 1", 209 + lan_offset), #4000g
+		LocationData(HUNTING_FOR_TRUTH_7, "Lan Equipment - (Acc 1-6) Fancy Ring 2", 210 + lan_offset),
+		LocationData(HUNTING_FOR_TRUTH_7, "Lan Equipment - (Acc 1-6) Fancy Ring 3", 211 + lan_offset),
+		LocationData(HUNTING_FOR_TRUTH_9, "Lan Equipment - (Acc 1-7) Defeated Earring 1", 212 + lan_offset), #Level 2525 drop
+		LocationData(HUNTING_FOR_TRUTH_9, "Lan Equipment - (Acc 1-7) Defeated Earring 2", 213 + lan_offset),
+		LocationData(HUNTING_FOR_TRUTH_9, "Lan Equipment - (Acc 1-7) Defeated Earring 3", 214 + lan_offset),
+		LocationData(HUNTING_FOR_TRUTH_11, "Lan Equipment - (Acc 1-8) Double Band 1", 215 + lan_offset), #15Kg
+		LocationData(HUNTING_FOR_TRUTH_11, "Lan Equipment - (Acc 1-8) Double Band 2", 216 + lan_offset),
+		LocationData(HUNTING_FOR_TRUTH_11, "Lan Equipment - (Acc 1-8) Double Band 3", 217 + lan_offset),
+		LocationData(HUNTING_FOR_TRUTH_11, "Lan Equipment - (Acc 1-9) Death Ring II 1", 218 + lan_offset), #20Kg
+		LocationData(HUNTING_FOR_TRUTH_11, "Lan Equipment - (Acc 1-9) Death Ring II 2", 219 + lan_offset),
+		LocationData(HUNTING_FOR_TRUTH_11, "Lan Equipment - (Acc 1-9) Death Ring II 3", 220 + lan_offset),
+		LocationData(HUNTING_FOR_TRUTH_12, "Lan Equipment - (Acc 1-10) Enchanted Earring 1", 221 + lan_offset), #40Kg, Level 10k drop
+		LocationData(HUNTING_FOR_TRUTH_12, "Lan Equipment - (Acc 1-10) Enchanted Earring 2", 222 + lan_offset),
+		LocationData(HUNTING_FOR_TRUTH_12, "Lan Equipment - (Acc 1-10) Enchanted Earring 3", 223 + lan_offset)
 ]
 	return location_table
 
@@ -1122,96 +1122,96 @@ def get_15_locations(player: int) -> List[LocationData]:
 		LocationData(LURKING_IN_THE_SHADOWS_12, "1-5 Story Completion", EventId),
 
 		# Sibyl's Chapter 1 Equipment
-		LocationData(LURKING_IN_THE_SHADOWS_0, "Sibyl Equipment - (Accessory 1-1) Tooth Amulet", 139 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_1, "Sibyl Equipment - (Accessory 1-2) Slim Band", 140 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_2, "Sibyl Equipment - (Accessory 1-3) Death Ring I", 141 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_3, "Sibyl Equipment - (Accessory 1-4) Shield Amulet", 142 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_4, "Sibyl Equipment - (Accessory 1-5) Dagger Amulet", 143 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_5, "Sibyl Equipment - (Accessory 1-6) Empty Ring", 144 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_8, "Sibyl Equipment - (Accessory 1-7) Crown Ring", 145 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_9, "Sibyl Equipment - (Accessory 1-8) Double Band", 146 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_10, "Sibyl Equipment - (Accessory 1-9) Death Ring II", 147 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_10, "Sibyl Equipment - (Accessory 1-10) Twilight Amulet", 148 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_0, "Sibyl Equipment - (Left Weapon 1-1) Worn Sickle", 149 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_1, "Sibyl Equipment - (Left Weapon 1-2) Dull Katar", 150 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_2, "Sibyl Equipment - (Left Weapon 1-3) Makeshift Scythe", 151 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_2, "Sibyl Equipment - (Left Weapon 1-4) Bronze Twinblade", 152 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_3, "Sibyl Equipment - (Left Weapon 1-5) Simple Sai", 153 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_4, "Sibyl Equipment - (Left Weapon 1-6) Basic Shuriken", 154 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_4, "Sibyl Equipment - (Left Weapon 1-7) Sharp Boomerang", 155 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_5, "Sibyl Equipment - (Left Weapon 1-8) Serrated Shiv", 156 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_5, "Sibyl Equipment - (Left Weapon 1-9) Sturdy Chakram", 157 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_8, "Sibyl Equipment - (Left Weapon 1-10) Robust Dagger", 158 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_9, "Sibyl Equipment - (Left Weapon 1-11) Silver Sickle", 159 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_10, "Sibyl Equipment - (Left Weapon 1-12) Piercing Katar", 160 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_10, "Sibyl Equipment - (Left Weapon 1-13) Deadly Scythe", 161 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_0, "Sibyl Equipment - (Right Weapon 1-1) Worn Sickle", 162 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_1, "Sibyl Equipment - (Right Weapon 1-2) Dull Katar", 163 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_2, "Sibyl Equipment - (Right Weapon 1-3) Makeshift Scythe", 164 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_2, "Sibyl Equipment - (Right Weapon 1-4) Bronze Twinblade", 165 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_3, "Sibyl Equipment - (Right Weapon 1-5) Simple Sai", 166 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_4, "Sibyl Equipment - (Right Weapon 1-6) Basic Shuriken", 167 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_4, "Sibyl Equipment - (Right Weapon 1-7) Sharp Boomerang", 168 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_5, "Sibyl Equipment - (Right Weapon 1-8) Serrated Shiv", 169 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_5, "Sibyl Equipment - (Right Weapon 1-9) Sturdy Chakram", 170 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_8, "Sibyl Equipment - (Right Weapon 1-10) Robust Dagger", 171 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_9, "Sibyl Equipment - (Right Weapon 1-11) Silver Sickle", 172 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_10, "Sibyl Equipment - (Right Weapon 1-12) Piercing Katar", 173 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_10, "Sibyl Equipment - (Right Weapon 1-13) Deadly Scythe", 174 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_0, "Sibyl Equipment - (Pouch 1-1) Shabby Pouch", 175 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_1, "Sibyl Equipment - (Pouch 1-2) Wooden Chest", 176 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_3, "Sibyl Equipment - (Pouch 1-3) Basic Pouch", 177 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_4, "Sibyl Equipment - (Pouch 1-4) Novice's Satchel", 178 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_5, "Sibyl Equipment - (Pouch 1-5) Sturdy Pouch", 179 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_8, "Sibyl Equipment - (Pouch 1-6) Reinforced Chest", 180 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_9, "Sibyl Equipment - (Pouch 1-7) Traveler's Satchel", 181 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_0, "Sibyl Equipment - (Gloves 1-1) Basic Sleeves", 182 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_1, "Sibyl Equipment - (Gloves 1-2) Simple Gloves", 183 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_2, "Sibyl Equipment - (Gloves 1-3) Water Gloves", 184 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_3, "Sibyl Equipment - (Gloves 1-4) Light Gloves", 185 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_4, "Sibyl Equipment - (Gloves 1-5) Copper Gauntlets", 186 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_5, "Sibyl Equipment - (Gloves 1-6) Large Gloves", 187 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_8, "Sibyl Equipment - (Gloves 1-7) Fingerguard Bracers", 188 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_9, "Sibyl Equipment - (Gloves 1-8) Infused Bracers", 189 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_10, "Sibyl Equipment - (Gloves 1-9) Speedy Gloves", 190 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_0, "Sibyl Equipment - (Boots 1-1) Open Sandals", 191 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_1, "Sibyl Equipment - (Boots 1-2) Simple Loafers", 192 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_2, "Sibyl Equipment - (Boots 1-3) Felt Shoes", 193 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_3, "Sibyl Equipment - (Boots 1-4) Basic Greaves", 194 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_4, "Sibyl Equipment - (Boots 1-5) Open Boots", 195 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_5, "Sibyl Equipment - (Boots 1-6) Lined Boots", 196 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_8, "Sibyl Equipment - (Boots 1-7) Bronze Sabatons", 197 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_9, "Sibyl Equipment - (Boots 1-8) Fancy Boots", 198 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_10, "Sibyl Equipment - (Boots 1-9) Plated Shoes", 199 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_0, "Sibyl Equipment - (Acc 1-1) Dull Ring 1", 200 + sibyl_offset),
+		LocationData(LURKING_IN_THE_SHADOWS_0, "Sibyl Equipment - (Accessory 1-1) Tooth Amulet", 139 + sibyl_offset), #100g, Level 40 Drop
+		LocationData(LURKING_IN_THE_SHADOWS_1, "Sibyl Equipment - (Accessory 1-2) Slim Band", 140 + sibyl_offset), #250g, Level 70 Drop
+		LocationData(LURKING_IN_THE_SHADOWS_2, "Sibyl Equipment - (Accessory 1-3) Death Ring I", 141 + sibyl_offset), #350g
+		LocationData(LURKING_IN_THE_SHADOWS_4, "Sibyl Equipment - (Accessory 1-4) Shield Amulet", 142 + sibyl_offset), #1000g, Level 200 Drop
+		LocationData(LURKING_IN_THE_SHADOWS_5, "Sibyl Equipment - (Accessory 1-5) Dagger Amulet", 143 + sibyl_offset), #1700g, Level 700 Drop
+		LocationData(LURKING_IN_THE_SHADOWS_7, "Sibyl Equipment - (Accessory 1-6) Empty Ring", 144 + sibyl_offset), #4500g
+		LocationData(LURKING_IN_THE_SHADOWS_9, "Sibyl Equipment - (Accessory 1-7) Crown Ring", 145 + sibyl_offset), #7777g
+		LocationData(LURKING_IN_THE_SHADOWS_10, "Sibyl Equipment - (Accessory 1-8) Double Band", 146 + sibyl_offset), #15Kg
+		LocationData(LURKING_IN_THE_SHADOWS_10, "Sibyl Equipment - (Accessory 1-9) Death Ring II", 147 + sibyl_offset), #20Kg
+		LocationData(LURKING_IN_THE_SHADOWS_11, "Sibyl Equipment - (Accessory 1-10) Twilight Amulet", 148 + sibyl_offset), #50Kg
+		LocationData(LURKING_IN_THE_SHADOWS_0, "Sibyl Equipment - (Left Weapon 1-1) Worn Sickle", 149 + sibyl_offset),#Lyra 1 Unlock
+		LocationData(LURKING_IN_THE_SHADOWS_0, "Sibyl Equipment - (Left Weapon 1-2) Dull Katar", 150 + sibyl_offset), #150g
+		LocationData(LURKING_IN_THE_SHADOWS_1, "Sibyl Equipment - (Left Weapon 1-3) Makeshift Scythe", 151 + sibyl_offset), #Level 100 drop
+		LocationData(LURKING_IN_THE_SHADOWS_4, "Sibyl Equipment - (Left Weapon 1-4) Bronze Twinblade", 152 + sibyl_offset), #900g
+		LocationData(LURKING_IN_THE_SHADOWS_5, "Sibyl Equipment - (Left Weapon 1-5) Simple Sai", 153 + sibyl_offset), #2200g
+		LocationData(LURKING_IN_THE_SHADOWS_7, "Sibyl Equipment - (Left Weapon 1-6) Basic Shuriken", 154 + sibyl_offset), #3500g
+		LocationData(LURKING_IN_THE_SHADOWS_8, "Sibyl Equipment - (Left Weapon 1-7) Sharp Boomerang", 155 + sibyl_offset), #6500g
+		LocationData(LURKING_IN_THE_SHADOWS_9, "Sibyl Equipment - (Left Weapon 1-8) Serrated Shiv", 156 + sibyl_offset), #Level 3000 Drop
+		LocationData(LURKING_IN_THE_SHADOWS_11, "Sibyl Equipment - (Left Weapon 1-9) Sturdy Chakram", 157 + sibyl_offset), #12kg
+		LocationData(LURKING_IN_THE_SHADOWS_11, "Sibyl Equipment - (Left Weapon 1-10) Robust Dagger", 158 + sibyl_offset), #16Kg
+		LocationData(LURKING_IN_THE_SHADOWS_12, "Sibyl Equipment - (Left Weapon 1-11) Silver Sickle", 159 + sibyl_offset), #23Kg
+		LocationData(LURKING_IN_THE_SHADOWS_11, "Sibyl Equipment - (Left Weapon 1-12) Piercing Katar", 160 + sibyl_offset), #Level 7500 Drop
+		LocationData(LURKING_IN_THE_SHADOWS_12, "Sibyl Equipment - (Left Weapon 1-13) Deadly Scythe", 161 + sibyl_offset), #35Kg
+		LocationData(LURKING_IN_THE_SHADOWS_0, "Sibyl Equipment - (Right Weapon 1-1) Worn Sickle", 162 + sibyl_offset), #50g
+		LocationData(LURKING_IN_THE_SHADOWS_0, "Sibyl Equipment - (Right Weapon 1-2) Dull Katar", 163 + sibyl_offset), #150g
+		LocationData(LURKING_IN_THE_SHADOWS_1, "Sibyl Equipment - (Right Weapon 1-3) Makeshift Scythe", 164 + sibyl_offset), #Level 100 drop
+		LocationData(LURKING_IN_THE_SHADOWS_4, "Sibyl Equipment - (Right Weapon 1-4) Bronze Twinblade", 165 + sibyl_offset), #900g
+		LocationData(LURKING_IN_THE_SHADOWS_5, "Sibyl Equipment - (Right Weapon 1-5) Simple Sai", 166 + sibyl_offset), #2200g
+		LocationData(LURKING_IN_THE_SHADOWS_7, "Sibyl Equipment - (Right Weapon 1-6) Basic Shuriken", 167 + sibyl_offset), #3500g
+		LocationData(LURKING_IN_THE_SHADOWS_8, "Sibyl Equipment - (Right Weapon 1-7) Sharp Boomerang", 168 + sibyl_offset), #6500g
+		LocationData(LURKING_IN_THE_SHADOWS_9, "Sibyl Equipment - (Right Weapon 1-8) Serrated Shiv", 169 + sibyl_offset), #Level 3000 Drop
+		LocationData(LURKING_IN_THE_SHADOWS_11, "Sibyl Equipment - (Right Weapon 1-9) Sturdy Chakram", 170 + sibyl_offset), #12Kg
+		LocationData(LURKING_IN_THE_SHADOWS_11, "Sibyl Equipment - (Right Weapon 1-10) Robust Dagger", 171 + sibyl_offset), #16Kg
+		LocationData(LURKING_IN_THE_SHADOWS_12, "Sibyl Equipment - (Right Weapon 1-11) Silver Sickle", 172 + sibyl_offset), #23Kg
+		LocationData(LURKING_IN_THE_SHADOWS_11, "Sibyl Equipment - (Right Weapon 1-12) Piercing Katar", 173 + sibyl_offset), #Level 7500 Drop
+		LocationData(LURKING_IN_THE_SHADOWS_12, "Sibyl Equipment - (Right Weapon 1-13) Deadly Scythe", 174 + sibyl_offset), #35Kg
+		LocationData(LURKING_IN_THE_SHADOWS_2, "Sibyl Equipment - (Pouch 1-1) Shabby Pouch", 175 + sibyl_offset), #666g
+		LocationData(LURKING_IN_THE_SHADOWS_5, "Sibyl Equipment - (Pouch 1-2) Wooden Chest", 176 + sibyl_offset), #1300g
+		LocationData(LURKING_IN_THE_SHADOWS_6, "Sibyl Equipment - (Pouch 1-3) Basic Pouch", 177 + sibyl_offset), #3000g
+		LocationData(LURKING_IN_THE_SHADOWS_8, "Sibyl Equipment - (Pouch 1-4) Novice's Satchel", 178 + sibyl_offset), #6660g
+		LocationData(LURKING_IN_THE_SHADOWS_11, "Sibyl Equipment - (Pouch 1-5) Sturdy Pouch", 179 + sibyl_offset), #15Kg
+		LocationData(LURKING_IN_THE_SHADOWS_10, "Sibyl Equipment - (Pouch 1-6) Reinforced Chest", 180 + sibyl_offset), #Level 3838 Drop
+		LocationData(LURKING_IN_THE_SHADOWS_12, "Sibyl Equipment - (Pouch 1-7) Traveler's Satchel", 181 + sibyl_offset), #66.6Kg
+		LocationData(LURKING_IN_THE_SHADOWS_1, "Sibyl Equipment - (Gloves 1-1) Basic Sleeves", 182 + sibyl_offset), #270g
+		LocationData(LURKING_IN_THE_SHADOWS_2, "Sibyl Equipment - (Gloves 1-2) Simple Gloves", 183 + sibyl_offset), #Level 130 Drop
+		LocationData(LURKING_IN_THE_SHADOWS_5, "Sibyl Equipment - (Gloves 1-3) Water Gloves", 184 + sibyl_offset), #Level 490 Drop
+		LocationData(LURKING_IN_THE_SHADOWS_6, "Sibyl Equipment - (Gloves 1-4) Light Gloves", 185 + sibyl_offset), #2900g
+		LocationData(LURKING_IN_THE_SHADOWS_8, "Sibyl Equipment - (Gloves 1-5) Copper Gauntlets", 186 + sibyl_offset), #4700g
+		LocationData(LURKING_IN_THE_SHADOWS_9, "Sibyl Equipment - (Gloves 1-6) Large Gloves", 187 + sibyl_offset), #7300g
+		LocationData(LURKING_IN_THE_SHADOWS_10, "Sibyl Equipment - (Gloves 1-7) Fingerguard Bracers", 188 + sibyl_offset), #11.5Kg
+		LocationData(LURKING_IN_THE_SHADOWS_11, "Sibyl Equipment - (Gloves 1-8) Infused Bracers", 189 + sibyl_offset), #Level 6000 Drop
+		LocationData(LURKING_IN_THE_SHADOWS_12, "Sibyl Equipment - (Gloves 1-9) Speedy Gloves", 190 + sibyl_offset), #Level 10k Drop
+		LocationData(LURKING_IN_THE_SHADOWS_2, "Sibyl Equipment - (Boots 1-1) Open Sandals", 191 + sibyl_offset), #360g, Level 150 Drop
+		LocationData(LURKING_IN_THE_SHADOWS_2, "Sibyl Equipment - (Boots 1-2) Simple Loafers", 192 + sibyl_offset), #600g
+		LocationData(LURKING_IN_THE_SHADOWS_4, "Sibyl Equipment - (Boots 1-3) Felt Shoes", 193 + sibyl_offset), #1200g, Level 700 Drop
+		LocationData(LURKING_IN_THE_SHADOWS_6, "Sibyl Equipment - (Boots 1-4) Basic Greaves", 194 + sibyl_offset), #Level 670 Drop
+		LocationData(LURKING_IN_THE_SHADOWS_7, "Sibyl Equipment - (Boots 1-5) Open Boots", 195 + sibyl_offset), #5400g
+		LocationData(LURKING_IN_THE_SHADOWS_9, "Sibyl Equipment - (Boots 1-6) Lined Boots", 196 + sibyl_offset), #7800g
+		LocationData(LURKING_IN_THE_SHADOWS_10, "Sibyl Equipment - (Boots 1-7) Bronze Sabatons", 197 + sibyl_offset), #Level 4250, 5000 Drop
+		LocationData(LURKING_IN_THE_SHADOWS_11, "Sibyl Equipment - (Boots 1-8) Fancy Boots", 198 + sibyl_offset), #17Kg
+		LocationData(LURKING_IN_THE_SHADOWS_12, "Sibyl Equipment - (Boots 1-9) Plated Shoes", 199 + sibyl_offset), #28Kg
+		LocationData(LURKING_IN_THE_SHADOWS_0, "Sibyl Equipment - (Acc 1-1) Dull Ring 1", 200 + sibyl_offset), #125g, Level 60 Drop
 		LocationData(LURKING_IN_THE_SHADOWS_0, "Sibyl Equipment - (Acc 1-1) Dull Ring 2", 201 + sibyl_offset),
 		LocationData(LURKING_IN_THE_SHADOWS_0, "Sibyl Equipment - (Acc 1-1) Dull Ring 3", 202 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_1, "Sibyl Equipment - (Acc 1-2) Masked Amulet 1", 203 + sibyl_offset),
+		LocationData(LURKING_IN_THE_SHADOWS_1, "Sibyl Equipment - (Acc 1-2) Masked Amulet 1", 203 + sibyl_offset), #Level 80 Drop
 		LocationData(LURKING_IN_THE_SHADOWS_1, "Sibyl Equipment - (Acc 1-2) Masked Amulet 2", 204 + sibyl_offset),
 		LocationData(LURKING_IN_THE_SHADOWS_1, "Sibyl Equipment - (Acc 1-2) Masked Amulet 3", 205 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_2, "Sibyl Equipment - (Acc 1-3) Power Ring 1", 206 + sibyl_offset),
+		LocationData(LURKING_IN_THE_SHADOWS_2, "Sibyl Equipment - (Acc 1-3) Power Ring 1", 206 + sibyl_offset), #400g, Level 100 Drop
 		LocationData(LURKING_IN_THE_SHADOWS_2, "Sibyl Equipment - (Acc 1-3) Power Ring 2", 207 + sibyl_offset),
 		LocationData(LURKING_IN_THE_SHADOWS_2, "Sibyl Equipment - (Acc 1-3) Power Ring 3", 208 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_3, "Sibyl Equipment - (Acc 1-4) Creepy Amulet 1", 209 + sibyl_offset),
+		LocationData(LURKING_IN_THE_SHADOWS_3, "Sibyl Equipment - (Acc 1-4) Creepy Amulet 1", 209 + sibyl_offset), #600g, Level 150 Drop
 		LocationData(LURKING_IN_THE_SHADOWS_3, "Sibyl Equipment - (Acc 1-4) Creepy Amulet 2", 210 + sibyl_offset),
 		LocationData(LURKING_IN_THE_SHADOWS_3, "Sibyl Equipment - (Acc 1-4) Creepy Amulet 3", 211 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_4, "Sibyl Equipment - (Acc 1-5) Engraved Ring 1", 212 + sibyl_offset),
+		LocationData(LURKING_IN_THE_SHADOWS_4, "Sibyl Equipment - (Acc 1-5) Engraved Ring 1", 212 + sibyl_offset), #900g, Level 200 Drop
 		LocationData(LURKING_IN_THE_SHADOWS_4, "Sibyl Equipment - (Acc 1-5) Engraved Ring 2", 213 + sibyl_offset),
 		LocationData(LURKING_IN_THE_SHADOWS_4, "Sibyl Equipment - (Acc 1-5) Engraved Ring 3", 214 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_5, "Sibyl Equipment - (Acc 1-6) Slim Double Band 1", 215 + sibyl_offset),
+		LocationData(LURKING_IN_THE_SHADOWS_5, "Sibyl Equipment - (Acc 1-6) Slim Double Band 1", 215 + sibyl_offset), #2200g
 		LocationData(LURKING_IN_THE_SHADOWS_5, "Sibyl Equipment - (Acc 1-6) Slim Double Band 2", 216 + sibyl_offset),
 		LocationData(LURKING_IN_THE_SHADOWS_5, "Sibyl Equipment - (Acc 1-6) Slim Double Band 3", 217 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_8, "Sibyl Equipment - (Acc 1-7) Fancy Ring 1", 218 + sibyl_offset),
+		LocationData(LURKING_IN_THE_SHADOWS_8, "Sibyl Equipment - (Acc 1-7) Fancy Ring 1", 218 + sibyl_offset), #4000g
 		LocationData(LURKING_IN_THE_SHADOWS_8, "Sibyl Equipment - (Acc 1-7) Fancy Ring 2", 219 + sibyl_offset),
 		LocationData(LURKING_IN_THE_SHADOWS_8, "Sibyl Equipment - (Acc 1-7) Fancy Ring 3", 220 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_9, "Sibyl Equipment - (Acc 1-8) Defeated Earring 1", 221 + sibyl_offset),
+		LocationData(LURKING_IN_THE_SHADOWS_9, "Sibyl Equipment - (Acc 1-8) Defeated Earring 1", 221 + sibyl_offset), #Level 2525 Drop
 		LocationData(LURKING_IN_THE_SHADOWS_9, "Sibyl Equipment - (Acc 1-8) Defeated Earring 2", 222 + sibyl_offset),
 		LocationData(LURKING_IN_THE_SHADOWS_9, "Sibyl Equipment - (Acc 1-8) Defeated Earring 3", 223 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_10, "Sibyl Equipment - (Acc 1-9) Studded Band 1", 224 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_10, "Sibyl Equipment - (Acc 1-9) Studded Band 2", 225 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_10, "Sibyl Equipment - (Acc 1-9) Studded Band 3", 226 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_10, "Sibyl Equipment - (Acc 1-10) Twilight Amulet 1", 227 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_10, "Sibyl Equipment - (Acc 1-10) Twilight Amulet 2", 228 + sibyl_offset),
-		LocationData(LURKING_IN_THE_SHADOWS_10, "Sibyl Equipment - (Acc 1-10) Twilight Amulet 3", 229 + sibyl_offset)
+		LocationData(LURKING_IN_THE_SHADOWS_11, "Sibyl Equipment - (Acc 1-9) Studded Band 1", 224 + sibyl_offset), #Level 7500 Drop
+		LocationData(LURKING_IN_THE_SHADOWS_11, "Sibyl Equipment - (Acc 1-9) Studded Band 2", 225 + sibyl_offset),
+		LocationData(LURKING_IN_THE_SHADOWS_11, "Sibyl Equipment - (Acc 1-9) Studded Band 3", 226 + sibyl_offset),
+		LocationData(LURKING_IN_THE_SHADOWS_12, "Sibyl Equipment - (Acc 1-10) Twilight Amulet 1", 227 + sibyl_offset), #50Kg, Level 10k Drop
+		LocationData(LURKING_IN_THE_SHADOWS_12, "Sibyl Equipment - (Acc 1-10) Twilight Amulet 2", 228 + sibyl_offset),
+		LocationData(LURKING_IN_THE_SHADOWS_12, "Sibyl Equipment - (Acc 1-10) Twilight Amulet 3", 229 + sibyl_offset)
 	]
 	return location_table
