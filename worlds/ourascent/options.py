@@ -17,7 +17,7 @@ class Last_Chapter(Range):
     internal_name = "last_chapter"
     display_name = "Last Chapter"
     range_start = 1
-    range_end = 2
+    range_end = 1
     default = 1
 
 class Story_Amount(Range):
